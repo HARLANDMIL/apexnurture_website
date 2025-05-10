@@ -31,17 +31,17 @@ const ParticleBackground = () => {
         fpsLimit: 120,
         particles: {
           color: {
-            value: ["#60A5FA", "#3B82F6", "#2563EB", "#1D4ED8"],
+            value: ["#93C5FD", "#60A5FA", "#3B82F6", "#2563EB"],
           },
           links: {
             color: "#60A5FA",
             distance: 150,
             enable: true,
-            opacity: 0.5,
-            width: 1.5,
+            opacity: 0.6,
+            width: 2,
             triangles: {
               enable: true,
-              opacity: 0.1
+              opacity: 0.15
             }
           },
           move: {
@@ -67,10 +67,10 @@ const ParticleBackground = () => {
               width: 800,
               height: 800
             },
-            value: 100
+            value: 120
           },
           opacity: {
-            value: { min: 0.4, max: 0.8 },
+            value: { min: 0.5, max: 0.9 },
             animation: {
               enable: true,
               speed: 1,
@@ -83,7 +83,7 @@ const ParticleBackground = () => {
             type: "circle"
           },
           size: {
-            value: { min: 2, max: 4 },
+            value: { min: 2.5, max: 5 },
             animation: {
               enable: true,
               speed: 2,
@@ -113,19 +113,19 @@ const ParticleBackground = () => {
             grab: {
               distance: 200,
               links: {
-                opacity: 0.8,
-                color: "#60A5FA"
+                opacity: 0.9,
+                color: "#93C5FD"
               }
             },
             bubble: {
               distance: 200,
-              size: 6,
+              size: 8,
               duration: 2,
-              opacity: 0.9,
-              color: "#3B82F6"
+              opacity: 1,
+              color: "#60A5FA"
             },
             push: {
-              quantity: 4
+              quantity: 6
             },
             repulse: {
               distance: 200,
