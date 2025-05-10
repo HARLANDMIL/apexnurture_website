@@ -102,7 +102,7 @@ const Pricing: React.FC = () => {
               className="relative"
             >              {plan.isPopular && (
                 <div className="absolute -top-6 inset-x-0 flex justify-center z-10">
-                  <div className={`${plan.badgeColor || 'bg-primary'} text-background-start px-6 py-2 rounded-full text-base font-bold shadow-lg shadow-red-500/30 transform hover:scale-105 transition-transform`}>
+                  <div className={`${plan.badgeColor || 'bg-primary'} text-background-start px-6 py-2 rounded-full text-white font-bold  shadow-lg shadow-red-500/30 transform hover:scale-105 transition-transform`}>
                     Most Popular
                   </div>
                 </div>
