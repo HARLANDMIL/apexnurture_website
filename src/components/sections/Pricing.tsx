@@ -20,10 +20,10 @@ const Pricing: React.FC = () => {
         "2 Revisions",
         "Ongoing monitoring and tuning",
         "Priority support"
-      ],
-      isPopular: false,
+      ],      isPopular: true,
       icon: <Robot className="w-12 h-12 text-primary" />,
       delivery: "7 days",
+      badgeColor: "bg-red-600",
     },
     {
       name: "Sales Conversion Suite",
@@ -63,8 +63,7 @@ const Pricing: React.FC = () => {
       icon: <Settings className="w-12 h-12 text-primary" />,
       delivery: "7 days",
     },
-    {
-      name: "Full Automation Suite",
+    {      name: "Full Automation Suite",
       price: 8000,
       maintenance: 1199,
       tagline: "The ultimate solution for businesses seeking complete AI-driven automation",
@@ -78,7 +77,7 @@ const Pricing: React.FC = () => {
         "Comprehensive monitoring",
         "Dedicated support manager"
       ],
-      isPopular: true,
+      isPopular: false,
       icon: <Database className="w-12 h-12 text-primary" />,
       delivery: "7 days",
     },
@@ -101,11 +100,10 @@ const Pricing: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
               className="relative"
-            >
-              {plan.isPopular && (
+            >              {plan.isPopular && (
                 <div className="absolute -top-6 inset-x-0 flex justify-center z-10">
-                  <div className="bg-primary text-background-start px-6 py-2 rounded-full text-base font-bold shadow-lg shadow-primary/30 transform hover:scale-105 transition-transform">
-                    Best Value
+                  <div className={`${plan.badgeColor || 'bg-primary'} text-background-start px-6 py-2 rounded-full text-base font-bold shadow-lg shadow-red-500/30 transform hover:scale-105 transition-transform`}>
+                    Most Popular
                   </div>
                 </div>
               )}
