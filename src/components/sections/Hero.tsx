@@ -1,13 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Button from '../ui/Button';
-import ParticleBackground from '../ui/ParticleBackground';
 
 const Hero: React.FC = () => {
   return (
     <section className="relative min-h-screen flex items-center pt-24" id="hero">
-      <ParticleBackground />
-      
       <div className="container mx-auto px-4 md:px-6 z-10">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           <motion.div

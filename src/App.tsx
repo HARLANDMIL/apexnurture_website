@@ -10,6 +10,7 @@ import SuccessStories from './components/sections/SuccessStories';
 import BookACall from './components/sections/BookACall';
 import FAQ from './components/sections/FAQ';
 import Footer from './components/layout/Footer';
+import ParticleBackground from './components/ui/ParticleBackground';
 
 function App() {
   // Handle scroll animations
@@ -38,7 +39,8 @@ function App() {
   }, []);
   
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background-start via-background-mid to-background-end">
+    <div className="min-h-screen bg-gradient-to-br from-background-start via-background-mid to-background-end relative">
+      <ParticleBackground />
       <Navbar />
       <Hero />
       <ProblemSolution />
