@@ -31,27 +31,27 @@ const ParticleBackground = () => {
         fpsLimit: 120,
         particles: {
           color: {
-            value: ["#4F46E5", "#6366F1", "#818CF8"],
+            value: ["#60A5FA", "#3B82F6", "#2563EB", "#1D4ED8"],
           },
           links: {
-            color: "#818CF8",
+            color: "#60A5FA",
             distance: 150,
             enable: true,
-            opacity: 0.3,
-            width: 1,
+            opacity: 0.5,
+            width: 1.5,
             triangles: {
               enable: true,
-              opacity: 0.05
+              opacity: 0.1
             }
           },
           move: {
             enable: true,
-            speed: 1,
+            speed: 1.2,
             direction: "none",
             random: false,
             straight: false,
             outModes: {
-              default: "out"
+              default: "bounce"
             },
             attract: {
               enable: true,
@@ -67,10 +67,10 @@ const ParticleBackground = () => {
               width: 800,
               height: 800
             },
-            value: 80
+            value: 100
           },
           opacity: {
-            value: { min: 0.3, max: 0.5 },
+            value: { min: 0.4, max: 0.8 },
             animation: {
               enable: true,
               speed: 1,
@@ -83,7 +83,7 @@ const ParticleBackground = () => {
             type: "circle"
           },
           size: {
-            value: { min: 1, max: 3 },
+            value: { min: 2, max: 4 },
             animation: {
               enable: true,
               speed: 2,
@@ -113,16 +113,16 @@ const ParticleBackground = () => {
             grab: {
               distance: 200,
               links: {
-                opacity: 0.7,
-                color: "#6366F1"
+                opacity: 0.8,
+                color: "#60A5FA"
               }
             },
             bubble: {
               distance: 200,
-              size: 5,
+              size: 6,
               duration: 2,
-              opacity: 0.8,
-              color: "#4F46E5"
+              opacity: 0.9,
+              color: "#3B82F6"
             },
             push: {
               quantity: 4
