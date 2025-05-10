@@ -26,7 +26,7 @@ const RefundPolicy: React.FC = () => {
             {/* Introduction */}
             <div className="mb-12 text-gray-300 max-w-[800px] mx-auto">
               <p>
-                At Apex Nurture, we strive to deliver exceptional AI automation suites that drive 
+                At Apex Nurture, we strive to deliver exceptional AI automation Services/Suites that drive 
                 results for your business. However, we understand that circumstances may arise where 
                 a refund is requested. This Refund Policy outlines the conditions under which refunds 
                 may be issued for our Services.

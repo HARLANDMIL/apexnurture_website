@@ -102,7 +102,7 @@ const TermsOfService: React.FC = () => {
                 <div className="space-y-4">
                   <p>
                     <strong>Fees:</strong> You agree to pay the one-time build fee and monthly 
-                    operations fee as outlined in your selected Suite. All fees are non-refundable 
+                    operations fee as outlined in your selected Suite. Only one-time build fees are considered as non-refundable 
                     except as specified in our refund policy.
                   </p>
                   <p>
@@ -124,8 +124,8 @@ const TermsOfService: React.FC = () => {
               <AccordionItem title="14. Contact Us">
                 <div className="space-y-4">
                   <p>For questions about these Terms, please contact us at:</p>
-                  <p>Email: support@apexnurture.com</p>
-                  <p>Phone: (555) 123-4567</p>
+                  <p>Email: info@apexnurture.com</p>
+            
                 </div>
               </AccordionItem>
             </div>
