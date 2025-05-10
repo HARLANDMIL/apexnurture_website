@@ -62,7 +62,7 @@ const Navbar: React.FC = () => {
               ))}
             </div>
             <Button 
-              className="bg-gradient-to-r from-white to-[#2b2bc2] text-black hover:from-[#2b2bc2] hover:to-white hover:text-white transition-all duration-300"
+              className="bg-gradient-to-r from-black to-gray-800 text-white hover:shadow-[0_0_10px_#2b2bc2] transition-all duration-300"
               onClick={() => window.open('https://apexnurture.youcanbook.me/', '_blank')}
             >
               Book a Call

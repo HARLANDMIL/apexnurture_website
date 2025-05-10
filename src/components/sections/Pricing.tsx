@@ -19,8 +19,10 @@ const Pricing: React.FC = () => {
         "1 Strategy Call Monthly",
         "2 Revisions",
         "Ongoing monitoring and tuning",
-        "Priority support"
-      ],      isPopular: true,
+        "Priority support",
+        "Active Consultation [FREE OF CHARGE]"
+      ],
+      isPopular: true,
       icon: <Robot className="w-12 h-12 text-primary" />,
       delivery: "7 days",
       badgeColor: "bg-red-600",
@@ -38,7 +40,8 @@ const Pricing: React.FC = () => {
         "Conversion Analytics Dashboard",
         "4 Revisions",
         "Monthly performance reviews",
-        "Priority support and hotfixes"
+        "Priority support and hotfixes",
+        "Active Consultation [FREE OF CHARGE]"
       ],
       isPopular: false,
       icon: <MessageSquare className="w-12 h-12 text-primary" />,
@@ -57,7 +60,8 @@ const Pricing: React.FC = () => {
         "SOP Automation & Training Docs",
         "3 Revisions",
         "Ongoing monitoring and updates",
-        "Priority support"
+        "Priority support",
+        "Active Consultation [FREE OF CHARGE]"
       ],
       isPopular: false,
       icon: <Settings className="w-12 h-12 text-primary" />,
@@ -75,7 +79,9 @@ const Pricing: React.FC = () => {
         "Quarterly Optimization Workshop",
         "Unlimited Revisions",
         "Comprehensive monitoring",
-        "Dedicated support manager"
+        "Dedicated support manager",
+        "Active Consultation [FREE OF CHARGE]"
+
       ],
       isPopular: false,
       icon: <Database className="w-12 h-12 text-primary" />,
