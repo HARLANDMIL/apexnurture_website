@@ -122,8 +122,9 @@ const Pricing: React.FC = () => {
                   <Button 
                     variant={plan.isPopular ? 'primary' : 'outline'} 
                     className="w-full justify-center"
+                    onClick={() => window.open('https://forms.fillout.com/t/rpJmYE6G9tus', '_blank')}
                   >
-                    Get Started <link rel="#book a call button" href="https://forms.fillout.com/t/rpJmYE6G9tus" />
+                    Get Started
                   </Button>
                   <p className="text-sm text-center text-gray-400">
                     <Clock className="w-4 h-4 inline mr-1" />
