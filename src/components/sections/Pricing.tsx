@@ -123,7 +123,7 @@ const Pricing: React.FC = () => {
                     variant={plan.isPopular ? 'primary' : 'outline'} 
                     className="w-full justify-center"
                   >
-                    Get Started
+                    Get Started <link rel="#book a call button" href="https://forms.fillout.com/t/rpJmYE6G9tus" />
                   </Button>
                   <p className="text-sm text-center text-gray-400">
                     <Clock className="w-4 h-4 inline mr-1" />
