@@ -26,10 +26,10 @@ const Navbar: React.FC = () => {
   }, [scrolled]);
 
   const navLinks = [
-    { name: 'Services', href: '#services' },
+    { name: 'Our Services', href: '#services' },
     { name: 'How It Works', href: '#how-it-works' },
-    { name: 'Pricing', href: '#pricing' },
-    { name: 'Testimonials', href: '#testimonials' },
+    { name: 'Our AI Suites', href: '#pricing' },
+    { name: 'Success Stories', href: '#testimonials' },
   ];
 
   return (
@@ -60,9 +60,8 @@ const Navbar: React.FC = () => {
                   {link.name}
                 </a>
               ))}
-            </div>
-            <Button 
-              className="bg-gradient-to-r from-black to-gray-800 text-white hover:shadow-[0_0_10px_#2b2bc2] transition-all duration-300"
+            </div>            <Button 
+              className="bg-purple-600 text-white hover:bg-purple-700 hover:shadow-[0_0_10px_#800080] transition-all duration-300"
               onClick={() => window.open('https://apexnurture.youcanbook.me/', '_blank')}
             >
               Book a Call
@@ -94,9 +93,8 @@ const Navbar: React.FC = () => {
                 >
                   {link.name}
                 </a>
-              ))}
-              <Button 
-                className="mt-2 bg-gradient-to-r from-white to-[#2b2bc2] text-black hover:from-[#2b2bc2] hover:to-white hover:text-white transition-all duration-300"
+              ))}              <Button 
+                className="mt-2 bg-purple-600 text-white hover:bg-purple-700 hover:shadow-[0_0_10px_#800080] transition-all duration-300"
                 onClick={() => {
                   toggleMenu();
                   window.open('https://apexnurture.youcanbook.me/', '_blank');

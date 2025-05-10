@@ -68,7 +68,7 @@ const Pricing: React.FC = () => {
       delivery: "7 days",
     },
     {      name: "Full Automation Suite",
-      price: 8000,
+      price: 7999,
       maintenance: 1199,
       tagline: "The ultimate solution for businesses seeking complete AI-driven automation",
       outcome: "Achieve 90% automation across your business, driving efficiency and revenue growth",
@@ -120,10 +120,10 @@ const Pricing: React.FC = () => {
                 <div className="text-center mb-6 p-6">
                   <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-background-mid flex items-center justify-center">
                     {plan.icon}
-                  </div>
-                  <h3 className="text-2xl font-orbitron font-bold mb-2">{plan.name}</h3>
+                  </div>                  <h3 className="text-2xl font-orbitron font-bold mb-4">{plan.name}</h3>
+                  <div className="w-24 h-[2px] bg-[#9D00FF] mx-auto mb-6 opacity-70"></div>
                   <div className="flex items-end justify-center gap-1 mb-2">
-                    <span className="text-4xl font-orbitron font-bold">${plan.price}</span>
+                    <span className="text-4xl font-orbitron font-medium">${plan.price}</span>
                     <span className="text-gray-400">setup</span>
                   </div>
                   <div className="text-sm text-gray-400 mb-4">
