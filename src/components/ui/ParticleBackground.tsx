@@ -15,13 +15,13 @@ const ParticleBackground = () => {
   return (
     <Particles
       id="tsparticles"
-      className="absolute inset-0 -z-10"
+      className="fixed inset-0 w-full h-full"
       init={particlesInit}
       loaded={particlesLoaded}
       options={{
         fullScreen: {
-          enable: false,
-          zIndex: -1
+          enable: true,
+          zIndex: 0
         },
         background: {
           color: {
@@ -64,8 +64,8 @@ const ParticleBackground = () => {
           number: {
             density: {
               enable: true,
-              width: 800,
-              height: 800
+              width: 1920,
+              height: 1080
             },
             value: 120
           },
@@ -104,10 +104,7 @@ const ParticleBackground = () => {
               enable: true,
               mode: "push"
             },
-            resize: {
-              enable: true,
-              delay: 0.5
-            }
+            resize: true
           },
           modes: {
             grab: {

@@ -39,20 +39,22 @@ function App() {
   }, []);
   
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background-start via-background-mid to-background-end relative">
+    <>
       <ParticleBackground />
-      <Navbar />
-      <Hero />
-      <ProblemSolution />
-      <HowItWorks />
-      <Services />
-      <Testimonials />
-      <Pricing />
-      <SuccessStories />
-      <BookACall />
-      <FAQ />
-      <Footer />
-    </div>
+      <div className="relative min-h-screen bg-gradient-to-br from-background-start via-background-mid to-background-end">
+        <Navbar />
+        <Hero />
+        <ProblemSolution />
+        <HowItWorks />
+        <Services />
+        <Testimonials />
+        <Pricing />
+        <SuccessStories />
+        <BookACall />
+        <FAQ />
+        <Footer />
+      </div>
+    </>
   );
 }
 
