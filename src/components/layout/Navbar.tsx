@@ -44,7 +44,7 @@ const Navbar: React.FC = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex justify-between items-center">
           <a href="#" className="flex items-center gap-2">
-            <Cpu className="h-8 w-8 text-primary animate-pulse-slow" />
+            { /* Logo <Cpu className="h-8 w-8 text-primary animate-pulse-slow" /> */}
             <span className="font-orbitron font-bold text-xl md:text-2xl">Apex Nurture</span>
           </a>
 
@@ -61,7 +61,12 @@ const Navbar: React.FC = () => {
                 </a>
               ))}
             </div>
-            <Button href="#book-call">Book a Call</Button>
+            <Button 
+              className="bg-gradient-to-r from-white to-[#2b2bc2] text-black hover:from-[#2b2bc2] hover:to-white hover:text-white transition-all duration-300"
+              onClick={() => window.open('https://apexnurture.youcanbook.me/', '_blank')}
+            >
+              Book a Call
+            </Button>
           </div>
 
           {/* Mobile Navigation Toggle */}
@@ -90,7 +95,13 @@ const Navbar: React.FC = () => {
                   {link.name}
                 </a>
               ))}
-              <Button href="#book-call" className="mt-2" onClick={toggleMenu}>
+              <Button 
+                className="mt-2 bg-gradient-to-r from-white to-[#2b2bc2] text-black hover:from-[#2b2bc2] hover:to-white hover:text-white transition-all duration-300"
+                onClick={() => {
+                  toggleMenu();
+                  window.open('https://apexnurture.youcanbook.me/', '_blank');
+                }}
+              >
                 Book a Call
               </Button>
             </div>
