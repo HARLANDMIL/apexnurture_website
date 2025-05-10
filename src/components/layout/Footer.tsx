@@ -59,6 +59,19 @@ const Footer: React.FC = () => {
                 <a href="#faq" className="text-gray-300 hover:text-primary transition-colors">
                   FAQ
                 </a>
+              </li>              <li>
+                <a href="/terms" className="text-gray-300 hover:text-primary transition-colors">
+                  Terms of Service
+                </a>
+              </li>              <li>
+                <a href="/privacy" className="text-gray-300 hover:text-primary transition-colors">
+                  Privacy Policy
+                </a>
+              </li>
+              <li>
+                <a href="/refund" className="text-gray-300 hover:text-primary transition-colors">
+                  Refund Policy
+                </a>
               </li>
             </ul>
           </div>

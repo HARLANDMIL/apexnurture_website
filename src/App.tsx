@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Hero from './components/sections/Hero';
 import ProblemSolution from './components/sections/ProblemSolution';
@@ -11,6 +12,9 @@ import BookACall from './components/sections/BookACall';
 import FAQ from './components/sections/FAQ';
 import Footer from './components/layout/Footer';
 import ParticleBackground from './components/ui/ParticleBackground';
+import TermsOfService from './components/sections/TermsOfService';
+import PrivacyPolicy from './components/sections/PrivacyPolicy';
+import RefundPolicy from './components/sections/RefundPolicy';
 
 function App() {
   // Handle scroll animations
@@ -37,24 +41,30 @@ function App() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-  
-  return (
-    <>
+    return (
+    <Router>
       <ParticleBackground />
       <div className="relative min-h-screen bg-gradient-to-br from-background-start via-background-mid to-background-end">
-        <Navbar />
-        <Hero />
-        <ProblemSolution />
-        <HowItWorks />
-        <Services />
-        <Testimonials />
-        <Pricing />
-        <SuccessStories />
-        <BookACall />
-        <FAQ />
+        <Navbar />        <Routes>          <Route path="/terms" element={<TermsOfService />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/refund" element={<RefundPolicy />} />
+          <Route path="/" element={
+            <>
+              <Hero />
+              <ProblemSolution />
+              <HowItWorks />
+              <Services />
+              <Testimonials />
+              <Pricing />
+              <SuccessStories />
+              <BookACall />
+              <FAQ />
+            </>
+          } />
+        </Routes>
         <Footer />
       </div>
-    </>
+    </Router>
   );
 }
 
