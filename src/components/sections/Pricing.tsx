@@ -6,6 +6,31 @@ import SectionTitle from '../ui/SectionTitle';
 
 const Pricing: React.FC = () => {
   const plans = [
+    
+        {
+      name: "LeadGen Suite",
+      price: 899,
+      maintenance: 250,
+      tagline: "Perfect for solopreneurs & small teams automating 1 core workflow",
+      outcome: "Automate your lead generation and booking process in 5 days",
+      features: [
+        "1 Custom AI Agent (Booking or Lead Nurturing)",
+        "Built with Make.com or N8N",
+        "Basic integration (Calendly, Sheets, Email)",
+        "1 revision included",
+        "5 days setup turnaround",
+        "Agent blueprint + instructions",
+        "Basic monitoring",
+        "Email support"
+      ],
+     isPopular: true,
+      icon: <MessageSquare className="w-12 h-12 text-primary" />,
+      delivery: "7 days",
+      badgeColor: "bg-gradient-to-r from-primary to-secondary",
+    },
+  
+
+
     {
       name: "AI Support & Retention Suite",
       price: 1199,
@@ -26,26 +51,7 @@ const Pricing: React.FC = () => {
       icon: <MessageSquare className="w-12 h-12 text-primary" />,
       delivery: "7 days",
     },
-    {
-      name: "LeadGen Suite",
-      price: 899,
-      maintenance: 250,
-      tagline: "Perfect for solopreneurs & small teams automating 1 core workflow",
-      outcome: "Automate your lead generation and booking process in 5 days",
-      features: [
-        "1 Custom AI Agent (Booking or Lead Nurturing)",
-        "Built with Make.com or N8N",
-        "Basic integration (Calendly, Sheets, Email)",
-        "1 revision included",
-        "5 days setup turnaround",
-        "Agent blueprint + instructions",
-        "Basic monitoring",
-        "Email support"
-      ],
-      isPopular: false,
-      icon: <Robot className="w-12 h-12 text-primary" />,
-      delivery: "5 days",
-    },
+   
     {
       name: "Pro Automation Stack",
       price: 1499,
@@ -62,14 +68,11 @@ const Pricing: React.FC = () => {
         "Priority support",
         "Free data enrichment"
       ],
-      isPopular: true,
+      isPopular: false,
       icon: <MessageSquare className="w-12 h-12 text-primary" />,
       delivery: "7 days",
       badgeColor: "bg-gradient-to-r from-primary to-secondary",
     },
-
-
-
 
 
     {      name: "Full Automation Suite",
@@ -128,7 +131,7 @@ const Pricing: React.FC = () => {
                   <h3 className="text-2xl font-orbitron font-bold mb-2">{plan.name}</h3>
                   <div className="w-24 h-[2px] bg-gradient-to-r from-primary to-secondary mx-auto mb-4"></div>
                     <div className="space-y-3">
-                    <div className="text-4xl font-orbitron font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                    <div className="text-4xl font-orbitron font-med text-white">
                       ${plan.price}
                       <span className="text-sm font-normal text-gray-400"> one-time</span>
                     </div>
