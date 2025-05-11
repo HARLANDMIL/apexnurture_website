@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Cpu, Menu, X } from 'lucide-react';
+import { Cpu, Menu, X , AlignRight, AlignCenter} from 'lucide-react';
 import Button from '../ui/Button';
 import { motion } from 'framer-motion';
 
@@ -70,7 +70,7 @@ const Navbar: React.FC = () => {
 
           {/* Mobile Navigation Toggle */}
           <button className="md:hidden" onClick={toggleMenu}>
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
+            {isOpen ? <AlignCenter size={24} /> : <AlignRight size={24} />}
           </button>
         </div>
 
