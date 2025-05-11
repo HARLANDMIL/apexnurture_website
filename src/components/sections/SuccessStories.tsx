@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Clock, DollarSign } from 'lucide-react';
 import SectionTitle from '../ui/SectionTitle';
 import Card from '../ui/Card';
+import Button from '../ui/Button'; // Ensure this path is correct
 
 const SuccessStories: React.FC = () => {
+  const [showAll, setShowAll] = useState(false);
   const stories = [
     {
       company: "TechFlow Solutions",
@@ -41,9 +43,8 @@ const SuccessStories: React.FC = () => {
           title="Success Stories" 
           subtitle="Real results from real businesses using our AI agent solutions."
         />
-        
-        <div className="space-y-16">
-          {stories.map((story, index) => (
+          <div className="space-y-16">
+          {(showAll ? stories : stories.slice(0, 2)).map((story, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 50 }}
@@ -95,8 +96,15 @@ const SuccessStories: React.FC = () => {
                   </div>
                 </Card>
               </div>
-            </motion.div>
-          ))}
+            </motion.div>          ))}
+          
+          <div className="flex justify-center mt-8">            <Button
+              onClick={() => setShowAll(!showAll)}
+              className="bg-gradient-to-r from-black via-gray-900 to-black text-white font-orbitron hover:from-gray-900 hover:via-black hover:to-gray-900"
+            >
+              {showAll ? 'Close' : 'View More'}
+            </Button>
+          </div>
         </div>
       </div>
     </section>

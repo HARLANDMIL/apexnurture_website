@@ -7,6 +7,26 @@ import SectionTitle from '../ui/SectionTitle';
 const Pricing: React.FC = () => {
   const plans = [
     {
+      name: "AI Support & Retention Suite",
+      price: 1199,
+      maintenance: 399,
+      tagline: "Perfect for SaaS, coaching, medical, and service-based teams losing time to client FAQs & manual onboarding",
+      outcome: "Cut support time by 70% and boost retention using an AI chatbot trained on YOUR knowledge",
+      features: [
+        "AI chatbot on website + WhatsApp",
+        "Trained on your FAQs, docs, and CRM",
+        "Automated onboarding sequences",
+        "24/7 client support bot + ticketing alerts",
+        "2 Revisions",
+        "Monthly performance reviews",
+        "Priority support",
+        "Active Consultation [FREE OF CHARGE]"
+      ],
+      isPopular: false,
+      icon: <MessageSquare className="w-12 h-12 text-primary" />,
+      delivery: "7 days",
+    },
+    {
       name: "LeadGen Suite",
       price: 2500,
       maintenance: 499,
@@ -47,7 +67,7 @@ const Pricing: React.FC = () => {
       icon: <MessageSquare className="w-12 h-12 text-primary" />,
       delivery: "7 days",
     },
-    {
+    {/*{
       name: "Ops & Onboarding Suite",
       price: 3000,
       maintenance: 599,
@@ -66,7 +86,8 @@ const Pricing: React.FC = () => {
       isPopular: false,
       icon: <Settings className="w-12 h-12 text-primary" />,
       delivery: "7 days",
-    },
+    }, */},
+
     {      name: "Full Automation Suite",
       price: 7999,
       maintenance: 1199,
@@ -97,7 +118,7 @@ const Pricing: React.FC = () => {
           subtitle="Unlock the full potential of AI automation with our comprehensive suites. Each suite delivers a specific business outcome—whether it's lead generation, sales conversion, or operational efficiency. Start seeing results in as little as 7 days."
         />
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
           {plans.map((plan, index) => (
             <motion.div
               key={index}
