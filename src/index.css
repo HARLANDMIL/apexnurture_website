@@ -48,18 +48,19 @@ h1, h2, h3, h4, h5, h6 {
 /* Button styles */
 .btn-primary {
   @apply px-6 py-3 rounded-full font-medium transition-all duration-300 text-white;
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
-  box-shadow: 0 4px 12px rgba(0, 255, 255, 0.3);
+  background: linear-gradient(135deg, rgba(0, 255, 255, 0.9), rgba(128, 0, 128, 0.9));
+  box-shadow: 0 4px 15px rgba(0, 255, 255, 0.2);
 }
 
 .btn-primary:hover {
+  background: linear-gradient(135deg, rgba(0, 255, 255, 1), rgba(128, 0, 128, 1));
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0, 255, 255, 0.5);
+  box-shadow: 0 6px 20px rgba(0, 255, 255, 0.3);
 }
 
 /* Text gradient */
 .text-gradient {
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

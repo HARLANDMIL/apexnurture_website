@@ -18,7 +18,7 @@ const Button: React.FC<ButtonProps> = ({
   
   const variantClasses = {
     primary: 'btn-primary',
-    secondary: 'bg-secondary hover:bg-secondary-dark text-white shadow-lg hover:shadow-xl hover:-translate-y-1',
+    secondary: 'bg-gradient-to-r from-secondary/90 to-primary/90 hover:from-secondary hover:to-primary text-white shadow-lg hover:shadow-xl hover:-translate-y-1',
     outline: 'border-2 border-primary text-primary hover:bg-primary/10 hover:shadow-lg hover:-translate-y-1',
   };
   

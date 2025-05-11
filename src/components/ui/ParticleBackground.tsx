@@ -31,106 +31,96 @@ const ParticleBackground = () => {
         fpsLimit: 120,
         particles: {
           color: {
-            value: ["#93C5FD", "#60A5FA", "#3B82F6", "#2563EB"],
+            value: "#ffffff",
           },
           links: {
-            color: "#60A5FA",
+            color: "#ffffff",
             distance: 150,
             enable: true,
-            opacity: 0.6,
-            width: 2,
-            triangles: {
-              enable: true,
-              opacity: 0.15
-            }
+            opacity: 0.2,
+            width: 1,
+          },
+          collisions: {
+            enable: true,
           },
           move: {
             enable: true,
-            speed: 1.2,
+            speed: 1,
             direction: "none",
-            random: false,
+            random: true,
             straight: false,
             outModes: {
-              default: "bounce"
+              default: "bounce",
             },
             attract: {
               enable: true,
-              rotate: {
-                x: 600,
-                y: 1200
-              }
-            }
+              rotateX: 600,
+              rotateY: 1200,
+            },
           },
           number: {
             density: {
               enable: true,
-              width: 1920,
-              height: 1080
+              area: 800,
             },
-            value: 120
+            value: 80,
           },
           opacity: {
-            value: { min: 0.5, max: 0.9 },
+            value: 0.2,
+            random: true,
             animation: {
               enable: true,
               speed: 1,
-              startValue: "min",
-              destroy: "max",
-              sync: false
-            }
+              minimumValue: 0.1,
+              sync: false,
+            },
           },
           shape: {
-            type: "circle"
+            type: ["circle", "triangle", "polygon"],
+            options: {
+              polygon: {
+                sides: 6,
+              },
+            },
           },
           size: {
-            value: { min: 2.5, max: 5 },
+            value: { min: 1, max: 3 },
+            random: true,
             animation: {
               enable: true,
               speed: 2,
-              startValue: "min",
-              destroy: "max",
-              sync: false
-            }
-          }
+              minimumValue: 0.1,
+              sync: false,
+            },
+          },
         },
+        detectRetina: true,
         interactivity: {
-          detectsOn: "window",
+          detectsOn: "canvas",
           events: {
             onHover: {
               enable: true,
-              mode: ["grab", "bubble"]
+              mode: "connect",
             },
             onClick: {
               enable: true,
-              mode: "push"
+              mode: "push",
             },
-            resize: true
+            resize: true,
           },
           modes: {
-            grab: {
+            connect: {
               distance: 200,
               links: {
-                opacity: 0.9,
-                color: "#93C5FD"
-              }
-            },
-            bubble: {
-              distance: 200,
-              size: 8,
-              duration: 2,
-              opacity: 1,
-              color: "#60A5FA"
+                opacity: 0.2,
+              },
+              radius: 120,
             },
             push: {
-              quantity: 6
+              quantity: 4,
             },
-            repulse: {
-              distance: 200,
-              duration: 0.4
-            }
-          }
+          },
         },
-        detectRetina: true
       }}
     />
   );
