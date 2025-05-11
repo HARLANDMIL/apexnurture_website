@@ -67,26 +67,11 @@ const Pricing: React.FC = () => {
       delivery: "7 days",
       badgeColor: "bg-gradient-to-r from-primary to-secondary",
     },
-    {
-      name: "Ops & Onboarding Suite",
-      price: 3000,
-      maintenance: 599,
-      tagline: "Streamline client onboarding and support with intelligent automation",
-      outcome: "Cut onboarding time by 50% and reduce support queries with automated workflows",
-      features: [
-        "Client Onboarding Workflow Bot",
-        "FAQ & Support Chatbot",
-        "No-Show Recovery Agent",
-        "SOP Automation & Training Docs",
-        "3 Revisions",
-        "Ongoing monitoring and updates",
-        "Priority support",
-        "Active Consultation [FREE OF CHARGE]"
-      ],
-      isPopular: false,
-      icon: <Settings className="w-12 h-12 text-primary" />,
-      delivery: "7 days",
-    },
+
+
+
+
+
     {      name: "Full Automation Suite",
       price: 7999,
       maintenance: 1199,
@@ -109,15 +94,14 @@ const Pricing: React.FC = () => {
     }
   ];
 
-  return (
-    <section className="py-24 relative overflow-hidden" id="pricing">
+  return (    <section className="py-32 relative overflow-hidden" id="pricing">
       <div className="container mx-auto px-4 md:px-6">
         <SectionTitle 
           title="Choose Your Automation Suite" 
           subtitle="Transform your business with our comprehensive AI automation suites. Each suite is designed to deliver specific outcomes and ROI."
         />
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
           {plans.map((plan, index) => (
             <motion.div
               key={index}
@@ -134,23 +118,21 @@ const Pricing: React.FC = () => {
                   </div>
                 </div>
               )}
-              
-              <div className={`glass-card h-full flex flex-col relative ${
-                plan.isPopular ? 'border-2 border-primary shadow-2xl shadow-primary/20' : 'border border-white/10'
+                <div className={`glass-card h-full flex flex-col relative backdrop-blur-xl ${
+                plan.isPopular ? 'border-2 border-primary shadow-2xl shadow-primary/20' : 'border border-white/10 hover:border-primary/50 transition-colors duration-300'
               }`}>
-                <div className="text-center mb-6">
-                  <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-background-mid/50 flex items-center justify-center border border-primary/30">
+                <div className="text-center mb-8 p-8">
+                  <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-background-mid/50 flex items-center justify-center border border-primary/30 transform transition-transform duration-300 hover:scale-110">
                     {plan.icon}
                   </div>
                   <h3 className="text-2xl font-orbitron font-bold mb-2">{plan.name}</h3>
                   <div className="w-24 h-[2px] bg-gradient-to-r from-primary to-secondary mx-auto mb-4"></div>
-                  
-                  <div className="space-y-2">
-                    <div className="text-3xl font-orbitron font-bold">
+                    <div className="space-y-3">
+                    <div className="text-4xl font-orbitron font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                       ${plan.price}
                       <span className="text-sm font-normal text-gray-400"> one-time</span>
                     </div>
-                    <div className="text-sm text-gray-400">
+                    <div className="text-sm text-gray-400 font-medium">
                       +${plan.maintenance}/month maintenance
                       <div className="group relative inline-block ml-2">
                         <Info className="w-4 h-4 text-primary inline cursor-help" />
@@ -160,37 +142,34 @@ const Pricing: React.FC = () => {
                       </div>
                     </div>
                   </div>
-                  
-                  <div className="mt-4 p-3 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-lg">
-                    <p className="text-sm font-medium">{plan.tagline}</p>
+                    <div className="mt-6 p-4 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-lg backdrop-blur-sm">
+                    <p className="text-sm font-medium leading-relaxed">{plan.tagline}</p>
                   </div>
                   
-                  <div className="mt-4 p-3 bg-primary/10 rounded-lg">
-                    <p className="text-primary text-sm font-medium">{plan.outcome}</p>
+                  <div className="mt-5 p-4 bg-primary/10 rounded-lg backdrop-blur-sm border border-primary/20">
+                    <p className="text-primary text-sm font-medium leading-relaxed">{plan.outcome}</p>
                   </div>
                 </div>
                 
-                <div className="flex-grow px-6 pt-0">
-                  <ul className="space-y-4">
-                    {plan.features.map((feature, i) => (
-                      <li key={i} className="flex items-start gap-3">
-                        <Check className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-300 text-sm">{feature}</span>
+                <div className="flex-grow px-8 pt-0">
+                  <ul className="space-y-4">                    {plan.features.map((feature, i) => (
+                      <li key={i} className="flex items-start gap-3 group">
+                        <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0 transition-transform duration-300 group-hover:scale-110" />
+                        <span className="text-gray-300 text-sm leading-relaxed transition-colors duration-300 group-hover:text-white">{feature}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-                
-                <div className="p-6 pt-6 mt-6 border-t border-white/10">
+                  <div className="p-8 pt-6 mt-8 border-t border-white/10 bg-gradient-to-b from-transparent to-primary/5">
                   <Button 
                     variant={plan.isPopular ? 'primary' : 'secondary'} 
-                    className="w-full justify-center"
+                    className={`w-full justify-center text-base font-medium ${plan.isPopular ? 'shadow-lg shadow-primary/25' : ''}`}
                     onClick={() => window.open('https://forms.fillout.com/t/rpJmYE6G9tus', '_blank')}
                   >
                     Get Started
                   </Button>
-                  <p className="text-sm text-center text-gray-400 mt-4">
-                    <Clock className="w-4 h-4 inline mr-1" />
+                  <p className="text-sm text-center text-gray-400 mt-4 font-medium">
+                    <Clock className="w-4 h-4 inline mr-1 text-primary" />
                     {plan.delivery} delivery
                   </p>
                 </div>
@@ -204,12 +183,11 @@ const Pricing: React.FC = () => {
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="max-w-4xl mx-auto"
+          transition={{ duration: 0.5 }}          className="max-w-4xl mx-auto mt-24"
         >
-          <div className="glass-card border-2 border-primary relative overflow-hidden">
+          <div className="glass-card border-2 border-primary relative overflow-hidden backdrop-blur-xl">
             <div className="absolute -inset-1 bg-gradient-to-r from-primary to-secondary blur-xl opacity-20 animate-pulse"></div>
-            <div className="relative p-8 text-center">
+            <div className="relative p-12 text-center">
               <Zap className="w-16 h-16 text-primary mx-auto mb-4" />
               <h3 className="text-3xl font-orbitron font-bold mb-2">
                 Limited Time Offer: Build & Launch Any Suite in 7 Days—or It's Free!
@@ -217,11 +195,10 @@ const Pricing: React.FC = () => {
               <p className="text-2xl text-primary mb-2">Plus, 50% off first month's Ops Fee</p>
               <p className="text-gray-300 mb-6 text-lg">
                 Limited to first 3 clients this month. Secure your spot now!
-              </p>
-              <Button 
+              </p>              <Button 
                 variant="primary" 
                 size="lg" 
-                className="text-lg px-10"
+                className="text-lg px-12 py-6 shadow-xl shadow-primary/20 hover:shadow-primary/40 transition-shadow duration-300"
                 onClick={() => window.open('https://forms.fillout.com/t/rpJmYE6G9tus', '_blank')}
               >
                 Claim Your Spot Now
@@ -230,7 +207,7 @@ const Pricing: React.FC = () => {
           </div>
         </motion.div>
         
-        <div className="text-center mt-12 text-gray-300">
+        <div className="text-center mt-16 text-gray-300">
           <p>Need a custom solution? <a href="#book-call" className="text-primary hover:text-primary-light underline">Schedule a consultation</a> for a tailored automation strategy.</p>
         </div>
       </div>
