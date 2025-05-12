@@ -26,9 +26,9 @@ const Pricing: React.FC = () => {
     {
       name: "AI Lead Generation Suite",
       accentColor: "from-[#00FFFF] to-[#0099FF]",
-      badge: "Lead Magnet",
-      price: 1800,
-      maintenance: 499,
+      badge: "Most Popular",
+      price: 1799,
+      maintenance: 895,
       primaryGoal: "Generate, qualify, and convert leads on autopilot across multiple platforms",
       problemsSolved: "Slow follow-ups, wasted leads, manual booking, low conversion rates",
       icon: <MessageSquare className="w-12 h-12" />,
@@ -62,42 +62,48 @@ const Pricing: React.FC = () => {
       ctaText: "Get Started with LeadGen"
     },
     {
-      name: "Support & Retention Suite",
+      name: "Recruitment Suite",
       accentColor: "from-[#00FF00] to-[#00CC00]",
       badge: "Customer Happiness",
-      price: 1500,
-      maintenance: 499,
-      primaryGoal: "Automate 24/7 customer support and boost retention with intelligent workflows",
-      problemsSolved: "Overloaded support staff, long response times, missed renewals",
+      price: 1499,
+      maintenance: 795,
+      primaryGoal: "Speed up placements, reduce admin time, and boost revenue with end-to-end AI automation",
+      problemsSolved: "Slow candidate sourcing, manual scheduling, low response rates",
       icon: <Users className="w-12 h-12" />,
       deliverables: [
         {
-          title: "AI Support Agent",
-          description: "Resolves 60% of customer queries instantly with GPT-powered intent handling"
+          title: "AI Candidate Follow-up Bot",
+          description: "Engages candidates via Email/WhatsApp, reducing follow-up time by 60%",
+        },
+
+
+        {
+          title: "Interview Booking Automation",
+          description: "Cuts scheduling time by 50& with auto-syn(eg.Calendy, Google Workspace, MsOffice) "
         },
         {
-          title: "WhatsApp Support Bot",
-          description: "Reduces average response time to under 2 minutes with human escalation"
+          title: "Linkedln Cold Outreach Agent",
+          description: "Sources 50+ high-quality candidates/month with personalized messages"
+
+
         },
         {
-          title: "Renewal/Check-in Follow-up Agent",
-          description: "Increases renewal rates by 20% through automated reminders"
+          title: "Custom Pipeline & Applicant Tracking Dashboard",
+          description: "Organizes candidates in your CRM (e.g., GoHighLevel), saving 5+ hours/week"
+
+
         },
         {
-          title: "Ticket System Integration",
-          description: "Cuts ticket backlog by 40% (optional integration)"
+          title: "Client Status Update Automation",
+          description: "ends weekly updates, boosting client satisfaction by 20%."
         },
         {
-          title: "Customer Feedback Collector",
-          description: "Boosts satisfaction scores by 15% with actionable insights"
-        },
-        {
-          title: "Onboarding Package",
-          description: "Ensures team adoption in under 1 week with SOP video, training guide, 3 revisions"
+          title: "Onboarding & Training Support",
+          description: "Ensures team adoption in under 1 week with SOP videos and 2 revisions"
         }
       ],
-      outcome: "Cut support tickets by 50–70%, improve retention by 25%, and increase LTV by 30%",
-      ctaText: "Get Started with Support"
+      outcome: "Reduce candidate sourcing time by 50%, increase placements by 20%, and save income  on admin tasks",
+      ctaText: "Get Started with Recruitment"
     },
     {
       name: "AI Growth Suite",
@@ -188,7 +194,7 @@ const Pricing: React.FC = () => {
                     <div className="group relative inline-block ml-2">
                       <Info className="w-4 h-4 text-primary inline cursor-help" />
                       <div className="opacity-0 group-hover:opacity-100 transition-opacity absolute left-1/2 -translate-x-1/2 bottom-full mb-2 px-4 py-2 bg-background-mid rounded-lg border border-primary text-xs w-48 pointer-events-none">
-                        Includes monitoring, updates, and support
+                        Includes consultations, updates, and support
                       </div>
                     </div>
                   </div>
