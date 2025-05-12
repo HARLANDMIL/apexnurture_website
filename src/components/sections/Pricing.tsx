@@ -15,7 +15,8 @@ import {
   FileText,
   Database,
   Code,
-  Workflow
+  Workflow,
+  Info
 } from 'lucide-react';
 import Button from '../ui/Button';
 import SectionTitle from '../ui/SectionTitle';
@@ -32,14 +33,32 @@ const Pricing: React.FC = () => {
       problemsSolved: "Slow follow-ups, wasted leads, manual booking, low conversion rates",
       icon: <MessageSquare className="w-12 h-12" />,
       deliverables: [
-        "AI Booking Agent (WhatsApp/Email/Website)",
-        "Lead Nurturing Agent (contextual drip messaging)",
-        "CRM Auto-Sync (Pipedrive, HubSpot, etc.)",
-        "Lead Dashboard (Airtable/Notion/Google Sheets)",
-        "WhatsApp DM Automation",
-        "Onboarding & SOP Video, 2 Revisions"
+        {
+          title: "AI Booking Agent",
+          description: "Converts 30% more inbound leads into booked calls via WhatsApp/Email/Website"
+        },
+        {
+          title: "Lead Nurturing Agent",
+          description: "Increases lead response rates by 40% with contextual drip messaging"
+        },
+        {
+          title: "CRM Auto-Sync",
+          description: "Saves 5+ hours/week by automating data entry (Pipedrive, HubSpot, etc.)"
+        },
+        {
+          title: "Lead Dashboard",
+          description: "Tracks lead-to-call conversion rates in real-time (Airtable/Notion/Google Sheets)"
+        },
+        {
+          title: "WhatsApp DM Automation",
+          description: "Engages 80% of ad responders within 5 minutes"
+        },
+        {
+          title: "Onboarding & SOP Video",
+          description: "Ensures 100% setup clarity with 2 revisions included"
+        }
       ],
-      outcome: "2–5x more booked calls with the same traffic, 50% less manual effort, 24/7 lead conversion",
+      outcome: "Generate 2–5x more booked calls, reduce manual effort by 50%, and add $5,000–$10,000/month in new revenue",
       ctaText: "Get Started with LeadGen"
     },
     {
@@ -52,14 +71,32 @@ const Pricing: React.FC = () => {
       problemsSolved: "Overloaded support staff, long response times, missed renewals",
       icon: <Users className="w-12 h-12" />,
       deliverables: [
-        "AI Support Agent (FAQ + GPT-powered intent handling)",
-        "WhatsApp Support Bot (with human escalation)",
-        "Renewal/Check-in Follow-up Agent",
-        "Ticket System Integration (optional)",
-        "Customer Feedback Collector",
-        "Onboarding, SOP Video, Training Guide, 3 Revisions"
+        {
+          title: "AI Support Agent",
+          description: "Resolves 60% of customer queries instantly with GPT-powered intent handling"
+        },
+        {
+          title: "WhatsApp Support Bot",
+          description: "Reduces average response time to under 2 minutes with human escalation"
+        },
+        {
+          title: "Renewal/Check-in Follow-up Agent",
+          description: "Increases renewal rates by 20% through automated reminders"
+        },
+        {
+          title: "Ticket System Integration",
+          description: "Cuts ticket backlog by 40% (optional integration)"
+        },
+        {
+          title: "Customer Feedback Collector",
+          description: "Boosts satisfaction scores by 15% with actionable insights"
+        },
+        {
+          title: "Onboarding Package",
+          description: "Ensures team adoption in under 1 week with SOP video, training guide, 3 revisions"
+        }
       ],
-      outcome: "50–70% fewer support tickets, higher customer retention, 24/7 intelligent responses",
+      outcome: "Cut support tickets by 50–70%, improve retention by 25%, and increase LTV by 30%",
       ctaText: "Get Started with Support"
     },
     {
@@ -73,14 +110,32 @@ const Pricing: React.FC = () => {
       icon: <Rocket className="w-12 h-12" />,
       isPopular: true,
       deliverables: [
-        "AI Content Repurposing Pipeline (webinar to 10+ pieces)",
-        "Email/DM Outreach Agent (personalized B2B prospecting)",
-        "Content Scheduler/Poster (LinkedIn, Instagram, etc.)",
-        "Notion Content Dashboard + GPT Writing Assistant",
-        "Influencer/Lead Sourcing Workflow",
-        "Onboarding, SOP Video, 2 Strategy Calls, 2 Revisions"
+        {
+          title: "AI Content Repurposing Pipeline",
+          description: "Produces 10+ pieces of content per asset, saving 20+ hours/month"
+        },
+        {
+          title: "Email/DM Outreach Agent",
+          description: "Generates 15% more responses with personalized B2B prospecting"
+        },
+        {
+          title: "Content Scheduler/Poster",
+          description: "Boosts social engagement by 30% with auto-posts (LinkedIn, Instagram, etc.)"
+        },
+        {
+          title: "Notion Content Dashboard",
+          description: "Cuts content planning time by 50% with GPT Writing Assistant"
+        },
+        {
+          title: "Influencer/Lead Sourcing Workflow",
+          description: "Identifies 50+ high-potential leads/month for outreach"
+        },
+        {
+          title: "Complete Onboarding",
+          description: "100% clarity with SOP video, 2 strategy calls, 2 revisions"
+        }
       ],
-      outcome: "10–20x more content output, consistent inbound leads, no need for expensive teams",
+      outcome: "Increase content output by 10–20x, grow inbound leads by 20%, and save $3,000–$5,000/month on content teams",
       ctaText: "Get Started with Growth"
     }
   ];
@@ -90,7 +145,7 @@ const Pricing: React.FC = () => {
       <div className="container mx-auto px-4 md:px-6">
         <SectionTitle 
           title="Unlock Growth with Our AI Automation Suites" 
-          subtitle="Choose the perfect AI automation suite to transform your business. Each suite is designed to solve specific challenges, save you time, and drive measurable results. From lead generation to custom workflows, we've got you covered—starting in as little as 7 days."
+          subtitle="Choose the perfect AI automation suite to transform your business. Each suite delivers measurable results—saving time, boosting revenue, and streamlining operations. Start seeing impact in as little as 7 days."
         />
         
         {/* Main Suites Grid */}
@@ -130,6 +185,12 @@ const Pricing: React.FC = () => {
                   </div>
                   <div className="text-sm text-gray-400 mt-1">
                     +${suite.maintenance}/month maintenance
+                    <div className="group relative inline-block ml-2">
+                      <Info className="w-4 h-4 text-primary inline cursor-help" />
+                      <div className="opacity-0 group-hover:opacity-100 transition-opacity absolute left-1/2 -translate-x-1/2 bottom-full mb-2 px-4 py-2 bg-background-mid rounded-lg border border-primary text-xs w-48 pointer-events-none">
+                        Includes monitoring, updates, and support
+                      </div>
+                    </div>
                   </div>
                 </div>
 
@@ -141,11 +202,16 @@ const Pricing: React.FC = () => {
                   </div>
 
                   {/* Deliverables */}
-                  <div className="space-y-3">
+                  <div className="space-y-4">
                     {suite.deliverables.map((item, i) => (
-                      <div key={i} className="flex items-start gap-3 group">
-                        <CheckCircle className={`w-5 h-5 mt-0.5 flex-shrink-0 transition-transform duration-300 group-hover:scale-110 text-gradient-${suite.accentColor}`} />
-                        <span className="text-gray-300 text-sm">{item}</span>
+                      <div key={i} className="group">
+                        <div className="flex items-start gap-3">
+                          <CheckCircle className={`w-5 h-5 mt-0.5 flex-shrink-0 transition-transform duration-300 group-hover:scale-110 text-gradient-${suite.accentColor}`} />
+                          <div>
+                            <div className="font-medium">{item.title}</div>
+                            <div className="text-sm text-gray-400">{item.description}</div>
+                          </div>
+                        </div>
                       </div>
                     ))}
                   </div>
@@ -186,29 +252,50 @@ const Pricing: React.FC = () => {
               </div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h3 className="text-3xl font-orbitron font-bold mb-4">Custom AI Workflow Suite</h3>
                 <p className="text-xl mb-6">Solve your unique, high-impact challenges with a fully custom AI automation system</p>
                 
                 <div className="space-y-4 mb-8">
                   {[
-                    "Deep Discovery Call + Problem Mapping",
-                    "Custom GPT Workflow (Make.com/N8N/Gumloop)",
-                    "3–6 Step Automation Pipeline",
-                    "CRM/Internal Tool Integrations (API-based)",
-                    "Custom Interface or Dashboard (if needed)",
-                    "Full Documentation + Training, 2–3 Revisions"
+                    {
+                      title: "Deep Discovery Call + Problem Mapping",
+                      description: "Identifies your top bottleneck, saving 10–20 hours/week"
+                    },
+                    {
+                      title: "Custom GPT Workflow",
+                      description: "Automates a critical process, reducing errors by 90%"
+                    },
+                    {
+                      title: "3–6 Step Automation Pipeline",
+                      description: "Streamlines operations, cutting process time by 50%"
+                    },
+                    {
+                      title: "CRM/Internal Tool Integrations",
+                      description: "Syncs data seamlessly, saving 5+ hours/week"
+                    },
+                    {
+                      title: "Custom Interface or Dashboard",
+                      description: "Improves decision-making by 30% with real-time insights"
+                    },
+                    {
+                      title: "Full Documentation Package",
+                      description: "Ensures 100% team adoption in under 1 week"
+                    }
                   ].map((feature, i) => (
                     <div key={i} className="flex items-start gap-3">
                       <CheckCircle className="w-5 h-5 text-[#800080] mt-1" />
-                      <span>{feature}</span>
+                      <div>
+                        <div className="font-medium">{feature.title}</div>
+                        <div className="text-sm text-gray-400">{feature.description}</div>
+                      </div>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="text-center md:text-left">
+              <div>
                 <div className="mb-6">
                   <div className="text-4xl font-orbitron font-bold">
                     $2,500–$5,000+
@@ -216,13 +303,36 @@ const Pricing: React.FC = () => {
                   </div>
                   <div className="text-sm text-gray-400 mt-1">
                     +$699+/month maintenance
+                    <div className="group relative inline-block ml-2">
+                      <Info className="w-4 h-4 text-primary inline cursor-help" />
+                      <div className="opacity-0 group-hover:opacity-100 transition-opacity absolute left-1/2 -translate-x-1/2 bottom-full mb-2 px-4 py-2 bg-background-mid rounded-lg border border-primary text-xs w-48 pointer-events-none">
+                        Includes tuning, extensions, monitoring
+                      </div>
+                    </div>
                   </div>
                 </div>
 
-                <div className="p-4 rounded-lg bg-white/5 mb-8">
-                  <p className="font-medium">
-                    Tailored solution to save time/money, high perceived value, perfect for premium clients
+                {/* Example Workflow */}
+                <div className="glass-card !bg-white/5 mb-8">
+                  <h4 className="text-lg font-orbitron font-bold mb-4">Example Custom Workflow</h4>
+                  <p className="text-sm text-gray-400 mb-4">
+                    A real estate agency in the UAE struggles with manually qualifying leads and scheduling property viewings across multiple agents.
                   </p>
+                  <div className="space-y-3">
+                    {[
+                      "AI Lead Qualifier captures and scores leads from website forms and WhatsApp inquiries, filtering out low-intent prospects (e.g., 70% accuracy)",
+                      "Auto-Scheduling Agent syncs with agents' calendars (via Calendly API) and books viewings, reducing scheduling time by 80%",
+                      "Follow-Up Agent sends personalized post-viewing messages via WhatsApp, increasing follow-up conversion by 25%",
+                      "Custom Dashboard in Airtable tracks lead-to-viewing conversion rates, helping optimize marketing spend by 15%"
+                    ].map((step, i) => (
+                      <div key={i} className="flex items-start gap-2">
+                        <div className="w-6 h-6 rounded-full bg-[#800080]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                          <span className="text-sm font-medium">{i + 1}</span>
+                        </div>
+                        <p className="text-sm">{step}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
                 <Button 
