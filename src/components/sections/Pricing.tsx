@@ -1,111 +1,101 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Check, Zap, Clock, Bot as Robot, MessageSquare, Database, Settings, Info } from 'lucide-react';
+import { 
+  MessageSquare, 
+  Calendar,
+  Bot,
+  Users,
+  Zap,
+  CheckCircle,
+  ArrowRight,
+  Star,
+  Shield,
+  Rocket,
+  Settings,
+  FileText,
+  Database,
+  Code,
+  Workflow
+} from 'lucide-react';
 import Button from '../ui/Button';
 import SectionTitle from '../ui/SectionTitle';
 
 const Pricing: React.FC = () => {
-  const plans = [
-    
-        {
-      name: "LeadGen Suite",
-      price: 899,
-      maintenance: 250,
-      tagline: "Perfect for solopreneurs & small teams automating 1 core workflow",
-      outcome: "Automate your lead generation and booking process in 5 days",
-      features: [
-        "1 Custom AI Agent (Booking or Lead Nurturing)",
-        "Built with Make.com or N8N",
-        "Basic integration (Calendly, Sheets, Email)",
-        "1 revision included",
-        "5 days setup turnaround",
-        "Agent blueprint + instructions",
-        "Basic monitoring",
-        "Email support"
-      ],
-     isPopular: true,
-      icon: <MessageSquare className="w-12 h-12 text-primary" />,
-      delivery: "7 days",
-      badgeColor: "bg-gradient-to-r from-primary to-secondary",
-    },
-  
-
-
+  const suites = [
     {
-      name: "AI Support & Retention Suite",
-      price: 1199,
-      maintenance: 399,
-      tagline: "Perfect for SaaS, coaching, medical, and service-based teams losing time to client FAQs & manual onboarding",
-      outcome: "Cut support time by 70% and boost retention using an AI chatbot trained on YOUR knowledge",
-      features: [
-        "AI chatbot on website + WhatsApp",
-        "Trained on your FAQs, docs, and CRM",
-        "Automated onboarding sequences",
-        "24/7 client support bot + ticketing alerts",
-        "2 Revisions",
-        "Monthly performance reviews",
-        "Priority support",
-        "Active Consultation [FREE OF CHARGE]"
+      name: "AI Lead Generation Suite",
+      accentColor: "from-[#00FFFF] to-[#0099FF]",
+      badge: "Lead Magnet",
+      price: 1800,
+      maintenance: 499,
+      primaryGoal: "Generate, qualify, and convert leads on autopilot across multiple platforms",
+      problemsSolved: "Slow follow-ups, wasted leads, manual booking, low conversion rates",
+      icon: <MessageSquare className="w-12 h-12" />,
+      deliverables: [
+        "AI Booking Agent (WhatsApp/Email/Website)",
+        "Lead Nurturing Agent (contextual drip messaging)",
+        "CRM Auto-Sync (Pipedrive, HubSpot, etc.)",
+        "Lead Dashboard (Airtable/Notion/Google Sheets)",
+        "WhatsApp DM Automation",
+        "Onboarding & SOP Video, 2 Revisions"
       ],
-      isPopular: false,
-      icon: <MessageSquare className="w-12 h-12 text-primary" />,
-      delivery: "7 days",
+      outcome: "2–5x more booked calls with the same traffic, 50% less manual effort, 24/7 lead conversion",
+      ctaText: "Get Started with LeadGen"
     },
-   
     {
-      name: "Pro Automation Stack",
-      price: 1499,
-      maintenance: 550,
-      tagline: "For small businesses automating up to 3 critical workflows",
-      outcome: "Triple your workflow efficiency with integrated AI agents",
-      features: [
-        "Up to 3 Custom AI Agents",
-        "Multi-platform integrations",
-        "Advanced data pipelines",
-        "Slack/Email alert triggers",
-        "Onboarding session + SOP video",
-        "2 revisions",
-        "Priority support",
-        "Free data enrichment"
+      name: "Support & Retention Suite",
+      accentColor: "from-[#00FF00] to-[#00CC00]",
+      badge: "Customer Happiness",
+      price: 1500,
+      maintenance: 499,
+      primaryGoal: "Automate 24/7 customer support and boost retention with intelligent workflows",
+      problemsSolved: "Overloaded support staff, long response times, missed renewals",
+      icon: <Users className="w-12 h-12" />,
+      deliverables: [
+        "AI Support Agent (FAQ + GPT-powered intent handling)",
+        "WhatsApp Support Bot (with human escalation)",
+        "Renewal/Check-in Follow-up Agent",
+        "Ticket System Integration (optional)",
+        "Customer Feedback Collector",
+        "Onboarding, SOP Video, Training Guide, 3 Revisions"
       ],
-      isPopular: false,
-      icon: <MessageSquare className="w-12 h-12 text-primary" />,
-      delivery: "7 days",
-      badgeColor: "bg-gradient-to-r from-primary to-secondary",
+      outcome: "50–70% fewer support tickets, higher customer retention, 24/7 intelligent responses",
+      ctaText: "Get Started with Support"
     },
-
-
-    {      name: "Full Automation Suite",
-      price: 7999,
-      maintenance: 1199,
-      tagline: "The ultimate solution for businesses seeking complete AI-driven automation",
-      outcome: "Achieve 90% automation across your business, driving efficiency and revenue growth",
-      features: [
-        "All 12+ Agents from Above Suites",
-        "Custom API Integrations",
-        "Dedicated Success Manager",
-        "Quarterly Optimization Workshop",
-        "Unlimited Revisions",
-        "Comprehensive monitoring",
-        "Dedicated support manager",
-        "Active Consultation [FREE OF CHARGE]"
-
+    {
+      name: "AI Growth Suite",
+      accentColor: "from-[#FF69B4] to-[#FF1493]",
+      badge: "Recommended",
+      price: 2000,
+      maintenance: 599,
+      primaryGoal: "Scale your brand presence with AI-driven content marketing and outreach",
+      problemsSolved: "Slow content creation, inconsistent social presence, manual outreach",
+      icon: <Rocket className="w-12 h-12" />,
+      isPopular: true,
+      deliverables: [
+        "AI Content Repurposing Pipeline (webinar to 10+ pieces)",
+        "Email/DM Outreach Agent (personalized B2B prospecting)",
+        "Content Scheduler/Poster (LinkedIn, Instagram, etc.)",
+        "Notion Content Dashboard + GPT Writing Assistant",
+        "Influencer/Lead Sourcing Workflow",
+        "Onboarding, SOP Video, 2 Strategy Calls, 2 Revisions"
       ],
-      isPopular: false,
-      icon: <Database className="w-12 h-12 text-primary" />,
-      delivery: "10 days",
+      outcome: "10–20x more content output, consistent inbound leads, no need for expensive teams",
+      ctaText: "Get Started with Growth"
     }
   ];
 
-  return (    <section className="py-32 relative overflow-hidden" id="pricing">
+  return (
+    <section className="py-32 relative overflow-hidden" id="pricing">
       <div className="container mx-auto px-4 md:px-6">
         <SectionTitle 
-          title="Choose Your Automation Suite" 
-          subtitle="Transform your business with our comprehensive AI automation suites. Each suite is designed to deliver specific outcomes and ROI."
+          title="Unlock Growth with Our AI Automation Suites" 
+          subtitle="Choose the perfect AI automation suite to transform your business. Each suite is designed to solve specific challenges, save you time, and drive measurable results. From lead generation to custom workflows, we've got you covered—starting in as little as 7 days."
         />
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
-          {plans.map((plan, index) => (
+        {/* Main Suites Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          {suites.map((suite, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
@@ -114,79 +104,145 @@ const Pricing: React.FC = () => {
               transition={{ duration: 0.5, delay: index * 0.2 }}
               className="relative"
             >
-              {plan.isPopular && (
-                <div className="absolute -top-6 inset-x-0 flex justify-center z-10">
-                  <div className={`${plan.badgeColor || 'bg-primary'} text-white px-6 py-2 rounded-full font-bold shadow-lg shadow-primary/30 transform hover:scale-105 transition-transform`}>
-                    Most Popular Choice
-                  </div>
+              {/* Badge */}
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
+                <div className={`bg-gradient-to-r ${suite.accentColor} px-4 py-1 rounded-full text-sm font-bold shadow-lg shadow-${suite.accentColor}/30`}>
+                  {suite.badge}
                 </div>
-              )}
-                <div className={`glass-card h-full flex flex-col relative backdrop-blur-xl ${
-                plan.isPopular ? 'border-2 border-primary shadow-2xl shadow-primary/20' : 'border border-white/10 hover:border-primary/50 transition-colors duration-300'
+              </div>
+
+              {/* Card */}
+              <div className={`h-full glass-card border border-white/10 hover:border-${suite.accentColor}/50 transition-all duration-300 backdrop-blur-xl ${
+                suite.isPopular ? 'ring-2 ring-[#FF69B4] shadow-lg shadow-[#FF69B4]/20' : ''
               }`}>
-                <div className="text-center mb-8 p-8">
-                  <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-background-mid/50 flex items-center justify-center border border-primary/30 transform transition-transform duration-300 hover:scale-110">
-                    {plan.icon}
+                {/* Header */}
+                <div className="text-center mb-8">
+                  <div className={`w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-r ${suite.accentColor} bg-opacity-10 flex items-center justify-center`}>
+                    {suite.icon}
                   </div>
-                  <h3 className="text-2xl font-orbitron font-bold mb-2">{plan.name}</h3>
-                  <div className="w-24 h-[2px] bg-gradient-to-r from-primary to-secondary mx-auto mb-4"></div>
-                    <div className="space-y-3">
-                    <div className="text-4xl font-orbitron font-med text-white">
-                      ${plan.price}
-                      <span className="text-sm font-normal text-gray-400"> one-time</span>
-                    </div>
-                    <div className="text-sm text-gray-400 font-medium">
-                      +${plan.maintenance}/month maintenance
-                      <div className="group relative inline-block ml-2">
-                        <Info className="w-4 h-4 text-primary inline cursor-help" />
-                        <div className="opacity-0 group-hover:opacity-100 transition-opacity absolute left-1/2 -translate-x-1/2 bottom-full mb-2 px-4 py-2 bg-background-mid rounded-lg border border-primary text-xs w-48 pointer-events-none">
-                          Includes monitoring, updates, and support
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                    <div className="mt-6 p-4 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-lg backdrop-blur-sm">
-                    <p className="text-sm font-medium leading-relaxed">{plan.tagline}</p>
-                  </div>
+                  <h3 className="text-2xl font-orbitron font-bold mb-2">{suite.name}</h3>
+                  <div className="w-24 h-[2px] bg-gradient-to-r from-white/20 to-white/0 mx-auto mb-4"></div>
                   
-                  <div className="mt-5 p-4 bg-primary/10 rounded-lg backdrop-blur-sm border border-primary/20">
-                    <p className="text-primary text-sm font-medium leading-relaxed">{plan.outcome}</p>
+                  {/* Pricing */}
+                  <div className="text-4xl font-orbitron font-bold">
+                    ${suite.price}
+                    <span className="text-sm font-normal text-gray-400"> one-time</span>
+                  </div>
+                  <div className="text-sm text-gray-400 mt-1">
+                    +${suite.maintenance}/month maintenance
                   </div>
                 </div>
-                
-                <div className="flex-grow px-8 pt-0">
-                  <ul className="space-y-4">                    {plan.features.map((feature, i) => (
-                      <li key={i} className="flex items-start gap-3 group">
-                        <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0 transition-transform duration-300 group-hover:scale-110" />
-                        <span className="text-gray-300 text-sm leading-relaxed transition-colors duration-300 group-hover:text-white">{feature}</span>
-                      </li>
+
+                {/* Content */}
+                <div className="space-y-6">
+                  {/* Primary Goal */}
+                  <div className="p-4 rounded-lg bg-white/5">
+                    <p className="font-medium text-center">{suite.primaryGoal}</p>
+                  </div>
+
+                  {/* Deliverables */}
+                  <div className="space-y-3">
+                    {suite.deliverables.map((item, i) => (
+                      <div key={i} className="flex items-start gap-3 group">
+                        <CheckCircle className={`w-5 h-5 mt-0.5 flex-shrink-0 transition-transform duration-300 group-hover:scale-110 text-gradient-${suite.accentColor}`} />
+                        <span className="text-gray-300 text-sm">{item}</span>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
+
+                  {/* Outcome */}
+                  <div className="p-4 rounded-lg bg-gradient-to-r from-white/5 to-transparent border border-white/10">
+                    <p className="text-sm font-medium text-center">{suite.outcome}</p>
+                  </div>
                 </div>
-                  <div className="p-8 pt-6 mt-8 border-t border-white/10 bg-gradient-to-b from-transparent to-primary/5">
+
+                {/* CTA */}
+                <div className="mt-8">
                   <Button 
-                    variant={plan.isPopular ? 'primary' : 'secondary'} 
-                    className={`w-full justify-center text-base font-medium ${plan.isPopular ? 'shadow-lg shadow-primary/25' : ''}`}
+                    className={`w-full justify-center bg-gradient-to-r ${suite.accentColor} hover:shadow-lg hover:shadow-${suite.accentColor}/25 transition-all duration-300`}
                     onClick={() => window.open('https://forms.fillout.com/t/rpJmYE6G9tus', '_blank')}
                   >
-                    Get Started
+                    {suite.ctaText}
                   </Button>
-                  <p className="text-sm text-center text-gray-400 mt-4 font-medium">
-                    <Clock className="w-4 h-4 inline mr-1 text-primary" />
-                    {plan.delivery} delivery
-                  </p>
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
 
+        {/* Custom AI Workflow Suite (Horizontal Card) */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="relative mt-16"
+        >
+          <div className="absolute -inset-1 bg-gradient-to-r from-[#800080] to-[#4B0082] blur-xl opacity-30"></div>
+          <div className="glass-card relative border-2 border-[#800080] backdrop-blur-xl">
+            <div className="absolute -top-4 left-8">
+              <div className="bg-gradient-to-r from-[#800080] to-[#4B0082] px-6 py-1 rounded-full text-sm font-bold shadow-lg">
+                Premium Solution
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div>
+                <h3 className="text-3xl font-orbitron font-bold mb-4">Custom AI Workflow Suite</h3>
+                <p className="text-xl mb-6">Solve your unique, high-impact challenges with a fully custom AI automation system</p>
+                
+                <div className="space-y-4 mb-8">
+                  {[
+                    "Deep Discovery Call + Problem Mapping",
+                    "Custom GPT Workflow (Make.com/N8N/Gumloop)",
+                    "3–6 Step Automation Pipeline",
+                    "CRM/Internal Tool Integrations (API-based)",
+                    "Custom Interface or Dashboard (if needed)",
+                    "Full Documentation + Training, 2–3 Revisions"
+                  ].map((feature, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <CheckCircle className="w-5 h-5 text-[#800080] mt-1" />
+                      <span>{feature}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="text-center md:text-left">
+                <div className="mb-6">
+                  <div className="text-4xl font-orbitron font-bold">
+                    $2,500–$5,000+
+                    <span className="text-sm font-normal text-gray-400"> one-time</span>
+                  </div>
+                  <div className="text-sm text-gray-400 mt-1">
+                    +$699+/month maintenance
+                  </div>
+                </div>
+
+                <div className="p-4 rounded-lg bg-white/5 mb-8">
+                  <p className="font-medium">
+                    Tailored solution to save time/money, high perceived value, perfect for premium clients
+                  </p>
+                </div>
+
+                <Button 
+                  className="w-full md:w-auto px-12 bg-gradient-to-r from-[#800080] to-[#4B0082] hover:shadow-lg hover:shadow-[#800080]/25"
+                  onClick={() => window.open('https://forms.fillout.com/t/rpJmYE6G9tus', '_blank')}
+                >
+                  Book a Discovery Call
+                </Button>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
         {/* Limited Time Offer */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}          className="max-w-4xl mx-auto mt-24"
+          transition={{ duration: 0.5 }}
+          className="max-w-4xl mx-auto mt-24"
         >
           <div className="glass-card border-2 border-primary relative overflow-hidden backdrop-blur-xl">
             <div className="absolute -inset-1 bg-gradient-to-r from-primary to-secondary blur-xl opacity-20 animate-pulse"></div>
@@ -198,7 +254,8 @@ const Pricing: React.FC = () => {
               <p className="text-2xl text-primary mb-2">Plus, 50% off first month's Ops Fee</p>
               <p className="text-gray-300 mb-6 text-lg">
                 Limited to first 3 clients this month. Secure your spot now!
-              </p>              <Button 
+              </p>
+              <Button 
                 variant="primary" 
                 size="lg" 
                 className="text-lg px-12 py-6 shadow-xl shadow-primary/20 hover:shadow-primary/40 transition-shadow duration-300"
@@ -209,10 +266,6 @@ const Pricing: React.FC = () => {
             </div>
           </div>
         </motion.div>
-        
-        <div className="text-center mt-16 text-gray-300">
-          <p>Need a custom solution? <a href="#book-call" className="text-primary hover:text-primary-light underline">Schedule a consultation</a> for a tailored automation strategy.</p>
-        </div>
       </div>
     </section>
   );
