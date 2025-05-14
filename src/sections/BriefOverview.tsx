@@ -23,7 +23,7 @@ const highlights = [
 
 const calcSavings = (hours: number) => hours * 200 * 4; // 4 weeks/month
 
-export const BriefOverview: React.FC = () => {
+const BriefOverview: React.FC = () => {
   // Typewriter effect
   const [typed, setTyped] = useState("");
   const fullHeadline = "Need a Custom AI Solution for Your Business?";
@@ -168,7 +168,7 @@ export const BriefOverview: React.FC = () => {
             )}
           </div>
           <div className="flex items-center gap-2 text-white">
-            <span className="inline-block animate-spin-slow text-purple-400 neon-glow-badge px-4 py-1 rounded-full border border-purple-500 font-bold" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+            <span className="inline-block text-purple-400 neon-glow-badge px-4 py-1 rounded-full border border-purple-500 font-bold" style={{ fontFamily: 'Orbitron, sans-serif' }}>
               <i className="fa fa-certificate mr-2"></i>Featured in Tech Africa News
             </span>
           </div>
@@ -184,30 +184,25 @@ export const BriefOverview: React.FC = () => {
           </span>
         </div>
         {/* CTA Buttons */}
-        <div className="flex flex-col md:flex-row gap-4 justify-center items-center w-full">
+        <div className="flex flex-col md:flex-row gap-4 justify-center items-center w-full mt-2">
           <a
             href="/precision-ai-program"
-            className="cta-btn px-8 py-3 rounded-full font-bold text-white text-lg bg-gradient-to-r from-purple-700 to-cyan-400 shadow-lg transition-transform duration-200 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-purple-500 pulse-cta animate-glow-bg-cta"
+            className="cta-btn px-10 py-3 rounded-full font-bold text-white text-lg bg-gradient-to-r from-purple-800 via-purple-600 to-cyan-400 shadow-xl transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500"
             aria-label="Learn more about Precision AI Implementation Program"
-            onMouseOver={e => (e.currentTarget.textContent = 'See How It Works!')}
-            onMouseOut={e => (e.currentTarget.textContent = 'Learn More →')}
           >
-            Learn More →
+            Learn More
           </a>
           <a
-            href="https://apexnurture.com/get-started" // Replace with your form link
-            className="cta-btn px-8 py-3 rounded-full font-bold text-white text-lg bg-gradient-to-r from-purple-700 to-cyan-400 shadow-lg transition-transform duration-200 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-purple-500 pulse-cta animate-glow-bg-cta"
+            href="https://apexnurture.com/get-started"
+            className="cta-btn px-10 py-3 rounded-full font-bold text-white text-lg bg-gradient-to-r from-cyan-400 via-purple-600 to-purple-800 shadow-xl transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-cyan-400"
             aria-label="Get started with Precision AI Implementation Program"
-            onMouseOver={e => (e.currentTarget.textContent = 'See How It Works!')}
-            onMouseOut={e => (e.currentTarget.textContent = 'Get Started Immediately')}
           >
             Get Started Immediately
           </a>
         </div>
       </div>
-      {/* Inline critical CSS for flip cards, orbit, slider, testimonial 3D */}
-      <style>{`
-        .flip-card { perspective: 1000px; }
+      <style>
+        {`.flip-card { perspective: 1000px; }
         .flip-card-inner { position: relative; width: 100%; height: 180px; transform-style: preserve-3d; }
         .flip-card.flipped .flip-card-inner, .flip-card-inner.flipped { transform: rotateY(180deg); }
         .flip-card-front, .flip-card-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; }
@@ -241,3 +236,6 @@ export const BriefOverview: React.FC = () => {
 };
 
 export default BriefOverview;
+          
+
+// Note: The above code is a React functional component that implements a brief overview section for an AI implementation program. It includes features like a typewriter effect, flip cards, a savings calculator, and a countdown timer. The component is styled with Tailwind CSS and custom styles for animations and effects.
