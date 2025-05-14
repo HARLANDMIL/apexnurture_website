@@ -15,110 +15,35 @@ const ParticleBackground = () => {
   return (
     <Particles
       id="tsparticles"
-      className="fixed inset-0 w-full h-full"
+      className="absolute inset-0 w-full h-full"
       init={particlesInit}
       loaded={particlesLoaded}
       options={{
-        fullScreen: {
-          enable: true,
-          zIndex: 0
-        },
-        background: {
-          color: {
-            value: "transparent",
-          },
-        },
-        fpsLimit: 120,
+        fullScreen: { enable: false },
+        background: { color: { value: "transparent" } },
+        fpsLimit: 60,
         particles: {
-          color: {
-            value: "#ffffff",
-          },
-          links: {
-            color: "#ffffff",
-            distance: 150,
-            enable: true,
-            opacity: 0.2,
-            width: 1,
-          },
-          collisions: {
-            enable: true,
-          },
+          color: { value: "#ffffff" },
+          number: { value: 10, density: { enable: true, area: 800 } },
+          opacity: { value: 0.15, random: true },
+          size: { value: { min: 2, max: 4 }, random: true },
           move: {
             enable: true,
-            speed: 1,
+            speed: 0.5,
             direction: "none",
             random: true,
             straight: false,
-            outModes: {
-              default: "bounce",
-            },
-            attract: {
-              enable: true,
-              rotateX: 600,
-              rotateY: 1200,
-            },
+            outModes: { default: "out" },
           },
-          number: {
-            density: {
-              enable: true,
-              area: 800,
-            },
-            value: 80,
-          },
-          opacity: {
-            value: 0.2,
-            random: true,
-            animation: {
-              enable: true,
-              speed: 1,
-              minimumValue: 0.1,
-              sync: false,
-            },
-          },
-          shape: {
-            type: ["circle", "triangle", "polygon"],
-            options: {
-              polygon: {
-                sides: 6,
-              },
-            },
-          },
-          size: {
-            value: { min: 1, max: 3 },
-            random: true,
-            animation: {
-              enable: true,
-              speed: 2,
-              minimumValue: 0.1,
-              sync: false,
-            },
-          },
+          shape: { type: "circle" },
         },
         detectRetina: true,
         interactivity: {
           detectsOn: "canvas",
           events: {
-            onHover: {
-              enable: true,
-              mode: "connect",
-            },
-            onClick: {
-              enable: true,
-              mode: "push",
-            },
+            onHover: { enable: false, mode: "repulse" },
+            onClick: { enable: false, mode: "push" },
             resize: true,
-          },
-          modes: {
-            connect: {
-              distance: 200,
-              links: {
-                opacity: 0.2,
-              },
-              radius: 120,
-            },
-            push: {
-              quantity: 4,
-            },
           },
         },
       }}

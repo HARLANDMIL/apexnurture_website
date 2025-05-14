@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import Navbar from './components/layout/Navbar';
 import Hero from './components/sections/Hero';
 import ProblemSolution from './components/sections/ProblemSolution';
@@ -16,56 +17,66 @@ import TermsOfService from './components/sections/TermsOfService';
 import PrivacyPolicy from './components/sections/PrivacyPolicy';
 import RefundPolicy from './components/sections/RefundPolicy';
 
+// Import the missing AI Suite pages
+import SmartBusinessOps from './sections/SmartBusinessOps';
+import RecruitmentAutomation from './sections/RecruitmentAutomation';
+import LeadToClient from './sections/LeadToClient';
+import BriefOverview from './sections/BriefOverview';
+import PrecisionAIProgram from './sections/PrecisionAIProgram';
+
 function App() {
-  // Handle scroll animations
+  // Handle fade-in on scroll for .fade-in-on-scroll
   useEffect(() => {
-    const handleScroll = () => {
-      const elements = document.querySelectorAll('.animate-on-scroll');
-      elements.forEach((element) => {
-        const position = element.getBoundingClientRect();
-        
-        // If element is in viewport
-        if (position.top < window.innerHeight * 0.85) {
-          element.classList.add('active');
-        }
-      });
-    };
-    
-    // Initial check
-    handleScroll();
-    
-    // Add scroll event listener
-    window.addEventListener('scroll', handleScroll);
-    
+    const observer = new window.IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+    const elements = document.querySelectorAll('.fade-in-on-scroll');
+    elements.forEach((el) => observer.observe(el));
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      elements.forEach((el) => observer.unobserve(el));
     };
   }, []);
     return (
-    <Router>
-      <ParticleBackground />
-      <div className="relative min-h-screen bg-gradient-to-br from-background-start via-background-mid to-background-end">
-        <Navbar />        <Routes>          <Route path="/terms" element={<TermsOfService />} />
-          <Route path="/privacy" element={<PrivacyPolicy />} />
-          <Route path="/refund" element={<RefundPolicy />} />
-          <Route path="/" element={
-            <>
-              <Hero />
-              <ProblemSolution />
-              <HowItWorks />
-              <Services />
-              <Testimonials />
-              <Pricing />
-              <SuccessStories />
-              <BookACall />
-              <FAQ />
-            </>
-          } />
-        </Routes>
-        <Footer />
-      </div>
-    </Router>
-  );
+      <Router>
+        <ParticleBackground />
+        <div className="relative min-h-screen bg-gradient-to-br from-background-start via-background-mid to-background-end">
+          <Navbar />
+          <Routes>
+            <Route path="/terms" element={<TermsOfService />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/refund" element={<RefundPolicy />} />
+            {/* Add AI Suite routes */}
+            <Route path="/business-ops" element={<SmartBusinessOps />} />
+            <Route path="/recruitment-automation" element={<RecruitmentAutomation />} />
+            <Route path="/lead-to-client" element={<LeadToClient />} />
+            <Route path="/precision-ai-program" element={<PrecisionAIProgram />} />
+            <Route path="/" element={
+              <>
+                <Hero />
+                <ProblemSolution />
+                <HowItWorks />
+                <Services />
+                <Testimonials />
+                <Pricing />
+                <BriefOverview />
+                <SuccessStories />
+                <BookACall />
+                <FAQ />
+              </>
+            } />
+          </Routes>
+          <Footer />
+        </div>
+      </Router>
+    );
 }
 
 export default App;
