@@ -1,8 +1,8 @@
-import './SmartBusinessOps.css';
+
 
 const SmartBusinessOps = () => {
   return (
-    <div className="smart-business-ops">
+    <div className="smart-business-ops px-4 py-8 max-w-3xl mx-auto">
       <header className="hero">
         <h1>Reclaim 20+ Hours a Week with AI Automation</h1>
         <p>Run Your SMB Smarter—Save 20+ Hours a Week</p>

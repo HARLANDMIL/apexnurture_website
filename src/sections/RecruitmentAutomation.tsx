@@ -1,8 +1,8 @@
-import './RecruitmentAutomation.css';
+
 
 const RecruitmentAutomation = () => {
   return (
-    <div className="recruitment-automation">
+    <div className="recruitment-automation px-4 py-8 max-w-3xl mx-auto">
       <header className="hero">
         <h1>Place Top Talent 30% Faster with AI Automation</h1>
         <p>Slash Recruitment Time by 30% Starting Today</p>

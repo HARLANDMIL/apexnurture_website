@@ -1,8 +1,8 @@
-import './LeadToClient.css';
+
 
 const LeadToClient = () => {
   return (
-    <div className="lead-to-client">
+    <div className="lead-to-client px-4 py-8 max-w-3xl mx-auto">
       <header className="hero">
         <h1>Fill Your Calendar with High-Value Clients in 7 Days</h1>
         <p>Stop Chasing Leads—Book 3× More Sales Calls with AI</p>
