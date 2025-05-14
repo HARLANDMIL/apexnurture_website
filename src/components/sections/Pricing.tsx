@@ -142,6 +142,7 @@ const Pricing: React.FC = () => {
         </div>
 
         {/* Custom AI Development */}
+        {/*}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -202,7 +203,7 @@ const Pricing: React.FC = () => {
               </div>
             </div>
           </div>
-        </motion.div>
+        </motion.div> /*}
 
         {/* Trust Signal */}
         <div className="text-center mt-12 text-gray-300">
