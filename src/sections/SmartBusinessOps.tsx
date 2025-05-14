@@ -1,13 +1,6 @@
-import React, { useEffect } from 'react';
 import './SmartBusinessOps.css';
-import { enforceAccessControl } from '../utils/accessControl';
 
 const SmartBusinessOps = () => {
-  // Enforce access control on page load
-  useEffect(() => {
-    enforceAccessControl();
-  }, []);
-
   return (
     <div className="smart-business-ops">
       <header className="hero">

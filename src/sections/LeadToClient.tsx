@@ -1,13 +1,6 @@
-import React, { useEffect } from 'react';
 import './LeadToClient.css';
-import { enforceAccessControl } from '../utils/accessControl';
 
 const LeadToClient = () => {
-  // Enforce access control on page load
-  useEffect(() => {
-    enforceAccessControl();
-  }, []);
-
   return (
     <div className="lead-to-client">
       <header className="hero">

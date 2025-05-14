@@ -1,13 +1,6 @@
-import React, { useEffect } from 'react';
 import './RecruitmentAutomation.css';
-import { enforceAccessControl } from '../utils/accessControl';
 
 const RecruitmentAutomation = () => {
-  // Enforce access control on page load
-  useEffect(() => {
-    enforceAccessControl();
-  }, []);
-
   return (
     <div className="recruitment-automation">
       <header className="hero">
