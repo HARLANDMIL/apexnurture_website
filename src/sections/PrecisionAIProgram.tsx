@@ -79,14 +79,18 @@ const PrecisionAIProgram: React.FC = () => {
 
   // Referrer check for access control (only allow from homepage, nav, or pricing links)
   useEffect(() => {
-    const ref = document.referrer;
-    if (
-      !ref.includes('apexnurture.com') &&
-      !ref.includes('lead-to-client') &&
-      !ref.includes('recruitment-automation') &&
-      !ref.includes('business-ops')
-    ) {
-      window.location.href = 'https://www.apexnurture.com';
+    // Only run access control in the browser (not during SSR or static build)
+    if (typeof window !== 'undefined' && typeof document !== 'undefined') {
+      const ref = document.referrer;
+      if (
+        ref &&
+        !ref.includes('apexnurture.com') &&
+        !ref.includes('lead-to-client') &&
+        !ref.includes('recruitment-automation') &&
+        !ref.includes('business-ops')
+      ) {
+        window.location.href = 'https://www.apexnurture.com';
+      }
     }
   }, []);
 
