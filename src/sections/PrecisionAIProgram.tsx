@@ -81,16 +81,15 @@ const PrecisionAIProgram: React.FC = () => {
   useEffect(() => {
     // Only run access control in the browser (not during SSR or static build)
     if (typeof window !== 'undefined' && typeof document !== 'undefined') {
+      // Allow direct navigation if user is already on the site (SPA navigation)
+      // Only block if there is a referrer and it's from a different domain
       const ref = document.referrer;
-      if (
-        ref &&
-        !ref.includes('apexnurture.com') &&
-        !ref.includes('lead-to-client') &&
-        !ref.includes('recruitment-automation') &&
-        !ref.includes('business-ops')
-      ) {
+      const isInternal = ref && (ref.includes('apexnurture.com') || ref.includes('lead-to-client') || ref.includes('recruitment-automation') || ref.includes('business-ops'));
+      // If there is a referrer and it's NOT internal, block
+      if (ref && !isInternal) {
         window.location.href = 'https://www.apexnurture.com';
       }
+      // If there is NO referrer, allow (user typed URL, SPA, or bookmark)
     }
   }, []);
 
