@@ -22,9 +22,12 @@ const SectionTitle: React.FC<SectionTitleProps> = ({
       transition={{ duration: 0.5 }}
       className={`mb-12 ${centered ? 'text-center' : ''} ${className}`}
     >
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 font-orbitron text-gradient">
-        {title}
-      </h2>
+      <div className="relative inline-block">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 font-orbitron text-gradient">
+          {title}
+        </h2>
+        <div className="w-full h-2 rounded-full bg-gradient-to-r from-purple-700 via-blue-400 to-cyan-400 opacity-80 absolute left-0 bottom-0" style={{height: '8px', marginTop: '-12px'}}></div>
+      </div>
       {subtitle && (
         <p className="text-lg text-gray-300 max-w-3xl mx-auto">
           {subtitle}

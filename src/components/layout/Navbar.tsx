@@ -49,8 +49,16 @@ const Navbar: React.FC = () => {
       name: 'Smart Business Ops', 
       href: '/business-ops',
       description: 'Automate ops and save time'
+    },
+    // Add more suites as needed
+    { 
+      name: 'Precision AI Program', 
+      href: '/precision-ai-program',
+      description: 'Tailored AI solutions for your business'
     }
   ];
+
+  // Add more suites as needed
 
   return (
     <motion.nav
@@ -64,7 +72,7 @@ const Navbar: React.FC = () => {
       <div className="container mx-auto px-4 md:px-8">
         <div className="flex justify-between items-center gap-4 md:gap-8">
           <a href="/" className="flex items-center gap-2">
-            <Cpu className="h-8 w-8 text-primary" />
+            {/* <Cpu className="h-8 w-8 text-primary" /> */}
             <span className="font-orbitron font-bold text-xl md:text-2xl">Apex Nurture</span>
           </a>
 

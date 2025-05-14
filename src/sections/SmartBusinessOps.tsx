@@ -14,6 +14,8 @@ const SmartBusinessOps = () => {
 
   return (
     <div className="min-h-screen w-full flex flex-col items-center justify-center px-2 py-10 bg-gradient-to-b from-[#0F0C29] via-[#302B63] to-[#24243E] relative overflow-hidden">
+      {/* Spacer after navbar for ultra-modern look */}
+      <div className="h-8 md:h-16" />
       {/* HERO SECTION */}
       <header className="w-full max-w-3xl mx-auto text-center mb-12 relative z-10">
         <h1 className="font-orbitron font-bold text-white text-4xl md:text-5xl mb-4 neon-glow">Reclaim 20+ Hours a Week with AI Automation</h1>

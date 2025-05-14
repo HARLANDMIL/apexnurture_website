@@ -36,21 +36,22 @@ const phases = [
   },
 ];
 
-export const PrecisionAIProgram: React.FC = () => {
+const PrecisionAIProgram: React.FC = () => {
   const [timeLeft, setTimeLeft] = useState(getTimeRemaining());
 
   // Referrer check for access control
   useEffect(() => {
-    const allowed = [
-      "apexnurture.com",
-      "lead-to-client",
-      "recruitment-automation",
-      "business-ops",
-    ];
-    const ref = document.referrer;
-    if (!allowed.some((a) => ref.includes(a))) {
-      window.location.href = "https://www.apexnurture.com";
-    }
+    // Commented out access control for debugging/visibility
+    // const allowed = [
+    //   "apexnurture.com",
+    //   "lead-to-client",
+    //   "recruitment-automation",
+    //   "business-ops",
+    // ];
+    // const ref = document.referrer;
+    // if (!allowed.some((a) => ref.includes(a))) {
+    //   window.location.href = "https://www.apexnurture.com";
+    // }
   }, []);
 
   // Countdown timer

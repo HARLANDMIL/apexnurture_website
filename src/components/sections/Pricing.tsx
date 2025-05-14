@@ -16,6 +16,7 @@ const Pricing: React.FC = () => {
   const suites = [
     {
       name: "Lead-to-Client Conversion AI Suite",
+      cardTitle: "Lead Gen Suite",
       accentColor: "from-[#800080] to-[#00FFFF]",
       badge: { text: "Most Popular", color: "bg-[#00FFFF] text-[#0F0C29] animate-pulse" },
       price: 2500,
@@ -38,6 +39,7 @@ const Pricing: React.FC = () => {
     },
     {
       name: "AI Recruitment Automation Suite",
+      cardTitle: "Recruitment Suite",
       accentColor: "from-[#00FF00] to-[#FFFFFF]",
       badge: { text: "Best Value", color: "bg-[#00FF00] text-[#0F0C29] animate-pulse" },
       price: 3000,
@@ -60,6 +62,7 @@ const Pricing: React.FC = () => {
     },
     {
       name: "Smart Business Ops Suite",
+      cardTitle: "Business Ops Suite",
       accentColor: "from-[#800080] to-[#00FFFF]",
       badge: { text: "All-in-One", color: "bg-[#FF69B4] text-[#0F0C29] animate-pulse" },
       price: 3500,
@@ -108,6 +111,10 @@ const Pricing: React.FC = () => {
               </div>
               {/* Card */}
               <div className="h-full glassmorphism-container border border-white/10 hover:border-white/20 transition-all duration-300 flex flex-col p-6 rounded-2xl shadow-lg">
+                {/* Card Title */}
+                <div className="text-center mb-2">
+                  <span className="inline-block text-base font-bold text-white bg-gradient-to-r from-purple-700 to-cyan-400 px-4 py-1 rounded-full mb-2" style={{ fontFamily: 'Orbitron, sans-serif', letterSpacing: 1 }}>{suite.cardTitle}</span>
+                </div>
                 {/* Header */}
                 <div className="text-center mb-6">
                   <div className={`w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-r ${suite.accentColor} bg-opacity-10 flex items-center justify-center`}>{suite.icon}</div>
@@ -220,29 +227,7 @@ const Pricing: React.FC = () => {
           </div>
         </motion.div> /*}
 
-        {/* Final CTA Section */}
-        <div className="glassmorphism-container p-10 rounded-2xl shadow-lg flex flex-col items-center justify-center mb-8 animate-glow-bg-cta">
-          <h3 className="text-2xl md:text-3xl font-bold text-white text-center orbitron-glow mb-2" style={{ fontFamily: 'Orbitron, sans-serif' }}>
-            Not Sure Which AI Suite Fits Your Business?
-          </h3>
-          <p className="text-lg text-gray-300 text-center mb-4 max-w-xl" style={{ fontFamily: 'Poppins, sans-serif' }}>
-            Get a Free AI Audit to Find the Perfect Solution for You.
-          </p>
-          <a
-            href="https://apexnurture.com/book-call"
-            className="cta-btn px-10 py-4 rounded-full font-bold text-white text-lg bg-gradient-to-r from-purple-700 to-cyan-400 shadow-lg transition-transform duration-200 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-purple-500 pulse-cta mb-4"
-            aria-label="Book a Free Call"
-            tabIndex={0}
-          >
-            Book a Free Call
-          </a>
-          <div className="border-2 border-orange-400 p-4 rounded-xl text-white text-center font-bold animate-pulse-urgency mb-2 mt-2" style={{ fontFamily: 'Poppins, sans-serif' }}>
-            Only 5 Spots Left This Month!<br />
-            <span className="block mt-2 text-lg" id="pricing-timer">
-              {/* Timer will be rendered here by JS below */}
-            </span>
-          </div>
-        </div>
+       {/* Final CTA Section removed as per user request */}
         {/* Trust Signal */}
         <div className="flex flex-col md:flex-row items-center gap-4 justify-center text-center mt-6 text-white" style={{ fontFamily: 'Poppins, sans-serif' }}>
           <span>Trusted by 100+ businesses in SA and UAE. Results in 14–30 days or your money back.</span>

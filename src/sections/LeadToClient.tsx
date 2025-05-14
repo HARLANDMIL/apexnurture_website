@@ -15,6 +15,8 @@ const LeadToClient = () => {
 
   return (
     <div className="min-h-screen w-full flex flex-col items-center justify-center px-2 py-10 bg-gradient-to-b from-[#0F0C29] via-[#302B63] to-[#24243E] relative overflow-hidden">
+      {/* Spacer after navbar for ultra-modern look */}
+      <div className="h-8 md:h-16" />
       {/* Particle effect is handled globally */}
       {/* HERO SECTION */}
       <header className="w-full max-w-3xl mx-auto text-center mb-12 relative z-10">
