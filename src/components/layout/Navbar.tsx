@@ -33,6 +33,7 @@ const Navbar: React.FC = () => {
     { name: 'Contact', href: '#contact' },
   ];
 
+  // Updated suiteLinks to include the new AI Suite pages
   const suiteLinks = [
     { 
       name: 'Lead-to-Client Conversion', 
@@ -48,11 +49,6 @@ const Navbar: React.FC = () => {
       name: 'Smart Business Ops', 
       href: '/business-ops',
       description: 'Automate ops and save time'
-    },
-    { 
-      name: 'Custom AI Solutions', 
-      href: '/custom-ai-solutions',
-      description: 'Tailored AI for your unique needs'
     }
   ];
 
