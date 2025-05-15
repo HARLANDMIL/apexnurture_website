@@ -18,6 +18,7 @@ import PrivacyPolicy from './components/sections/PrivacyPolicy';
 import RefundPolicy from './components/sections/RefundPolicy';
 
 // Import the missing AI Suite pages
+
 import SmartBusinessOps from './sections/SmartBusinessOps';
 import RecruitmentAutomation from './sections/RecruitmentAutomation';
 import LeadToClient from './sections/LeadToClient';
@@ -65,7 +66,6 @@ function App() {
                 <Services />
                 <Testimonials />
                 <Pricing />
-                <BriefOverview />
                 <SuccessStories />
                 <BookACall />
                 <FAQ />
