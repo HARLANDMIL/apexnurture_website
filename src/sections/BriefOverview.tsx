@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from "react";
 import "../index.css";
 import ParticleBackground from "../components/ui/ParticleBackground";
@@ -6,7 +5,7 @@ import ParticleBackground from "../components/ui/ParticleBackground";
 const highlights = [
   {
     icon: "fa-search",
-    title: "Audit Your Workflows in 7 Days",
+    title: "AI Growth Blueprint™",
     back: "Identify $5,000+ in Savings or Revenue Opportunities."
   },
   {
@@ -48,7 +47,7 @@ const BriefOverview: React.FC = () => {
   const [showResult, setShowResult] = useState(false);
 
   // Countdown timer
-  const deadline = new Date("2025-05-16T15:06:00+02:00").getTime();
+  const deadline = new Date("2025-05-17T09:49:00+02:00").getTime();
   const [timeLeft, setTimeLeft] = useState({ days: 2, hours: 0, minutes: 0 });
   useEffect(() => {
     const update = () => {
@@ -56,7 +55,7 @@ const BriefOverview: React.FC = () => {
       const total = deadline - now;
       const days = Math.max(0, Math.floor(total / (1000 * 60 * 60 * 24)));
       const hours = Math.max(0, Math.floor((total / (1000 * 60 * 60)) % 24));
-      const minutes = Math.max(0, Math.floor((total / (1000 * 60)) % 60));
+      const minutes = Math.max(0, Math.floor((total / 1000 / 60) % 60));
       setTimeLeft({ days, hours, minutes });
     };
     update();
@@ -76,21 +75,27 @@ const BriefOverview: React.FC = () => {
       className="brief-overview relative flex justify-center items-center py-16 px-4 md:px-0 fade-in-on-scroll"
       style={{ background: "linear-gradient(to bottom, #0F0C29, #302B63, #24243E)" }}
     >
-      {/* Particle Background (orbiting 5 purple dots) */}
+      {/* Particle Background */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <ParticleBackground />
-        {/* Custom orbiting dots for extra effect */}
+        {/* Orbiting dots */}
         <div className="absolute w-full h-full top-0 left-0 flex justify-center items-center">
           {[...Array(5)].map((_, i) => (
             <span
               key={i}
-              className={`absolute w-4 h-4 rounded-full bg-purple-500 opacity-30 animate-orbit orbit-${i}`}
+              className={`absolute w-4 h-4 rounded-full bg-purple-500 opacity-20 animate-orbit orbit-${i}`}
               style={{ animationDuration: "15s" }}
             ></span>
           ))}
         </div>
       </div>
+
       <div className="relative z-10 w-full max-w-4xl glassmorphism-container flex flex-col items-center p-10 md:p-16 rounded-2xl shadow-lg">
+        {/* Robot Icon */}
+        <div className="text-4xl text-purple-500 mb-4 animate-spin-slow">
+          <i className="fa fa-robot" style={{ filter: "drop-shadow(0 0 5px rgba(128, 0, 128, 0.5))" }}></i>
+        </div>
+
         {/* Headline with typewriter */}
         <h2
           className="text-[28px] md:text-[32px] font-bold text-white text-center orbitron-glow mb-2 typewriter"
@@ -98,19 +103,22 @@ const BriefOverview: React.FC = () => {
         >
           {typed}
         </h2>
-        {/* Neon badge */}
+
+        {/* Program Badge */}
         <div className="mb-4">
           <span className="inline-block px-4 py-1 text-white text-[16px] font-bold border-2 border-purple-500 neon-glow-badge rounded-full animate-glow-3s" style={{ fontFamily: 'Poppins, sans-serif' }}>
             Precision AI Implementation Program
           </span>
         </div>
-        {/* Subheadline */}
+
+        {/* Description */}
         <p
           className="text-[16px] md:text-[18px] text-gray-300 text-center mb-8 max-w-2xl"
           style={{ fontFamily: 'Poppins, sans-serif' }}
         >
-          Let us audit your business and deploy AI agents that save time, boost revenue, and cut costs—in just 14 days.
+          The Precision AI Implementation Program audits your business, deploys custom AI agents, and optimizes for results in just 14 days. Save time, boost revenue, and cut costs—guaranteed.
         </p>
+
         {/* Flip Cards */}
         <div className="flex flex-col md:flex-row gap-6 w-full justify-center mb-8">
           {highlights.map((item, idx) => (
@@ -136,7 +144,8 @@ const BriefOverview: React.FC = () => {
             </div>
           ))}
         </div>
-        {/* ROI Teaser Calculator */}
+
+        {/* ROI Calculator */}
         <div className="w-full flex flex-col items-center mb-8">
           <div className="text-white font-bold mb-2" style={{ fontFamily: 'Poppins, sans-serif' }}>
             How Much Can You Save? Slide to See!
@@ -157,8 +166,35 @@ const BriefOverview: React.FC = () => {
             {hours} Hours/Week = ${calcSavings(hours).toLocaleString()} / Month Saved
           </div>
         </div>
+
+        {/* Urgency Element */}
+        <div className="border-2 border-orange-400 p-6 rounded-xl text-white text-center font-bold animate-pulse-urgency mb-6" style={{ fontFamily: 'Poppins, sans-serif' }}>
+          Limited Spots Available—Join Before They're Gone!<br />
+          <span className="block mt-2 text-lg">
+            Offer Ends in {timeLeft.days} Days, {timeLeft.hours} Hours, {timeLeft.minutes} Minutes!
+          </span>
+        </div>
+
+        {/* CTA Buttons */}
+        <div className="flex flex-col md:flex-row gap-4 justify-center items-center w-full mt-2">
+          <a
+            href="/precision-ai-program"
+            className="cta-btn px-10 py-3 rounded-full font-bold text-white text-lg bg-gradient-to-r from-purple-800 via-purple-600 to-cyan-400 shadow-xl transition-transform duration-200 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-purple-500 animate-pulse"
+            aria-label="Get started immediately with Precision AI Implementation Program"
+          >
+            Get Started IMMEDIATELY
+          </a>
+          <a
+            href="/precision-ai-program#learn-more"
+            className="text-gray-300 hover:text-white underline decoration-purple-500 hover:decoration-white transition-all duration-300"
+            aria-label="Learn more about Precision AI Implementation Program"
+          >
+            Learn More
+          </a>
+        </div>
+
         {/* Trust Signals */}
-        <div className="flex flex-col md:flex-row items-center gap-6 justify-center mb-8 w-full">
+        <div className="flex flex-col md:flex-row items-center gap-6 justify-center mt-8 w-full">
           <div className="flex items-center gap-2 text-white" style={{ fontFamily: 'Poppins, sans-serif' }}>
             <span>Trusted by 150+ Businesses in SA & UAE.</span>
             {showFlag ? (
@@ -167,42 +203,11 @@ const BriefOverview: React.FC = () => {
               <img src="https://flagcdn.com/ae.svg" alt="UAE" width={28} height={18} loading="lazy" className="rounded shadow-md transition-opacity duration-1000" />
             )}
           </div>
-          <div className="flex items-center gap-2 text-white">
-            <span className="inline-block text-purple-400 neon-glow-badge px-4 py-1 rounded-full border border-purple-500 font-bold" style={{ fontFamily: 'Orbitron, sans-serif' }}>
-              <i className="fa fa-certificate mr-2"></i>Featured in Tech Africa News
-            </span>
-          </div>
-          <div className="glassmorphism-card p-4 text-white text-center font-bold testimonial-3d" style={{ fontFamily: 'Poppins, sans-serif', transition: 'transform 0.3s' }}>
-            “Saved 10 hours a week in the first month!” <span className="text-purple-300">– John, SA SMB Owner</span>
-          </div>
-        </div>
-        {/* Urgency Element */}
-        <div className="border-2 border-orange-400 p-6 rounded-xl text-white text-center font-bold animate-pulse-urgency mb-6" style={{ fontFamily: 'Poppins, sans-serif' }}>
-          Only 5 Spots Left This Month for 10% Off!<br />
-          <span className="block mt-2 text-lg">
-            Offer Ends in {timeLeft.days} Days, {timeLeft.hours} Hours, {timeLeft.minutes} Minutes!
-          </span>
-        </div>
-        {/* CTA Buttons */}
-        <div className="flex flex-col md:flex-row gap-4 justify-center items-center w-full mt-2">
-          <a
-            href="/precision-ai-program"
-            className="cta-btn px-10 py-3 rounded-full font-bold text-white text-lg bg-gradient-to-r from-purple-800 via-purple-600 to-cyan-400 shadow-xl transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500"
-            aria-label="Learn more about Precision AI Implementation Program"
-          >
-            Learn More
-          </a>
-          <a
-            href="https://apexnurture.com/get-started"
-            className="cta-btn px-10 py-3 rounded-full font-bold text-white text-lg bg-gradient-to-r from-cyan-400 via-purple-600 to-purple-800 shadow-xl transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-cyan-400"
-            aria-label="Get started with Precision AI Implementation Program"
-          >
-            Get Started Immediately
-          </a>
         </div>
       </div>
-      <style>
-        {`.flip-card { perspective: 1000px; }
+
+      <style jsx>{`
+        .flip-card { perspective: 1000px; }
         .flip-card-inner { position: relative; width: 100%; height: 180px; transform-style: preserve-3d; }
         .flip-card.flipped .flip-card-inner, .flip-card-inner.flipped { transform: rotateY(180deg); }
         .flip-card-front, .flip-card-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; }
@@ -212,7 +217,6 @@ const BriefOverview: React.FC = () => {
         .slider-glass::-moz-range-thumb { width: 24px; height: 24px; border-radius: 50%; background: #fff; border: 2px solid #800080; box-shadow: 0 0 10px #80008088; cursor: pointer; }
         .slider-glass::-ms-thumb { width: 24px; height: 24px; border-radius: 50%; background: #fff; border: 2px solid #800080; box-shadow: 0 0 10px #80008088; cursor: pointer; }
         .slider-glass:focus { outline: 2px solid #800080; }
-        .testimonial-3d:hover { transform: rotateY(10deg) scale(1.05); }
         .typewriter { border-right: 2px solid #fff; white-space: nowrap; overflow: hidden; }
         @keyframes orbit0 { 0% { transform: rotate(0deg) translateX(120px) rotate(0deg); } 100% { transform: rotate(360deg) translateX(120px) rotate(-360deg); } }
         @keyframes orbit1 { 0% { transform: rotate(72deg) translateX(120px) rotate(0deg); } 100% { transform: rotate(432deg) translateX(120px) rotate(-360deg); } }
@@ -236,6 +240,3 @@ const BriefOverview: React.FC = () => {
 };
 
 export default BriefOverview;
-          
-
-// Note: The above code is a React functional component that implements a brief overview section for an AI implementation program. It includes features like a typewriter effect, flip cards, a savings calculator, and a countdown timer. The component is styled with Tailwind CSS and custom styles for animations and effects.
