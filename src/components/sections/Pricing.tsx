@@ -146,15 +146,27 @@ const Pricing: React.FC = () => {
                   ))}
                 </div>
                 {/* CTAs */}
-                <a
-                  href={suite.cta.href}
-                  className={`w-full block text-center px-6 py-3 rounded-full font-bold text-white text-lg bg-gradient-to-r ${suite.cta.color} shadow-lg transition-transform duration-200 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-purple-500 pulse-cta mb-2`}
-                  aria-label={`Get started with ${suite.name}`}
-                  tabIndex={0}
-                >
-                  {suite.cta.text}
-                </a>
-                <div className="flex justify-between items-center mt-2">
+                <div className="flex flex-col gap-3 mt-2">
+                  <a
+                    href={suite.cta.href}
+                    className={`w-full block text-center px-6 py-3 rounded-full font-bold text-white text-lg bg-gradient-to-r ${suite.cta.color} shadow-xl transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-cyan-400/40 ultra-cta-glow pulse-cta mb-1`}
+                    aria-label={`Get started with ${suite.name}`}
+                    tabIndex={0}
+                    style={{ letterSpacing: 1.2, fontFamily: 'Poppins, Orbitron, sans-serif', fontWeight: 700, fontSize: 20 }}
+                  >
+                    Get Started Now
+                  </a>
+                  <a
+                    href={suite.href}
+                    className="w-full faded-cta-btn text-center px-6 py-3 rounded-full font-bold text-white text-lg bg-gradient-to-r from-white/5 to-white/10 border border-white/20 hover:bg-gradient-to-r hover:from-purple-700/30 hover:to-cyan-400/20 hover:border-purple-400 hover:text-purple-200 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 backdrop-blur-md flex items-center justify-center gap-2 ultra-cta-fade"
+                    style={{ fontFamily: 'Poppins, sans-serif', letterSpacing: 0.5 }}
+                    aria-label={`See more info about ${suite.name}`}
+                    tabIndex={0}
+                  >
+                    <span className="opacity-80"><i className="fa fa-info-circle mr-2 text-purple-300 text-xl" aria-hidden="true"></i>See Info</span>
+                  </a>
+                </div>
+                <div className="flex justify-between items-center mt-3">
                   <a href={suite.miniCta.href} className="text-sm text-gray-300 underline hover:text-purple-400 transition-colors" style={{ fontFamily: 'Poppins, sans-serif' }}>{suite.miniCta.text}</a>
                   <a href={suite.calculator.href} className="text-sm text-gray-300 underline hover:text-purple-400 transition-colors animate-glow-underline" style={{ fontFamily: 'Poppins, sans-serif' }}>{suite.calculator.text}</a>
                 </div>
@@ -236,6 +248,32 @@ const Pricing: React.FC = () => {
             <img src="https://flagcdn.com/ae.svg" alt="UAE" width={28} height={18} loading="lazy" className="inline rounded shadow-md mx-1 transition-opacity duration-1000" />
           </span>
         </div>
+      {/* Inline style for faded CTA button */}
+      <style>{`
+        .faded-cta-btn {
+          box-shadow: 0 2px 24px 0 rgba(128,0,128,0.10);
+          transition: background 0.2s, color 0.2s, border 0.2s, box-shadow 0.2s, transform 0.2s;
+          filter: blur(0.1px) saturate(1.1);
+        }
+        .faded-cta-btn:hover, .faded-cta-btn:focus {
+          background: linear-gradient(90deg, #a259ff22 0%, #00ffff22 100%);
+          color: #a259ff;
+          border-color: #a259ff;
+          box-shadow: 0 4px 32px 0 #a259ff55, 0 0 0 2px #00ffff33;
+          transform: scale(1.045);
+        }
+        .ultra-cta-glow {
+          box-shadow: 0 0 32px 4px #a259ff55, 0 0 8px 2px #00ffff55;
+          animation: ultra-glow 2.5s ease-in-out infinite alternate;
+        }
+        @keyframes ultra-glow {
+          0% { box-shadow: 0 0 16px 2px #a259ff55, 0 0 4px 1px #00ffff33; }
+          100% { box-shadow: 0 0 48px 8px #a259ff99, 0 0 16px 4px #00ffff99; }
+        }
+        .ultra-cta-fade {
+          filter: blur(0.1px) brightness(1.08);
+        }
+      `}</style>
       </div>
     </section>
   );
