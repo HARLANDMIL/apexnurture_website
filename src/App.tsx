@@ -8,6 +8,7 @@ import HowItWorks from './components/sections/HowItWorks';
 import Testimonials from './components/sections/Testimonials';
 import Services from './components/sections/Services';
 import Pricing from './components/sections/Pricing';
+import PrecisionAICard from './sections/PrecisionAICard';
 import SuccessStories from './components/sections/SuccessStories';
 import BookACall from './components/sections/BookACall';
 import FAQ from './components/sections/FAQ';
@@ -16,14 +17,6 @@ import ParticleBackground from './components/ui/ParticleBackground';
 import TermsOfService from './components/sections/TermsOfService';
 import PrivacyPolicy from './components/sections/PrivacyPolicy';
 import RefundPolicy from './components/sections/RefundPolicy';
-
-// Import the missing AI Suite pages
-import SmartBusinessOps from './sections/SmartBusinessOps';
-import RecruitmentAutomation from './sections/RecruitmentAutomation';
-import LeadToClient from './sections/LeadToClient';
-import BriefOverview from './sections/BriefOverview';
-import PrecisionAIProgram from './sections/PrecisionAIProgram';
-import PrecisionAICard from './sections/PrecisionAICard';
 
 function App() {
   // Handle fade-in on scroll for .fade-in-on-scroll
