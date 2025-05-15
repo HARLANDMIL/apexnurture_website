@@ -44,6 +44,20 @@ const Pricing: React.FC = () => {
     countdownDeadline: new Date('2025-05-17T23:59:59').getTime()
   };
 
+  // Typewriter effect for headline
+  const [typewriter, setTypewriter] = React.useState("");
+  const typewriterText = "Need a Tailored Solution?";
+  React.useEffect(() => {
+    let i = 0;
+    setTypewriter("");
+    const interval = setInterval(() => {
+      setTypewriter((prev) => prev + typewriterText[i]);
+      i++;
+      if (i >= typewriterText.length) clearInterval(interval);
+    }, 60);
+    return () => clearInterval(interval);
+  }, []);
+
   const suites = [
     {
       name: "Lead-to-Client Conversion AI Suite",
@@ -138,40 +152,122 @@ const Pricing: React.FC = () => {
     <section className="py-32 relative overflow-hidden" id="pricing" style={{ background: "linear-gradient(to bottom, #0F0C29, #302B63, #24243E)" }}>
       {/* Particle background can be added here if desired */}
       <div className="container mx-auto px-4 md:px-6">
-        {/* Precision Implementation Suite Horizontal Card */}
-        <div className="w-full flex flex-col md:flex-row items-stretch justify-center mb-16 fade-in-on-scroll">
-          <div className="flex-1 flex flex-col justify-between bg-gradient-to-r from-[#1a1333] to-[#1e2746] rounded-2xl shadow-2xl border border-white/10 p-8 md:mr-8 mb-8 md:mb-0 min-w-[340px] max-w-2xl mx-auto md:mx-0">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-2 orbitron-glow" style={{ fontFamily: 'Orbitron, sans-serif' }}>{precisionSuite.headline}</h2>
-              <div className="text-lg md:text-xl text-purple-200 font-semibold mb-2" style={{ fontFamily: 'Poppins, sans-serif' }}>{precisionSuite.subheadline}</div>
-              <div className="text-base text-gray-300 mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>{precisionSuite.subtext}</div>
-              {/* Steps Inline */}
-              <div className="flex flex-col md:flex-row gap-4 mb-6">
-                {precisionSuite.steps.map((step, i) => (
-                  <div key={i} className="flex flex-row md:flex-col items-center md:items-start gap-2 md:gap-3 flex-1 bg-white/5 rounded-xl p-3 shadow-sm">
-                    <i className={`${step.icon} text-2xl md:text-3xl text-[#a259ff]`} aria-hidden="true"></i>
-                    <div>
-                      <div className="font-bold text-white text-sm md:text-base" style={{ fontFamily: 'Orbitron, sans-serif' }}>{step.title}</div>
-                      <div className="text-xs md:text-sm text-gray-300" style={{ fontFamily: 'Poppins, sans-serif' }}>{step.text}</div>
-                    </div>
+        {/* Removed duplicate section title and subtitle */}
+        <div className="flex flex-col lg:flex-row gap-8 mb-16">
+          {suites.map((suite, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+              className="relative flex-1 min-w-[320px]"
+            >
+              {/* Badge */}
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
+                <div className={`px-4 py-1 rounded-full text-sm font-bold shadow-lg ${suite.badge.color}`}>{suite.badge.text}</div>
+              </div>
+              {/* Card */}
+              <div className="h-full glassmorphism-container border border-white/10 hover:border-white/20 transition-all duration-300 flex flex-col p-6 rounded-2xl shadow-lg">
+                {/* Card Title */}
+                <div className="text-center mb-2">
+                  <span className="inline-block text-base font-bold text-white bg-gradient-to-r from-purple-700 to-cyan-400 px-4 py-1 rounded-full mb-2" style={{ fontFamily: 'Orbitron, sans-serif', letterSpacing: 1 }}>{suite.cardTitle}</span>
+                </div>
+                {/* Header */}
+                <div className="text-center mb-6">
+                  <div className={`w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-r ${suite.accentColor} bg-opacity-10 flex items-center justify-center`}>{suite.icon}</div>
+                  <h3 className="text-2xl font-orbitron font-bold mb-2 orbitron-glow" style={{ fontFamily: 'Orbitron, sans-serif' }}>{suite.headline}</h3>
+                  <p className="text-lg text-gray-300 mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>{suite.keyBenefit}</p>
+                  {/* Pricing */}
+                  <div className="flex flex-col items-center mb-2">
+                    <span className="text-3xl font-orbitron font-bold text-white">${suite.price} <span className="text-base font-normal text-gray-400">one-time</span></span>
+                    <span className="text-base text-gray-400 mt-1">
+                      +${suite.maintenance}/mo optimization
+                      <span className="relative group ml-2">
+                        <span className="underline cursor-help" tabIndex={0} aria-describedby={`maintenance-tooltip-${index}`}>?</span>
+                        <span id={`maintenance-tooltip-${index}`} className="opacity-0 group-hover:opacity-100 transition-opacity absolute left-1/2 -translate-x-1/2 bottom-full mb-2 px-4 py-2 bg-white/10 text-gray-200 rounded-lg border border-purple-500 text-xs w-56 pointer-events-none z-20" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                          Includes updates, retraining, bug fixing, and usage analytics reporting.
+                        </span>
+                      </span>
+                    </span>
                   </div>
-                ))}
+                  <div className="text-sm text-purple-300 font-bold mb-1" style={{ fontFamily: 'Poppins, sans-serif' }}>{suite.roi}</div>
+                  <div className="text-xs text-gray-400 mb-2" style={{ fontFamily: 'Poppins, sans-serif' }}>{suite.social}</div>
+                </div>
+                {/* Features */}
+                <div className="space-y-4 mb-6">
+                  {suite.features.map((feature, i) => (
+                    <div key={i} className="flex items-center gap-3">
+                      <i className={`${feature.icon} text-lg text-purple-400`} aria-hidden="true"></i>
+                      <span className="text-gray-300" style={{ fontFamily: 'Poppins, sans-serif' }}>{feature.text}</span>
+                    </div>
+                  ))}
+                </div>
+                {/* CTAs */}
+                <div className="flex flex-col gap-3 mt-2">
+                  <a
+                    href={suite.cta.href}
+                    className={`w-full block text-center px-6 py-3 rounded-full font-bold text-white text-lg bg-gradient-to-r ${suite.cta.color} shadow-xl transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-cyan-400/40 ultra-cta-glow pulse-cta mb-1`}
+                    aria-label={`Get started with ${suite.name}`}
+                    tabIndex={0}
+                    style={{ letterSpacing: 1.2, fontFamily: 'Poppins, Orbitron, sans-serif', fontWeight: 700, fontSize: 20 }}
+                  >
+                    Get Started Now
+                  </a>
+                  <a
+                    href={suite.href}
+                    className="w-full faded-cta-btn text-center px-6 py-3 rounded-full font-bold text-white text-lg bg-gradient-to-r from-white/5 to-white/10 border border-white/20 hover:bg-gradient-to-r hover:from-purple-700/30 hover:to-cyan-400/20 hover:border-purple-400 hover:text-purple-200 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 backdrop-blur-md flex items-center justify-center gap-2 ultra-cta-fade"
+                    style={{ fontFamily: 'Poppins, sans-serif', letterSpacing: 0.5 }}
+                    aria-label={`See more info about ${suite.name}`}
+                    tabIndex={0}
+                  >
+                    <span className="opacity-80"><i className="fa fa-info-circle mr-2 text-purple-300 text-xl" aria-hidden="true"></i>See Info</span>
+                  </a>
+                </div>
+                <div className="flex justify-between items-center mt-3">
+                  <a href={suite.miniCta.href} className="text-sm text-gray-300 underline hover:text-purple-400 transition-colors" style={{ fontFamily: 'Poppins, sans-serif' }}>{suite.miniCta.text}</a>
+                  <a href={suite.calculator.href} className="text-sm text-gray-300 underline hover:text-purple-400 transition-colors animate-glow-underline" style={{ fontFamily: 'Poppins, sans-serif' }}>{suite.calculator.text}</a>
+                </div>
               </div>
-              {/* Features */}
-              <ul className="mb-6 grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2">
-                {precisionSuite.features.map((feature, i) => (
-                  <li key={i} className="flex items-center gap-2 text-gray-200 text-sm md:text-base"><i className="fa fa-check-circle text-[#00FFFF]" aria-hidden="true"></i>{feature}</li>
-                ))}
-              </ul>
-              {/* Annotations */}
-              <div className="mb-4 flex flex-col md:flex-row gap-2">
-                {precisionSuite.annotations.map((note, i) => (
-                  <span key={i} className="text-xs md:text-sm text-purple-300 font-semibold bg-white/5 rounded px-3 py-1" style={{ fontFamily: 'Poppins, sans-serif' }}>{note}</span>
-                ))}
-              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Precision Implementation Suite Square Card */}
+        <div className="w-full flex flex-col items-center justify-center fade-in-on-scroll mb-16">
+          <div className="w-full max-w-6xl bg-gradient-to-br from-[#1a1333] to-[#1e2746] rounded-3xl shadow-2xl border border-white/10 px-8 py-12 md:px-20 md:py-16 flex flex-col items-center" style={{minHeight:'420px'}}>
+            {/* Typewriter Headline */}
+            <h2 className="text-3xl md:text-5xl font-bold text-white text-center mb-4 orbitron-glow" style={{ fontFamily: 'Orbitron, sans-serif', minHeight: '3.5rem', letterSpacing: 1.2 }}>
+              {typewriter}
+              <span className="border-r-2 border-white ml-1 animate-pulse" style={{display:typewriter.length < typewriterText.length ? 'inline-block':'none',height:'2.5rem'}}></span>
+            </h2>
+            <div className="text-2xl md:text-3xl font-bold text-white text-center mb-2 orbitron-glow" style={{ fontFamily: 'Orbitron, sans-serif' }}>{precisionSuite.headline}</div>
+            <div className="text-lg md:text-xl text-purple-200 font-semibold mb-2 text-center" style={{ fontFamily: 'Poppins, sans-serif' }}>{precisionSuite.subheadline}</div>
+            <div className="text-base text-gray-300 mb-6 text-center max-w-2xl mx-auto" style={{ fontFamily: 'Poppins, sans-serif' }}>{precisionSuite.subtext}</div>
+            {/* Steps Inline */}
+            <div className="flex flex-col md:flex-row gap-4 mb-8 w-full justify-center">
+              {precisionSuite.steps.map((step, i) => (
+                <div key={i} className="flex flex-col items-center flex-1 bg-white/5 rounded-xl p-4 shadow-sm min-w-[160px] max-w-xs mx-auto">
+                  <i className={`${step.icon} text-3xl md:text-4xl text-[#a259ff] mb-2`} aria-hidden="true"></i>
+                  <div className="font-bold text-white text-base md:text-lg mb-1 text-center" style={{ fontFamily: 'Orbitron, sans-serif' }}>{step.title}</div>
+                  <div className="text-xs md:text-sm text-gray-300 text-center" style={{ fontFamily: 'Poppins, sans-serif' }}>{step.text}</div>
+                </div>
+              ))}
+            </div>
+            {/* Features */}
+            <ul className="mb-6 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 w-full max-w-3xl mx-auto">
+              {precisionSuite.features.map((feature, i) => (
+                <li key={i} className="flex items-center gap-2 text-gray-200 text-sm md:text-base"><i className="fa fa-check-circle text-[#00FFFF]" aria-hidden="true"></i>{feature}</li>
+              ))}
+            </ul>
+            {/* Annotations */}
+            <div className="mb-4 flex flex-col md:flex-row gap-2 justify-center">
+              {precisionSuite.annotations.map((note, i) => (
+                <span key={i} className="text-xs md:text-sm text-purple-300 font-semibold bg-white/5 rounded px-3 py-1" style={{ fontFamily: 'Poppins, sans-serif' }}>{note}</span>
+              ))}
             </div>
             {/* Pricing & CTA */}
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between mt-4">
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between w-full max-w-3xl mx-auto mt-4 gap-6">
               <div className="mb-4 md:mb-0">
                 <div className="text-2xl md:text-3xl font-bold text-white font-orbitron">${precisionSuite.price} <span className="text-base font-normal text-gray-400">one-time</span></div>
                 <div className="text-base text-gray-400 mt-1">+${precisionSuite.maintenance}/mo optimization</div>
@@ -194,7 +290,7 @@ const Pricing: React.FC = () => {
               </div>
             </div>
             {/* Urgency & Countdown */}
-            <div className="mt-4 flex flex-col md:flex-row md:items-center gap-2">
+            <div className="mt-4 flex flex-col md:flex-row md:items-center gap-2 justify-center">
               <span className="text-sm text-pink-400 font-bold animate-pulse" style={{ fontFamily: 'Orbitron, sans-serif' }}>{precisionSuite.urgency}</span>
               <span className="text-xs text-white bg-gradient-to-r from-[#800080] to-[#00BFFF] px-3 py-1 rounded-full font-mono ml-0 md:ml-2 animate-glow-underline">
                 {countdown > 0 ? `⏳ ${formatCountdown(countdown)}` : '⏳ 0h 0m 0s'}
@@ -202,12 +298,7 @@ const Pricing: React.FC = () => {
             </div>
           </div>
         </div>
-        <h2 className="text-[28px] md:text-[36px] font-bold text-white text-center orbitron-glow mb-4" style={{ fontFamily: 'Orbitron, sans-serif' }}>
-          Find Your AI Solution
-        </h2>
-        <p className="text-[16px] md:text-[18px] text-gray-300 text-center mb-12 max-w-2xl mx-auto" style={{ fontFamily: 'Poppins, sans-serif' }}>
-          Solve your biggest challenge with our AI Suites. Results in 14–30 days—guaranteed.
-        </p>
+        {/* Duplicate section title and subtitle removed above */}
         <div className="flex flex-col lg:flex-row gap-8 mb-16">
           {suites.map((suite, index) => (
             <motion.div
