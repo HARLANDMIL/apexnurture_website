@@ -13,6 +13,37 @@ import Button from '../ui/Button';
 import SectionTitle from '../ui/SectionTitle';
 
 const Pricing: React.FC = () => {
+  // Precision Implementation Suite (Horizontal Card)
+  const precisionSuite = {
+    name: "Precision Implementation Suite",
+    headline: "Tailored Solutions: Join the Precision Implementation Suite",
+    subheadline: "Custom AI Agents & Automations Tailored to Your Business Needs",
+    subtext: "We audit your business processes for 2 weeks, identify inefficiencies, build custom AI agents to solve them, and deploy within 30 days—not months.",
+    steps: [
+      { icon: "fa fa-search", title: "In-Depth Audit", text: "Analyze your processes to pinpoint inefficiencies." },
+      { icon: "fa fa-lightbulb", title: "Identify Opportunities", text: "Uncover high-impact areas for AI automation." },
+      { icon: "fa fa-code", title: "Build Custom AI Agents", text: "Develop tailored AI solutions for your challenges." },
+      { icon: "fa fa-rocket", title: "Deploy in 30 Days", text: "Integrate, train, and optimize for results." }
+    ],
+    features: [
+      "Comprehensive Audit Report: 15-page PDF with actionable insights.",
+      "Custom AI Agents: 2–4 agents (e.g., support bot, lead nurturer).",
+      "Seamless Integration: Fully integrated into your systems.",
+      "Real-Time Analytics Dashboard: Track performance and ROI live.",
+      "Ongoing Optimization: Monthly updates for sustained results."
+    ],
+    price: 5000,
+    maintenance: 900,
+    annotations: [
+      "Pays for Itself Within 1 Month Through Efficiency Gains",
+      "Trusted by 20+ Businesses for Tailored AI Solutions"
+    ],
+    urgency: "Limited Spots Available—Sign Up Before May 17, 2025!",
+    cta: { text: "Get Started Now", href: "https://calendly.com/apexnurture/precision-suite" },
+    learnMore: { text: "Learn More", href: "https://apexnurture.com/precision-ai-program" },
+    countdownDeadline: new Date('2025-05-17T23:59:59').getTime()
+  };
+
   const suites = [
     {
       name: "Lead-to-Client Conversion AI Suite",
@@ -85,10 +116,92 @@ const Pricing: React.FC = () => {
     }
   ];
 
+  // Countdown Timer for urgency
+  const [countdown, setCountdown] = React.useState(0);
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      const now = new Date().getTime();
+      setCountdown(Math.max(0, Math.floor((precisionSuite.countdownDeadline - now) / 1000)));
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  function formatCountdown(seconds: number) {
+    const d = Math.floor(seconds / (3600 * 24));
+    const h = Math.floor((seconds % (3600 * 24)) / 3600);
+    const m = Math.floor((seconds % 3600) / 60);
+    const s = seconds % 60;
+    return `${d > 0 ? d + 'd ' : ''}${h}h ${m}m ${s}s`;
+  }
+
   return (
     <section className="py-32 relative overflow-hidden" id="pricing" style={{ background: "linear-gradient(to bottom, #0F0C29, #302B63, #24243E)" }}>
       {/* Particle background can be added here if desired */}
       <div className="container mx-auto px-4 md:px-6">
+        {/* Precision Implementation Suite Horizontal Card */}
+        <div className="w-full flex flex-col md:flex-row items-stretch justify-center mb-16 fade-in-on-scroll">
+          <div className="flex-1 flex flex-col justify-between bg-gradient-to-r from-[#1a1333] to-[#1e2746] rounded-2xl shadow-2xl border border-white/10 p-8 md:mr-8 mb-8 md:mb-0 min-w-[340px] max-w-2xl mx-auto md:mx-0">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-2 orbitron-glow" style={{ fontFamily: 'Orbitron, sans-serif' }}>{precisionSuite.headline}</h2>
+              <div className="text-lg md:text-xl text-purple-200 font-semibold mb-2" style={{ fontFamily: 'Poppins, sans-serif' }}>{precisionSuite.subheadline}</div>
+              <div className="text-base text-gray-300 mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>{precisionSuite.subtext}</div>
+              {/* Steps Inline */}
+              <div className="flex flex-col md:flex-row gap-4 mb-6">
+                {precisionSuite.steps.map((step, i) => (
+                  <div key={i} className="flex flex-row md:flex-col items-center md:items-start gap-2 md:gap-3 flex-1 bg-white/5 rounded-xl p-3 shadow-sm">
+                    <i className={`${step.icon} text-2xl md:text-3xl text-[#a259ff]`} aria-hidden="true"></i>
+                    <div>
+                      <div className="font-bold text-white text-sm md:text-base" style={{ fontFamily: 'Orbitron, sans-serif' }}>{step.title}</div>
+                      <div className="text-xs md:text-sm text-gray-300" style={{ fontFamily: 'Poppins, sans-serif' }}>{step.text}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              {/* Features */}
+              <ul className="mb-6 grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2">
+                {precisionSuite.features.map((feature, i) => (
+                  <li key={i} className="flex items-center gap-2 text-gray-200 text-sm md:text-base"><i className="fa fa-check-circle text-[#00FFFF]" aria-hidden="true"></i>{feature}</li>
+                ))}
+              </ul>
+              {/* Annotations */}
+              <div className="mb-4 flex flex-col md:flex-row gap-2">
+                {precisionSuite.annotations.map((note, i) => (
+                  <span key={i} className="text-xs md:text-sm text-purple-300 font-semibold bg-white/5 rounded px-3 py-1" style={{ fontFamily: 'Poppins, sans-serif' }}>{note}</span>
+                ))}
+              </div>
+            </div>
+            {/* Pricing & CTA */}
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between mt-4">
+              <div className="mb-4 md:mb-0">
+                <div className="text-2xl md:text-3xl font-bold text-white font-orbitron">${precisionSuite.price} <span className="text-base font-normal text-gray-400">one-time</span></div>
+                <div className="text-base text-gray-400 mt-1">+${precisionSuite.maintenance}/mo optimization</div>
+              </div>
+              <div className="flex flex-col gap-2 md:items-end">
+                <a
+                  href={precisionSuite.cta.href}
+                  className="px-8 py-3 rounded-full font-bold text-white text-lg bg-gradient-to-r from-[#800080] to-[#00BFFF] shadow-xl transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-cyan-400/40 ultra-cta-glow pulse-cta text-center mb-1 animate-pulse"
+                  style={{ letterSpacing: 1.2, fontFamily: 'Poppins, Orbitron, sans-serif', fontWeight: 700, fontSize: 20 }}
+                  aria-label="Get started with Precision Implementation Suite"
+                  tabIndex={0}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {precisionSuite.cta.text}
+                </a>
+                <div className="flex gap-3">
+                  <a href={precisionSuite.learnMore.href} className="text-sm text-blue-300 underline hover:text-purple-400 transition-colors" style={{ fontFamily: 'Poppins, sans-serif' }} target="_blank" rel="noopener noreferrer">{precisionSuite.learnMore.text}</a>
+                </div>
+              </div>
+            </div>
+            {/* Urgency & Countdown */}
+            <div className="mt-4 flex flex-col md:flex-row md:items-center gap-2">
+              <span className="text-sm text-pink-400 font-bold animate-pulse" style={{ fontFamily: 'Orbitron, sans-serif' }}>{precisionSuite.urgency}</span>
+              <span className="text-xs text-white bg-gradient-to-r from-[#800080] to-[#00BFFF] px-3 py-1 rounded-full font-mono ml-0 md:ml-2 animate-glow-underline">
+                {countdown > 0 ? `⏳ ${formatCountdown(countdown)}` : '⏳ 0h 0m 0s'}
+              </span>
+            </div>
+          </div>
+        </div>
         <h2 className="text-[28px] md:text-[36px] font-bold text-white text-center orbitron-glow mb-4" style={{ fontFamily: 'Orbitron, sans-serif' }}>
           Find Your AI Solution
         </h2>
