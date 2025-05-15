@@ -23,6 +23,7 @@ import RecruitmentAutomation from './sections/RecruitmentAutomation';
 import LeadToClient from './sections/LeadToClient';
 import BriefOverview from './sections/BriefOverview';
 import PrecisionAIProgram from './sections/PrecisionAIProgram';
+import PrecisionAICard from './sections/PrecisionAICard';
 
 function App() {
   // Handle fade-in on scroll for .fade-in-on-scroll
@@ -64,8 +65,10 @@ function App() {
                 <ProblemSolution />
                 <HowItWorks />
                 <Services />
-                <Testimonials />
                 <Pricing />
+                {/* Insert PrecisionAICard below Pricing and above Testimonials as requested */}
+                <PrecisionAICard />
+                <Testimonials />
                 <BriefOverview />
                 <SuccessStories />
                 <BookACall />
