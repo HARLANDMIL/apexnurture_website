@@ -16,9 +16,22 @@ const Pricing: React.FC = () => {
   // Precision Implementation Suite (Horizontal Card)
   const precisionSuite = {
     name: "Precision Implementation Suite",
-    headline: "Tailored Solutions: Join the Precision Implementation Suite",
+    headline: (
+      <span
+        className="inline-block px-8 py-2 rounded-full border-4 border-purple-500 shadow-[0_0_32px_8px_rgba(162,89,255,0.5)] orbitron-glow"
+        style={{
+          boxShadow:
+            "0 0 32px 8px #a259ff88, 0 0 8px 2px #80008088",
+          borderImage: "linear-gradient(90deg, #a259ff 0%, #800080 100%) 1",
+          background: "rgba(20,10,40,0.15)",
+        }}
+      >
+       Precision Implementation Suite
+      </span>
+    ),
     subheadline: "Custom AI Agents & Automations Tailored to Your Business Needs",
-    subtext: "We audit your business processes for 2 weeks, identify inefficiencies, build custom AI agents to solve them, and deploy within 30 days—not months.",
+    subtext:
+      "We audit your business processes for 2 weeks, identify inefficiencies, build custom AI agents and Automati to solve them, and deploy within 30 days—not months.",
     steps: [
       { icon: "fa fa-search", title: "In-Depth Audit", text: "Analyze your processes to pinpoint inefficiencies." },
       { icon: "fa fa-lightbulb", title: "Identify Opportunities", text: "Uncover high-impact areas for AI automation." },
@@ -32,8 +45,8 @@ const Pricing: React.FC = () => {
       "Real-Time Analytics Dashboard: Track performance and ROI live.",
       "Ongoing Optimization: Monthly updates for sustained results."
     ],
-    price: 5000,
-    maintenance: 900,
+    price: 1999-5000,
+    maintenance: 1299,
     annotations: [
       "Pays for Itself Within 1 Month Through Efficiency Gains",
       "Trusted by 20+ Businesses for Tailored AI Solutions"
@@ -301,7 +314,7 @@ const Pricing: React.FC = () => {
             {/* Pricing & CTA */}
             <div className="flex flex-col md:flex-row md:items-end md:justify-between w-full max-w-3xl mx-auto mt-4 gap-6">
               <div className="mb-4 md:mb-0">
-                <div className="text-2xl md:text-3xl font-bold text-white font-orbitron">${precisionSuite.price} <span className="text-base font-normal text-gray-400">one-time</span></div>
+                <div className="text-2xl md:text-3xl font-bold text-white font-orbitron">${precisionSuite.price} <span className="text-base font-normal text-gray-400">depending on complexity</span></div>
                 <div className="text-base text-gray-400 mt-1">+${precisionSuite.maintenance}/mo optimization</div>
               </div>
               <div className="flex flex-col gap-2 md:items-end">
