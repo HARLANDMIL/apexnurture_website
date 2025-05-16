@@ -43,20 +43,45 @@ const Pricing: React.FC = () => {
     learnMore: { text: "Learn More", href: "https://apexnurture.com/precision-ai-program" },
     countdownDeadline: new Date('2025-05-17T23:59:59').getTime()
   };
-
-  // Typewriter effect for headline
+  // Improved Typewriter effect for headline with looping
   const [typewriter, setTypewriter] = React.useState("");
+  const [isDeleting, setIsDeleting] = React.useState(false);
+  const [loopNum, setLoopNum] = React.useState(0);
+  const [typingSpeed, setTypingSpeed] = React.useState(80);
   const typewriterText = "Need a Tailored Solution?";
+
   React.useEffect(() => {
-    let i = 0;
-    setTypewriter("");
-    const interval = setInterval(() => {
-      setTypewriter((prev) => prev + typewriterText[i]);
-      i++;
-      if (i >= typewriterText.length) clearInterval(interval);
-    }, 60);
-    return () => clearInterval(interval);
-  }, []);
+    let timer;
+    const handleType = () => {
+      setTypewriter((prev) => {
+        if (!isDeleting) {
+          // Typing forward
+          if (prev.length < typewriterText.length) {
+            setTypingSpeed(80); // Normal typing speed
+            return typewriterText.substring(0, prev.length + 1);
+          } else {
+            // Reached end of text, pause before deleting
+            setTimeout(() => setIsDeleting(true), 2000);
+            return prev;
+          }
+        } else {
+          // Deleting
+          if (prev.length > 0) {
+            setTypingSpeed(40); // Faster when deleting
+            return typewriterText.substring(0, prev.length - 1);
+          } else {
+            // Finished deleting, restart after a pause
+            setIsDeleting(false);
+            setLoopNum(loopNum + 1);
+            setTimeout(() => setTypingSpeed(80), 1000);
+            return "";
+          }
+        }
+      });
+    };
+    timer = setTimeout(handleType, typingSpeed);
+    return () => clearTimeout(timer);
+  }, [typewriter, isDeleting, typingSpeed, loopNum]);
 
   const suites = [
     {
@@ -147,13 +172,20 @@ const Pricing: React.FC = () => {
     const s = seconds % 60;
     return `${d > 0 ? d + 'd ' : ''}${h}h ${m}m ${s}s`;
   }
-
   return (
     <section className="py-32 relative overflow-hidden" id="pricing" style={{ background: "linear-gradient(to bottom, #0F0C29, #302B63, #24243E)" }}>
       {/* Particle background can be added here if desired */}
       <div className="container mx-auto px-4 md:px-6">
-        {/* Section for Pricing */}
-         <div className="flex flex-col lg:flex-row gap-8 mb-16">
+        {/* Section Title and Subheadline */}
+        <div className="mb-12 pt-2 pb-8">
+          <h2 className="text-[32px] md:text-[44px] font-bold text-white text-center orbitron-glow mb-3" style={{ fontFamily: 'Orbitron, sans-serif', letterSpacing: 1.2 }}>
+            Find your AI Suite
+          </h2>
+          <p className="text-[18px] md:text-[22px] text-gray-300 text-center max-w-2xl mx-auto" style={{ fontFamily: 'Poppins, sans-serif' }}>
+            Solve a specific business problem with a specific suite.
+          </p>
+        </div>
+        {/* Section for Pricing */}        <div className="flex flex-col lg:flex-row gap-8 mb-16">
           {suites.map((suite, index) => (
             <motion.div
               key={index}
@@ -298,86 +330,7 @@ const Pricing: React.FC = () => {
             </div>
           </div>
         </div>
-        {/* Duplicate section title and subtitle removed above */}
-        <div className="flex flex-col lg:flex-row gap-8 mb-16">
-          {suites.map((suite, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-              className="relative flex-1 min-w-[320px]"
-            >
-              {/* Badge */}
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
-                <div className={`px-4 py-1 rounded-full text-sm font-bold shadow-lg ${suite.badge.color}`}>{suite.badge.text}</div>
-              </div>
-              {/* Card */}
-              <div className="h-full glassmorphism-container border border-white/10 hover:border-white/20 transition-all duration-300 flex flex-col p-6 rounded-2xl shadow-lg">
-                {/* Card Title */}
-                <div className="text-center mb-2">
-                  <span className="inline-block text-base font-bold text-white bg-gradient-to-r from-purple-700 to-cyan-400 px-4 py-1 rounded-full mb-2" style={{ fontFamily: 'Orbitron, sans-serif', letterSpacing: 1 }}>{suite.cardTitle}</span>
-                </div>
-                {/* Header */}
-                <div className="text-center mb-6">
-                  <div className={`w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-r ${suite.accentColor} bg-opacity-10 flex items-center justify-center`}>{suite.icon}</div>
-                  <h3 className="text-2xl font-orbitron font-bold mb-2 orbitron-glow" style={{ fontFamily: 'Orbitron, sans-serif' }}>{suite.headline}</h3>
-                  <p className="text-lg text-gray-300 mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>{suite.keyBenefit}</p>
-                  {/* Pricing */}
-                  <div className="flex flex-col items-center mb-2">
-                    <span className="text-3xl font-orbitron font-bold text-white">${suite.price} <span className="text-base font-normal text-gray-400">one-time</span></span>
-                    <span className="text-base text-gray-400 mt-1">
-                      +${suite.maintenance}/mo optimization
-                      <span className="relative group ml-2">
-                        <span className="underline cursor-help" tabIndex={0} aria-describedby={`maintenance-tooltip-${index}`}>?</span>
-                        <span id={`maintenance-tooltip-${index}`} className="opacity-0 group-hover:opacity-100 transition-opacity absolute left-1/2 -translate-x-1/2 bottom-full mb-2 px-4 py-2 bg-white/10 text-gray-200 rounded-lg border border-purple-500 text-xs w-56 pointer-events-none z-20" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                          Includes updates, retraining, bug fixing, and usage analytics reporting.
-                        </span>
-                      </span>
-                    </span>
-                  </div>
-                  <div className="text-sm text-purple-300 font-bold mb-1" style={{ fontFamily: 'Poppins, sans-serif' }}>{suite.roi}</div>
-                  <div className="text-xs text-gray-400 mb-2" style={{ fontFamily: 'Poppins, sans-serif' }}>{suite.social}</div>
-                </div>
-                {/* Features */}
-                <div className="space-y-4 mb-6">
-                  {suite.features.map((feature, i) => (
-                    <div key={i} className="flex items-center gap-3">
-                      <i className={`${feature.icon} text-lg text-purple-400`} aria-hidden="true"></i>
-                      <span className="text-gray-300" style={{ fontFamily: 'Poppins, sans-serif' }}>{feature.text}</span>
-                    </div>
-                  ))}
-                </div>
-                {/* CTAs */}
-                <div className="flex flex-col gap-3 mt-2">
-                  <a
-                    href={suite.cta.href}
-                    className={`w-full block text-center px-6 py-3 rounded-full font-bold text-white text-lg bg-gradient-to-r ${suite.cta.color} shadow-xl transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-cyan-400/40 ultra-cta-glow pulse-cta mb-1`}
-                    aria-label={`Get started with ${suite.name}`}
-                    tabIndex={0}
-                    style={{ letterSpacing: 1.2, fontFamily: 'Poppins, Orbitron, sans-serif', fontWeight: 700, fontSize: 20 }}
-                  >
-                    Get Started Now
-                  </a>
-                  <a
-                    href={suite.href}
-                    className="w-full faded-cta-btn text-center px-6 py-3 rounded-full font-bold text-white text-lg bg-gradient-to-r from-white/5 to-white/10 border border-white/20 hover:bg-gradient-to-r hover:from-purple-700/30 hover:to-cyan-400/20 hover:border-purple-400 hover:text-purple-200 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 backdrop-blur-md flex items-center justify-center gap-2 ultra-cta-fade"
-                    style={{ fontFamily: 'Poppins, sans-serif', letterSpacing: 0.5 }}
-                    aria-label={`See more info about ${suite.name}`}
-                    tabIndex={0}
-                  >
-                    <span className="opacity-80"><i className="fa fa-info-circle mr-2 text-purple-300 text-xl" aria-hidden="true"></i>See Info</span>
-                  </a>
-                </div>
-                <div className="flex justify-between items-center mt-3">
-                  <a href={suite.miniCta.href} className="text-sm text-gray-300 underline hover:text-purple-400 transition-colors" style={{ fontFamily: 'Poppins, sans-serif' }}>{suite.miniCta.text}</a>
-                  <a href={suite.calculator.href} className="text-sm text-gray-300 underline hover:text-purple-400 transition-colors animate-glow-underline" style={{ fontFamily: 'Poppins, sans-serif' }}>{suite.calculator.text}</a>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+       
 
         {/* Custom AI Development */}
         {/*}
