@@ -45,7 +45,7 @@ const Pricing: React.FC = () => {
       "Real-Time Analytics Dashboard: Track performance and ROI live.",
       "Ongoing Optimization: Monthly updates for sustained results."
     ],
-    price: 1999-5000,
+    price: 4999,
     maintenance: 1299,
     annotations: [
       "Pays for Itself Within 1 Month Through Efficiency Gains",
