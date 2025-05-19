@@ -25,13 +25,62 @@ interface FAQ {
   answer: string;
 }
 
-const Pricing: React.FC = () => {
-  const [isYearly, setIsYearly] = useState(false);
-  const [selectedFaq, setSelectedFaq] = useState<number | null>(null);
-  
-  // Deadline: May 21, 2025, 11:31 AM SAST
-  const deadline = new Date('2025-05-21T11:31:00+02:00').getTime();
+// Helper component for pricing cards
+const PricingCard: React.FC<{ suite: Suite; isYearly: boolean }> = ({ suite, isYearly }) => (
+  <GlassCard 
+    className="h-full hover:scale-105 transition-transform duration-300"
+    borderColor="border-purple-500/30"
+    glowColor="shadow-[0_0_24px_4px_rgba(128,0,128,0.4)]"
+  >
+    <div className="p-8">
+      <div className="text-center mb-8">
+        <div className="w-16 h-16 mx-auto rounded-full bg-purple-500/10 flex items-center justify-center mb-4">
+          <i className={`fa ${suite.icon} text-4xl text-purple-400`}></i>
+        </div>
+        <h3 className="text-2xl font-orbitron font-bold mb-2 text-white">{suite.name}</h3>
+        <p className="text-gray-400">{suite.description}</p>
+      </div>
 
+      <div className="text-center mb-8">
+        <div className="text-3xl font-orbitron font-bold text-white mb-2">
+          ${suite.setupPrice.toLocaleString()} <span className="text-base text-gray-400">setup</span>
+        </div>
+        <div className="text-xl text-purple-300">
+          ${isYearly ? Math.round(suite.yearlyPrice / 12).toLocaleString() : suite.monthlyPrice.toLocaleString()} 
+          <span className="text-sm text-gray-400">/ month</span>
+        </div>
+        {isYearly && (
+          <div className="text-green-400 text-sm mt-2">
+            Save ${(suite.monthlyPrice * 12 - suite.yearlyPrice).toLocaleString()} yearly
+          </div>
+        )}
+      </div>
+
+      <div className="space-y-4 mb-8">
+        <div className="text-green-400 font-semibold">{suite.goal}</div>
+        <div className="text-gray-300">{suite.outcome}</div>
+        <ul className="space-y-2">
+          {suite.features.map((feature, i) => (
+            <li key={i} className="flex items-center gap-2">
+              <i className="fa fa-check text-purple-400"></i>
+              <span className="text-gray-300">{feature}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <Button 
+        className="w-full bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 relative group overflow-hidden"
+        onClick={() => window.open('https://calendly.com/apexnurture', '_blank')}
+      >
+        <span className="relative z-10">Get Started</span>
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-blue-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+      </Button>
+    </div>
+  </GlassCard>
+);
+
+// Main Pricing component
 // Define types for clarity
 interface Suite {
   name: string;
@@ -55,7 +104,7 @@ const Pricing: React.FC = () => {
   const [isYearly, setIsYearly] = useState(false);
   const [selectedFaq, setSelectedFaq] = useState<number | null>(null);
   
-  // Deadline: May 21, 2025, 11:31 AM SAST (48 hours from current date)
+  // Deadline: May 21, 2025, 11:31 AM SAST
   const deadline = new Date('2025-05-21T11:31:00+02:00').getTime();
   
   const faqs = [
@@ -173,8 +222,7 @@ const Pricing: React.FC = () => {
             </button>
             <span className={`text-sm ${isYearly ? 'text-white' : 'text-gray-400'}`}>Yearly (Save 20%)</span>
           </div>
-        </div>        {/* Precision AI Implementation Suite */}
-        <motion.div
+        </div>        {/* Precision AI Implementation Suite */}        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -182,7 +230,7 @@ const Pricing: React.FC = () => {
           className="mb-20"
         >
           <GlassCard 
-            className="w-full border-2 border-purple-500/30 hover:border-purple-500/50 transition-all duration-300"
+            className="w-full hover:border-purple-500/50 transition-all duration-300"
             borderColor="border-purple-500/30"
             glowColor="shadow-[0_0_24px_4px_rgba(128,0,128,0.4)]"
           >
