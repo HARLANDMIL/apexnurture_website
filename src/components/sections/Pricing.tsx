@@ -1,204 +1,171 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { 
-  MessageSquare, 
-  Users,
-  Bot,
-  Zap,
-  CheckCircle,
-  Info,
-  ArrowRight
-} from 'lucide-react';
+import { TypeAnimation } from 'react-type-animation';
+import Countdown from 'react-countdown';
 import Button from '../ui/Button';
-import SectionTitle from '../ui/SectionTitle';
+import Card from '../ui/Card';
 
 const Pricing: React.FC = () => {
-  // Precision Implementation Suite (Horizontal Card)
-  const precisionSuite = {
-    name: "Precision Implementation Suite",
-    headline: (
-      <span
-        className="inline-block px-8 py-2 rounded-full border-4 border-purple-500 shadow-[0_0_32px_8px_rgba(162,89,255,0.5)] orbitron-glow"
-        style={{
-          boxShadow:
-            "0 0 32px 8px #a259ff88, 0 0 8px 2px #80008088",
-          borderImage: "linear-gradient(90deg, #a259ff 0%, #800080 100%) 1",
-          background: "rgba(20,10,40,0.15)",
-        }}
-      >
-       Precision Implementation Suite
-      </span>
-    ),
-    subheadline: "Custom AI Agents & Automations Tailored to Your Business Needs",
-    subtext:
-      "We audit your business processes for 2 weeks, identify inefficiencies, build custom AI agents and Automati to solve them, and deploy within 30 days—not months.",
-    steps: [
-      { icon: "fa fa-search", title: "In-Depth Audit", text: "Analyze your processes to pinpoint inefficiencies." },
-      { icon: "fa fa-lightbulb", title: "Identify Opportunities", text: "Uncover high-impact areas for AI automation." },
-      { icon: "fa fa-code", title: "Build Custom AI Agents", text: "Develop tailored AI solutions for your challenges." },
-      { icon: "fa fa-rocket", title: "Deploy in 30 Days", text: "Integrate, train, and optimize for results." }
-    ],
-    features: [
-      "Comprehensive Audit Report: 15-page PDF with actionable insights.",
-      "Custom AI Agents: 2–4 agents (e.g., support bot, lead nurturer).",
-      "Seamless Integration: Fully integrated into your systems.",
-      "Real-Time Analytics Dashboard: Track performance and ROI live.",
-      "Ongoing Optimization: Monthly updates for sustained results."
-    ],
-    price: 4999,
-    maintenance: 1299,
-    annotations: [
-      "Pays for Itself Within 1 Month Through Efficiency Gains",
-      "Trusted by 20+ Businesses for Tailored AI Solutions"
-    ],
-    urgency: "Limited Spots Available—Sign Up Before May 17, 2025!",
-    cta: { text: "Get Started Now", href: "https://calendly.com/apexnurture/precision-suite" },
-    learnMore: { text: "Learn More", href: "https://apexnurture.com/precision-ai-program" },
-    countdownDeadline: new Date('2025-05-17T23:59:59').getTime()
-  };
-  // Improved Typewriter effect for headline with looping
-  const [typewriter, setTypewriter] = React.useState("");
-  const [isDeleting, setIsDeleting] = React.useState(false);
-  const [loopNum, setLoopNum] = React.useState(0);
-  const [typingSpeed, setTypingSpeed] = React.useState(80);
-  const typewriterText = "Need a Tailored Solution?";
-
-  React.useEffect(() => {
-    let timer;
-    const handleType = () => {
-      setTypewriter((prev) => {
-        if (!isDeleting) {
-          // Typing forward
-          if (prev.length < typewriterText.length) {
-            setTypingSpeed(80); // Normal typing speed
-            return typewriterText.substring(0, prev.length + 1);
-          } else {
-            // Reached end of text, pause before deleting
-            setTimeout(() => setIsDeleting(true), 2000);
-            return prev;
-          }
-        } else {
-          // Deleting
-          if (prev.length > 0) {
-            setTypingSpeed(40); // Faster when deleting
-            return typewriterText.substring(0, prev.length - 1);
-          } else {
-            // Finished deleting, restart after a pause
-            setIsDeleting(false);
-            setLoopNum(loopNum + 1);
-            setTimeout(() => setTypingSpeed(80), 1000);
-            return "";
-          }
-        }
-      });
-    };
-    timer = setTimeout(handleType, typingSpeed);
-    return () => clearTimeout(timer);
-  }, [typewriter, isDeleting, typingSpeed, loopNum]);
-
+  // Deadline: May 21, 2025, 11:31 AM SAST
+  const deadline = new Date('2025-05-21T11:31:00+02:00').getTime();
+  
   const suites = [
     {
-      name: "Lead-to-Client Conversion AI Suite",
-      cardTitle: "Lead Gen Suite",
-      accentColor: "from-[#800080] to-[#00FFFF]",
-      badge: { text: "Most Popular", color: "bg-[#00FFFF] text-[#0F0C29] animate-pulse" },
-      price: 2500,
-      maintenance: 550,
-      headline: "Turn Leads into Clients Fast",
-      keyBenefit: "3×–5× more booked calls.",
-      icon: <i className="fa fa-bolt text-4xl text-[#00FFFF]" />,
-      href: "/lead-to-client",
+      name: "E-Commerce Growth Suite",
+      icon: "fa-shopping-cart",
+      description: "Boost Sales and Streamline Operations with AI",
+      setupPrice: 2999,
+      monthlyPrice: 599,
+      goal: "Increase online sales by 15-25% within 30 days",
+      outcome: "Recover abandoned carts and automate customer service",
       features: [
-        { icon: "fa fa-calendar-check", text: "AI Appointment Setter: Books 3× more calls via WhatsApp/Email." },
-        { icon: "fa fa-file-alt", text: "Content Repurposer: Turns webinars into 10+ lead magnets." },
-        { icon: "fa fa-bell", text: "Auto-Follow-Up: Boosts lead response rates by 40%." },
-        { icon: "fa fa-chart-line", text: "CRM Dashboard: Tracks performance in real-time." }
-      ],
-      roi: "Pays for itself after just 1 client.",
-      social: "Used by 30+ consultants this quarter.",
-      cta: { text: "Get Started Right", color: "from-[#800080] to-[#00FFFF]", href: "/lead-to-client" },
-      miniCta: { text: "See Demo →", href: "https://www.youtube.com/watch?v=demo" },
-      calculator: { text: "Estimate Your ROI", href: "https://typeform.com/to/roi-calc" }
+        "AI-Powered Cart Recovery Agent",
+        "Customer Service Chatbot",
+        "Inventory Sync Automation",
+        "Real-Time Analytics Dashboard"
+      ]
     },
     {
-      name: "AI Recruitment Automation Suite",
-      cardTitle: "Recruitment Suite",
-      accentColor: "from-[#00FF00] to-[#FFFFFF]",
-      badge: { text: "Best Value", color: "bg-[#00FF00] text-[#0F0C29] animate-pulse" },
-      price: 3000,
-      maintenance: 700,
-      headline: "Place Candidates 30% Faster",
-      keyBenefit: "Cut screening time by 70%.",
-      icon: <i className="fa fa-users text-4xl text-[#00FF00]" />,
-      href: "/recruitment-automation",
+      name: "Healthcare Admin Suite",
+      icon: "fa-hospital",
+      description: "Focus on Patient Care, Not Admin Tasks",
+      setupPrice: 3499,
+      monthlyPrice: 699,
+      goal: "Reduce admin workload by 70% within 45 days",
+      outcome: "Decrease no-shows and improve patient retention",
       features: [
-        { icon: "fa fa-id-badge", text: "CV Screening Bot: Cuts screening time by 70%." },
-        { icon: "fa fa-user-check", text: "Follow-Up Agent: Reduces drop-off by 40%." },
-        { icon: "fa fa-database", text: "Data Enricher: Sources 50+ qualified profiles/month." },
-        { icon: "fa fa-tachometer-alt", text: "Performance Tracker: Monitors placement success." }
-      ],
-      roi: "Includes real-time updates + AI agent optimization.",
-      social: "Trusted by 12+ agencies.",
-      cta: { text: "Get Started Right", color: "from-[#00FF00] to-[#FFFFFF]", href: "/recruitment-automation" },
-      miniCta: { text: "View Agent Flow →", href: "https://www.example.com/flow-diagram" },
-      calculator: { text: "Estimate Your ROI", href: "https://typeform.com/to/roi-calc" }
+        "AI Scheduling Agent",
+        "Billing Automation",
+        "Patient Follow-Up System",
+        "Compliance Dashboard"
+      ]
     },
     {
-      name: "Smart Business Ops Suite",
-      cardTitle: "Business Ops Suite",
-      accentColor: "from-[#800080] to-[#00FFFF]",
-      badge: { text: "All-in-One", color: "bg-[#FF69B4] text-[#0F0C29] animate-pulse" },
-      price: 3500,
-      maintenance: 700,
-      headline: "Save 20+ Hours/Week",
-      keyBenefit: "Streamline ops instantly.",
-      icon: <i className="fa fa-cogs text-4xl text-[#FF69B4]" />,
-      href: "/business-ops",
+      name: "Real Estate Transaction Suite",
+      icon: "fa-home",
+      description: "Close Deals Faster with AI Automation",
+      setupPrice: 2799,
+      monthlyPrice: 549,
+      goal: "Speed up deal closures by 10% within 45 days",
+      outcome: "Reduce errors and improve response rates",
       features: [
-        { icon: "fa fa-headset", text: "AI Support Bot: Resolves 50% of inquiries instantly." },
-        { icon: "fa fa-file-invoice-dollar", text: "Quotation Generator: Creates quotes in under 2 minutes." },
-        { icon: "fa fa-tasks", text: "Task Scheduler: Reduces delays by 30%." },
-        { icon: "fa fa-chart-pie", text: "Ops Dashboard: Tracks efficiency gains." }
-      ],
-      roi: "Saves $2,000/month in admin costs.",
-      social: "‘Doubled my efficiency in 2 weeks’ – Sarah, SA SMB Owner.",
-      cta: { text: "Get Started Right", color: "from-[#800080] to-[#00FFFF]", href: "/business-ops" },
-      miniCta: { text: "Compare Features →", href: "https://www.example.com/comparison" },
-      calculator: { text: "Estimate Your ROI", href: "https://typeform.com/to/roi-calc" }
+        "Lead Qualification AI",
+        "Document Automation",
+        "Client Follow-Up System",
+        "Transaction Tracking Dashboard"
+      ]
     }
   ];
 
-  // Countdown Timer for urgency
-  const [countdown, setCountdown] = React.useState(0);
-  React.useEffect(() => {
-    const interval = setInterval(() => {
-      const now = new Date().getTime();
-      setCountdown(Math.max(0, Math.floor((precisionSuite.countdownDeadline - now) / 1000)));
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);
-
-  function formatCountdown(seconds: number) {
-    const d = Math.floor(seconds / (3600 * 24));
-    const h = Math.floor((seconds % (3600 * 24)) / 3600);
-    const m = Math.floor((seconds % 3600) / 60);
-    const s = seconds % 60;
-    return `${d > 0 ? d + 'd ' : ''}${h}h ${m}m ${s}s`;
-  }
   return (
-    <section className="py-32 relative overflow-hidden" id="pricing" style={{ background: "linear-gradient(to bottom, #0F0C29, #302B63, #24243E)" }}>
-      {/* Particle background can be added here if desired */}
+    <section className="py-24 relative overflow-hidden" id="pricing">
+      {/* Background Gradient & Particles */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0F0C29] via-[#302B63] to-[#24243E] -z-10" />
+      
       <div className="container mx-auto px-4 md:px-6">
-        {/* Section Title and Subheadline */}
-        <div className="mb-12 pt-2 pb-8">
-          <h2 className="text-[32px] md:text-[44px] font-bold text-white text-center orbitron-glow mb-3" style={{ fontFamily: 'Orbitron, sans-serif', letterSpacing: 1.2 }}>
-            Find your AI Suite
-          </h2>
-          <p className="text-[18px] md:text-[22px] text-gray-300 text-center max-w-2xl mx-auto" style={{ fontFamily: 'Poppins, sans-serif' }}>
-            Solve a specific business problem with a specific suite.
-          </p>
+        {/* Hero Pricing Intro */}
+        <div className="text-center mb-20">
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl md:text-5xl font-orbitron font-bold mb-6 text-white"
+            style={{ textShadow: "0 0 10px rgba(128, 0, 128, 0.5)" }}
+          >
+            Transform Your Business with AI Automation
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto"
+          >
+            Choose from our bespoke Precision Suite or ready-to-go solutions for instant results
+          </motion.p>
         </div>
-        {/* Section for Pricing */}        <div className="flex flex-col lg:flex-row gap-8 mb-16">
+
+        {/* Precision AI Implementation Suite */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="mb-20"
+        >
+          <div className="glass-card border-2 border-purple-500/30 hover:border-purple-500/50 transition-all duration-300">
+            <div className="p-8 md:p-12">
+              {/* Header */}
+              <div className="text-center mb-8">
+                <TypeAnimation
+                  sequence={[
+                    'Precision AI Implementation Suite',
+                    1000,
+                    'Custom AI Agents for Your Business',
+                    1000
+                  ]}
+                  wrapper="h2"
+                  speed={50}
+                  repeat={Infinity}
+                  className="text-3xl md:text-4xl font-orbitron font-bold mb-4 text-white"
+                  style={{ textShadow: "0 0 15px rgba(128, 0, 128, 0.8)" }}
+                />
+                <p className="text-xl text-purple-300">Custom AI Agents Tailored to Your Unique Business Needs</p>
+              </div>
+
+              {/* Pricing & Offer */}
+              <div className="text-center mb-12">
+                <div className="text-4xl font-orbitron font-bold text-white mb-2">
+                  $4,999 <span className="text-xl text-gray-400">setup</span>
+                </div>
+                <div className="text-2xl font-orbitron text-purple-300 mb-4">
+                  $1,499 <span className="text-base text-gray-400">/ month</span>
+                </div>
+                <div className="text-green-400 font-bold mb-2">25% off first year: $1,124/mo</div>
+                <div className="text-purple-300">Save $4,500 annually</div>
+              </div>
+
+              {/* Process Steps */}
+              <div className="grid md:grid-cols-4 gap-8 mb-12">
+                {[
+                  { icon: "search", title: "Audit Workflows", desc: "2-week analysis" },
+                  { icon: "code", title: "Design AI Agents", desc: "Custom solutions" },
+                  { icon: "plug", title: "Implement", desc: "30-day deployment" },
+                  { icon: "tools", title: "Optimize", desc: "Monthly updates" }
+                ].map((step, i) => (
+                  <div key={i} className="text-center">
+                    <i className={`fa fa-${step.icon} text-3xl text-purple-400 mb-4`}></i>
+                    <h3 className="font-orbitron font-bold text-white mb-2">{step.title}</h3>
+                    <p className="text-gray-400">{step.desc}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* CTA & Timer */}
+              <div className="text-center">
+                <Button 
+                  className="bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 text-xl px-12 py-4 mb-4"
+                  onClick={() => window.open('https://calendly.com/apexnurture', '_blank')}
+                >
+                  Get Free Audit Now ($999 Value)
+                </Button>
+                <div className="text-orange-400 animate-pulse font-orbitron">
+                  Only 5 Spots Left!
+                  <Countdown 
+                    date={deadline}
+                    renderer={({ days, hours, minutes }) => (
+                      <div>
+                        Offer ends in {days}d {hours}h {minutes}m
+                      </div>
+                    )}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Ready-to-Go Suites */}
+        <div className="grid md:grid-cols-3 gap-8">
           {suites.map((suite, index) => (
             <motion.div
               key={index}
@@ -206,244 +173,67 @@ const Pricing: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
-              className="relative flex-1 min-w-[320px]"
             >
-              {/* Badge */}
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
-                <div className={`px-4 py-1 rounded-full text-sm font-bold shadow-lg ${suite.badge.color}`}>{suite.badge.text}</div>
-              </div>
-              {/* Card */}
-              <div className="h-full glassmorphism-container border border-white/10 hover:border-white/20 transition-all duration-300 flex flex-col p-6 rounded-2xl shadow-lg">
-                {/* Card Title */}
-                <div className="text-center mb-2">
-                  <span className="inline-block text-base font-bold text-white bg-gradient-to-r from-purple-700 to-cyan-400 px-4 py-1 rounded-full mb-2" style={{ fontFamily: 'Orbitron, sans-serif', letterSpacing: 1 }}>{suite.cardTitle}</span>
-                </div>
-                {/* Header */}
-                <div className="text-center mb-6">
-                  <div className={`w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-r ${suite.accentColor} bg-opacity-10 flex items-center justify-center`}>{suite.icon}</div>
-                  <h3 className="text-2xl font-orbitron font-bold mb-2 orbitron-glow" style={{ fontFamily: 'Orbitron, sans-serif' }}>{suite.headline}</h3>
-                  <p className="text-lg text-gray-300 mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>{suite.keyBenefit}</p>
-                  {/* Pricing */}
-                  <div className="flex flex-col items-center mb-2">
-                    <span className="text-3xl font-orbitron font-bold text-white">${suite.price} <span className="text-base font-normal text-gray-400">one-time</span></span>
-                    <span className="text-base text-gray-400 mt-1">
-                      +${suite.maintenance}/mo optimization
-                      <span className="relative group ml-2">
-                        <span className="underline cursor-help" tabIndex={0} aria-describedby={`maintenance-tooltip-${index}`}>?</span>
-                        <span id={`maintenance-tooltip-${index}`} className="opacity-0 group-hover:opacity-100 transition-opacity absolute left-1/2 -translate-x-1/2 bottom-full mb-2 px-4 py-2 bg-white/10 text-gray-200 rounded-lg border border-purple-500 text-xs w-56 pointer-events-none z-20" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                          Includes updates, retraining, bug fixing, and usage analytics reporting.
-                        </span>
-                      </span>
-                    </span>
+              <Card className="h-full hover:scale-105 transition-transform duration-300">
+                <div className="p-8">
+                  <div className="text-center mb-8">
+                    <i className={`fa ${suite.icon} text-4xl text-purple-400 mb-4`}></i>
+                    <h3 className="text-2xl font-orbitron font-bold mb-2">{suite.name}</h3>
+                    <p className="text-gray-400">{suite.description}</p>
                   </div>
-                  <div className="text-sm text-purple-300 font-bold mb-1" style={{ fontFamily: 'Poppins, sans-serif' }}>{suite.roi}</div>
-                  <div className="text-xs text-gray-400 mb-2" style={{ fontFamily: 'Poppins, sans-serif' }}>{suite.social}</div>
-                </div>
-                {/* Features */}
-                <div className="space-y-4 mb-6">
-                  {suite.features.map((feature, i) => (
-                    <div key={i} className="flex items-center gap-3">
-                      <i className={`${feature.icon} text-lg text-purple-400`} aria-hidden="true"></i>
-                      <span className="text-gray-300" style={{ fontFamily: 'Poppins, sans-serif' }}>{feature.text}</span>
+
+                  <div className="text-center mb-8">
+                    <div className="text-3xl font-orbitron font-bold text-white mb-2">
+                      ${suite.setupPrice} <span className="text-base text-gray-400">setup</span>
                     </div>
-                  ))}
-                </div>
-                {/* CTAs */}
-                <div className="flex flex-col gap-3 mt-2">
-                  <a
-                    href={suite.cta.href}
-                    className={`w-full block text-center px-6 py-3 rounded-full font-bold text-white text-lg bg-gradient-to-r ${suite.cta.color} shadow-xl transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-cyan-400/40 ultra-cta-glow pulse-cta mb-1`}
-                    aria-label={`Get started with ${suite.name}`}
-                    tabIndex={0}
-                    style={{ letterSpacing: 1.2, fontFamily: 'Poppins, Orbitron, sans-serif', fontWeight: 700, fontSize: 20 }}
+                    <div className="text-xl text-purple-300">
+                      ${suite.monthlyPrice} <span className="text-sm text-gray-400">/ month</span>
+                    </div>
+                  </div>
+
+                  <div className="space-y-4 mb-8">
+                    <div className="text-green-400 font-semibold">{suite.goal}</div>
+                    <div className="text-gray-300">{suite.outcome}</div>
+                    <ul className="space-y-2">
+                      {suite.features.map((feature, i) => (
+                        <li key={i} className="flex items-center gap-2">
+                          <i className="fa fa-check text-purple-400"></i>
+                          <span className="text-gray-300">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <Button 
+                    className="w-full bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600"
+                    onClick={() => window.open('https://calendly.com/apexnurture', '_blank')}
                   >
-                    Get Started Now
-                  </a>
-                  <a
-                    href={suite.href}
-                    className="w-full faded-cta-btn text-center px-6 py-3 rounded-full font-bold text-white text-lg bg-gradient-to-r from-white/5 to-white/10 border border-white/20 hover:bg-gradient-to-r hover:from-purple-700/30 hover:to-cyan-400/20 hover:border-purple-400 hover:text-purple-200 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 backdrop-blur-md flex items-center justify-center gap-2 ultra-cta-fade"
-                    style={{ fontFamily: 'Poppins, sans-serif', letterSpacing: 0.5 }}
-                    aria-label={`See more info about ${suite.name}`}
-                    tabIndex={0}
-                  >
-                    <span className="opacity-80"><i className="fa fa-info-circle mr-2 text-purple-300 text-xl" aria-hidden="true"></i>See Info</span>
-                  </a>
+                    Get Started
+                  </Button>
                 </div>
-                <div className="flex justify-between items-center mt-3">
-                  <a href={suite.miniCta.href} className="text-sm text-gray-300 underline hover:text-purple-400 transition-colors" style={{ fontFamily: 'Poppins, sans-serif' }}>{suite.miniCta.text}</a>
-                  <a href={suite.calculator.href} className="text-sm text-gray-300 underline hover:text-purple-400 transition-colors animate-glow-underline" style={{ fontFamily: 'Poppins, sans-serif' }}>{suite.calculator.text}</a>
-                </div>
-              </div>
+              </Card>
             </motion.div>
           ))}
         </div>
 
-        {/* Precision Implementation Suite Square Card */}
-        <div className="w-full flex flex-col items-center justify-center fade-in-on-scroll mb-16">
-          <div className="w-full max-w-6xl bg-gradient-to-br from-[#1a1333] to-[#1e2746] rounded-3xl shadow-2xl border border-white/10 px-8 py-12 md:px-20 md:py-16 flex flex-col items-center" style={{minHeight:'420px'}}>
-            {/* Typewriter Headline */}
-            <h2 className="text-3xl md:text-5xl font-bold text-white text-center mb-4 orbitron-glow" style={{ fontFamily: 'Orbitron, sans-serif', minHeight: '3.5rem', letterSpacing: 1.2 }}>
-              {typewriter}
-              <span className="border-r-2 border-white ml-1 animate-pulse" style={{display:typewriter.length < typewriterText.length ? 'inline-block':'none',height:'2.5rem'}}></span>
-            </h2>
-            <div className="text-2xl md:text-3xl font-bold text-white text-center mb-2 orbitron-glow" style={{ fontFamily: 'Orbitron, sans-serif' }}>{precisionSuite.headline}</div>
-            <div className="text-lg md:text-xl text-purple-200 font-semibold mb-2 text-center" style={{ fontFamily: 'Poppins, sans-serif' }}>{precisionSuite.subheadline}</div>
-            <div className="text-base text-gray-300 mb-6 text-center max-w-2xl mx-auto" style={{ fontFamily: 'Poppins, sans-serif' }}>{precisionSuite.subtext}</div>
-            {/* Steps Inline */}
-            <div className="flex flex-col md:flex-row gap-4 mb-8 w-full justify-center">
-              {precisionSuite.steps.map((step, i) => (
-                <div key={i} className="flex flex-col items-center flex-1 bg-white/5 rounded-xl p-4 shadow-sm min-w-[160px] max-w-xs mx-auto">
-                  <i className={`${step.icon} text-3xl md:text-4xl text-[#a259ff] mb-2`} aria-hidden="true"></i>
-                  <div className="font-bold text-white text-base md:text-lg mb-1 text-center" style={{ fontFamily: 'Orbitron, sans-serif' }}>{step.title}</div>
-                  <div className="text-xs md:text-sm text-gray-300 text-center" style={{ fontFamily: 'Poppins, sans-serif' }}>{step.text}</div>
-                </div>
-              ))}
-            </div>
-            {/* Features */}
-            <ul className="mb-6 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 w-full max-w-3xl mx-auto">
-              {precisionSuite.features.map((feature, i) => (
-                <li key={i} className="flex items-center gap-2 text-gray-200 text-sm md:text-base"><i className="fa fa-check-circle text-[#00FFFF]" aria-hidden="true"></i>{feature}</li>
-              ))}
-            </ul>
-            {/* Annotations */}
-            <div className="mb-4 flex flex-col md:flex-row gap-2 justify-center">
-              {precisionSuite.annotations.map((note, i) => (
-                <span key={i} className="text-xs md:text-sm text-purple-300 font-semibold bg-white/5 rounded px-3 py-1" style={{ fontFamily: 'Poppins, sans-serif' }}>{note}</span>
-              ))}
-            </div>
-            {/* Pricing & CTA */}
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between w-full max-w-3xl mx-auto mt-4 gap-6">
-              <div className="mb-4 md:mb-0">
-                <div className="text-2xl md:text-3xl font-bold text-white font-orbitron">${precisionSuite.price} <span className="text-base font-normal text-gray-400">depending on complexity</span></div>
-                <div className="text-base text-gray-400 mt-1">+${precisionSuite.maintenance}/mo optimization</div>
-              </div>
-              <div className="flex flex-col gap-2 md:items-end">
-                <a
-                  href={precisionSuite.cta.href}
-                  className="px-8 py-3 rounded-full font-bold text-white text-lg bg-gradient-to-r from-[#800080] to-[#00BFFF] shadow-xl transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-cyan-400/40 ultra-cta-glow pulse-cta text-center mb-1 animate-pulse"
-                  style={{ letterSpacing: 1.2, fontFamily: 'Poppins, Orbitron, sans-serif', fontWeight: 700, fontSize: 20 }}
-                  aria-label="Get started with Precision Implementation Suite"
-                  tabIndex={0}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {precisionSuite.cta.text}
-                </a>
-                <div className="flex gap-3">
-                  <a href={precisionSuite.learnMore.href} className="text-sm text-blue-300 underline hover:text-purple-400 transition-colors" style={{ fontFamily: 'Poppins, sans-serif' }} target="_blank" rel="noopener noreferrer">{precisionSuite.learnMore.text}</a>
-                </div>
-              </div>
-            </div>
-            {/* Urgency & Countdown */}
-            <div className="mt-4 flex flex-col md:flex-row md:items-center gap-2 justify-center">
-              <span className="text-sm text-pink-400 font-bold animate-pulse" style={{ fontFamily: 'Orbitron, sans-serif' }}>{precisionSuite.urgency}</span>
-              <span className="text-xs text-white bg-gradient-to-r from-[#800080] to-[#00BFFF] px-3 py-1 rounded-full font-mono ml-0 md:ml-2 animate-glow-underline">
-                {countdown > 0 ? `⏳ ${formatCountdown(countdown)}` : '⏳ 0h 0m 0s'}
-              </span>
-            </div>
-          </div>
-        </div>
-       
-
-        {/* Custom AI Development */}
-        {/*}
+        {/* Final CTA */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="relative"
+          transition={{ duration: 0.7 }}
+          className="text-center mt-20"
         >
-          <div className="absolute -inset-1 bg-gradient-to-r from-[#800080] to-[#4B0082] blur-xl opacity-30"></div>
-          <div className="glass-card relative border-2 border-[#800080]">
-            <div className="grid md:grid-cols-2 gap-8">
-              <div>
-                <h3 className="text-3xl font-orbitron font-bold mb-4">Need a Tailored Solution?</h3>
-                <p className="text-xl mb-6">Custom AI starting at $1,500. Boost conversions, cut errors, and more.</p>
-                
-                <div className="space-y-4">
-                  {[
-                    "AI Sales Chatbot: Boosts conversions by 15%",
-                    "AI Compliance Bot: Cuts errors by 90%",
-                    "AI Lead Qualification: Improves lead quality by 30%"
-                  ].map((feature, i) => (
-                    <div key={i} className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-[#800080]" />
-                      <span className="text-gray-300">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <Button 
-                  className="mt-8 bg-gradient-to-r from-[#800080] to-[#4B0082] hover:shadow-lg hover:shadow-[#800080]/25"
-                  onClick={() => window.location.href = '/custom-ai-solutions'}
-                >
-                  Book a Free Consultation <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
-              </div>
-
-              <div className="glass-card !bg-white/5">
-                <div className="absolute -top-4 right-4">
-                  <div className="bg-gradient-to-r from-[#FF6B00] to-[#FF8C00] px-4 py-1 rounded-full text-sm font-bold animate-pulse">
-                    First 5 clients get 10% off setup
-                  </div>
-                </div>
-                
-                <h4 className="text-lg font-orbitron font-bold mb-4">Our 4-Step Process</h4>
-                <div className="space-y-4">
-                  {[
-                    "Share Needs → Discovery Call",
-                    "Build & Test → Launch & Grow",
-                    "Results in 14–30 days or your money back"
-                  ].map((step, i) => (
-                    <div key={i} className="flex items-center gap-3">
-                      <div className="w-6 h-6 rounded-full bg-[#800080]/20 flex items-center justify-center">
-                        <span className="text-sm font-medium">{i + 1}</span>
-                      </div>
-                      <span className="text-gray-300">{step}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </motion.div> /*}
-
-       {/* Final CTA Section removed as per user request */}
-        {/* Trust Signal */}
-        <div className="flex flex-col md:flex-row items-center gap-4 justify-center text-center mt-6 text-white" style={{ fontFamily: 'Poppins, sans-serif' }}>
-          <span>Trusted by 100+ businesses in SA and UAE. Results in 14–30 days or your money back.</span>
-          <span>
-            <img src="https://flagcdn.com/za.svg" alt="SA" width={28} height={18} loading="lazy" className="inline rounded shadow-md mx-1 transition-opacity duration-1000" />
-            <img src="https://flagcdn.com/ae.svg" alt="UAE" width={28} height={18} loading="lazy" className="inline rounded shadow-md mx-1 transition-opacity duration-1000" />
-          </span>
-        </div>
-      {/* Inline style for faded CTA button */}
-      <style>{`
-        .faded-cta-btn {
-          box-shadow: 0 2px 24px 0 rgba(128,0,128,0.10);
-          transition: background 0.2s, color 0.2s, border 0.2s, box-shadow 0.2s, transform 0.2s;
-          filter: blur(0.1px) saturate(1.1);
-        }
-        .faded-cta-btn:hover, .faded-cta-btn:focus {
-          background: linear-gradient(90deg, #a259ff22 0%, #00ffff22 100%);
-          color: #a259ff;
-          border-color: #a259ff;
-          box-shadow: 0 4px 32px 0 #a259ff55, 0 0 0 2px #00ffff33;
-          transform: scale(1.045);
-        }
-        .ultra-cta-glow {
-          box-shadow: 0 0 32px 4px #a259ff55, 0 0 8px 2px #00ffff55;
-          animation: ultra-glow 2.5s ease-in-out infinite alternate;
-        }
-        @keyframes ultra-glow {
-          0% { box-shadow: 0 0 16px 2px #a259ff55, 0 0 4px 1px #00ffff33; }
-          100% { box-shadow: 0 0 48px 8px #a259ff99, 0 0 16px 4px #00ffff99; }
-        }
-        .ultra-cta-fade {
-          filter: blur(0.1px) brightness(1.08);
-        }
-      `}</style>
+          <h2 className="text-3xl md:text-4xl font-orbitron font-bold mb-6 text-white">
+            Ready to Transform Your Business?
+          </h2>
+          <Button 
+            className="bg-gradient-to-r from-purple-600 to-silver-500 hover:from-purple-700 hover:to-silver-600 text-xl px-12 py-4"
+            onClick={() => window.open('https://calendly.com/apexnurture', '_blank')}
+          >
+            Book Free Demo
+          </Button>
+        </motion.div>
       </div>
     </section>
   );
