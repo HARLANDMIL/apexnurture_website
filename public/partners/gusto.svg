@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="60" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .text { font-family: Arial, sans-serif; font-weight: bold; font-size: 32px; }
+    .logo:hover { fill: #10B981; }
+  </style>
+  <g class="logo">
+    <text x="50%" y="50%" class="text" text-anchor="middle" dominant-baseline="middle" fill="currentColor">
+      GUSTO
+    </text>
+  </g>
+</svg>

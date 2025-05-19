@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="60" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .text { font-family: Arial, sans-serif; font-weight: bold; font-size: 32px; }
+    .logo:hover { fill: #EF4444; }
+  </style>
+  <g class="logo">
+    <text x="50%" y="50%" class="text" text-anchor="middle" dominant-baseline="middle" fill="currentColor">
+      SALSA
+    </text>
+  </g>
+</svg>
