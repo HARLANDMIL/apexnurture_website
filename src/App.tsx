@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Navbar from './components/layout/Navbar';
 import Hero from './components/sections/Hero';
+import TrustedBy from './components/sections/TrustedBy';
 import ProblemSolution from './components/sections/ProblemSolution';
 import HowItWorks from './components/sections/HowItWorks';
 import Testimonials from './components/sections/Testimonials';
@@ -61,6 +62,7 @@ function App() {
             <Route path="/" element={
               <>
                 <Hero />
+                <TrustedBy />
                 <ProblemSolution />
                 <HowItWorks />
                 <Services />
