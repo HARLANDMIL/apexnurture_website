@@ -18,105 +18,83 @@ const partners: Partner[] = [  { id: 1, name: 'Kanmon', logo: '/partners/kanmon.
 ];
 
 const TrustedBy = () => {
-  const scrollControls1 = useAnimation();
-  const scrollControls2 = useAnimation();
+  const scrollControls = useAnimation();
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const startScrollAnimation = async () => {
-      await Promise.all([
-        scrollControls1.start({
-          x: [0, -1920],
-          transition: {
-            x: {
-              repeat: Infinity,
-              repeatType: "loop",
-              duration: 30,
-              ease: "linear"
-            }
+      await scrollControls.start({
+        x: [0, -1920],
+        transition: {
+          x: {
+            repeat: Infinity,
+            repeatType: "loop",
+            duration: 40,
+            ease: "linear"
           }
-        }),
-        scrollControls2.start({
-          x: [-1920, 0],
-          transition: {
-            x: {
-              repeat: Infinity,
-              repeatType: "loop",
-              duration: 30,
-              ease: "linear"
-            }
-          }
-        })
-      ]);
+        }
+      });
     };
 
     startScrollAnimation();
-  }, [scrollControls1, scrollControls2]);
+  }, [scrollControls]);
 
   return (
-    <section className="relative py-20 overflow-hidden bg-gradient-to-b from-background-end/30 to-transparent backdrop-blur-sm" ref={containerRef}>
-      <div className="container mx-auto px-4">
+    <section className="relative py-16 overflow-hidden bg-gradient-to-b from-background-end/5 to-transparent" ref={containerRef}>
+      <div className="max-w-[1920px] mx-auto">
         <motion.h3
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center text-2xl font-medium text-gray-300 mb-12"
+          className="text-center text-xl font-medium text-gray-400/80 mb-16"
         >
           Trusted by Industry Leaders
         </motion.h3>
 
         <div className="relative">
           {/* Gradient overlays for smooth fade effect */}
-          <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-background-end to-transparent z-10" />
-          <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-background-end to-transparent z-10" />
+          <div className="absolute left-0 top-0 w-40 h-full bg-gradient-to-r from-background-end via-background-end/95 to-transparent z-10" />
+          <div className="absolute right-0 top-0 w-40 h-full bg-gradient-to-l from-background-end via-background-end/95 to-transparent z-10" />
 
-          {/* First row - moving left */}
-          <motion.div
-            className="flex items-center space-x-16 mb-12"
-            animate={scrollControls1}
-          >
-            {[...partners, ...partners].map((partner, idx) => (
-              <div
-                key={`${partner.id}-${idx}`}
-                className="relative group"
-              >
-                <div className="w-32 h-16 relative">
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"
-                       style={{ backgroundColor: `${partner.hoverColor}33` }}
-                  />
-                  <img
-                    src={partner.logo}
-                    alt={`${partner.name} logo`}
-                    className="w-full h-full object-contain transition-all duration-300 filter grayscale group-hover:grayscale-0 group-hover:scale-110"
-                  />
+          {/* Carousel row */}
+          <div className="relative">
+            <motion.div
+              className="flex items-center space-x-24"
+              animate={scrollControls}
+            >
+              {[...partners, ...partners, ...partners].map((partner, idx) => (
+                <div
+                  key={`${partner.id}-${idx}`}
+                  className="relative group"
+                >
+                  <div className="w-36 h-20 relative flex items-center justify-center">
+                    {/* Glow effect */}
+                    <div 
+                      className="absolute inset-0 opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500"
+                      style={{ backgroundColor: `${partner.hoverColor}15` }}
+                    />
+                    
+                    {/* Background with glass effect */}
+                    <div 
+                      className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-xl"
+                      style={{ 
+                        background: `linear-gradient(120deg, ${partner.hoverColor}08, ${partner.hoverColor}15)`,
+                        backdropFilter: 'blur(8px)'
+                      }}
+                    />
+                    
+                    <img
+                      src={partner.logo}
+                      alt={`${partner.name} logo`}
+                      className="relative w-full h-full object-contain p-4 transition-all duration-500 
+                               filter grayscale group-hover:grayscale-0 group-hover:scale-110
+                               group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]"
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
-          </motion.div>
-
-          {/* Second row - moving right */}
-          <motion.div
-            className="flex items-center space-x-16"
-            animate={scrollControls2}
-          >
-            {[...partners.reverse(), ...partners].map((partner, idx) => (
-              <div
-                key={`${partner.id}-${idx}-reverse`}
-                className="relative group"
-              >
-                <div className="w-32 h-16 relative">
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"
-                       style={{ backgroundColor: `${partner.hoverColor}33` }}
-                  />
-                  <img
-                    src={partner.logo}
-                    alt={`${partner.name} logo`}
-                    className="w-full h-full object-contain transition-all duration-300 filter grayscale group-hover:grayscale-0 group-hover:scale-110"
-                  />
-                </div>
-              </div>
-            ))}
-          </motion.div>
+              ))}
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>
