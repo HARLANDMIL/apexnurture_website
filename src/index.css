@@ -5,9 +5,9 @@
 @tailwind utilities;
 
 :root {
-  --primary: #0087fd;
-  --secondary: #008294;
-  --accent: #dffc05;
+  --primary: #FFFFFF;
+  --secondary: #7B8CDE;
+  --accent: #FFA726;
   --background-start: #0F0C29;
   --background-mid: #302B63;
   --background-end: #24243E;
@@ -46,17 +46,67 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Button styles */
+/* Ensure your Starlight Tech variables are defined in :root */
+
 .btn-primary {
-  @apply px-6 py-3 rounded-full font-medium transition-all duration-300 text-white;
-  background: linear-gradient(135deg, rgba(0, 255, 255, 0.9), rgba(128, 0, 128, 0.9));
-  box-shadow: 0 4px 15px rgba(0, 255, 255, 0.2);
+  @apply px-6 py-3 rounded-full font-medium transition-all duration-300; /* Apply default transitions */
+
+  /* Text: Slightly more pronounced white, potentially with a subtle glow */
+  color: white; /* Explicitly set to white */
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.6); /* Subtle white text glow for readability and tech feel */
+
+  /* Base Gradient: More vibrant, energetic orange spectrum */
+  background: linear-gradient(135deg, #FF8C00, #FF4500); /* From a saturated dark orange to a vibrant red-orange */
+  background-size: 200% 100%; /* Prepare for background position animation */
+  background-position: 0% 0%; /* Initial position */
+
+  /* Initial Glow: More diffused and intense, with a hint of inner light */
+  box-shadow:
+    0 0 15px rgba(255, 100, 0, 0.5), /* Main orange glow */
+    0 0 30px rgba(255, 100, 0, 0.3), /* Wider, softer glow */
+    inset 0 0 5px rgba(255, 255, 255, 0.15); /* Subtle inner light for depth */
+
+  /* Optional: A very thin, almost invisible border for crispness against dark */
+  border: 1px solid rgba(255, 255, 255, 0.05); /* Adds a hint of definition */
+
+  /* Ensure all properties transition smoothly */
+  transition:
+    background-position 0.4s ease-out,
+    box-shadow 0.4s ease-out,
+    transform 0.4s ease-out;
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, rgba(0, 255, 255, 1), rgba(128, 0, 128, 1));
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 255, 255, 0.3);
+  /* Hover Gradient: Shift the background to create a 'hotter' or 'charged' effect */
+  background-position: 100% 0%; /* Shifts the gradient to the right */
+  background-image: linear-gradient(135deg, #FFD700, #FF0000); /* Gold to pure red for a dramatic "charged" look */
+  /* Enhanced Hover Glow: Brighter and more spread out */
+  box-shadow:
+    0 0 25px rgba(255, 100, 0, 0.8), /* Main glow intensifies */
+    0 0 45px rgba(255, 100, 0, 0.5), /* Wider, more prominent glow */
+    inset 0 0 8px rgba(255, 255, 255, 0.3); /* Inner light becomes more apparent */
+  /* Subtle Lift and Scale for "Pop" */
+  transform: translateY(-3px) scale(1.02); /* More pronounced lift and slight scale */
 }
+/* Optional: Active/Click State - for immediate feedback */
+.btn-primary:active {
+  transform: translateY(0px) scale(0.98); /* Sinks slightly on click */
+  box-shadow:
+    0 0 10px rgba(255, 100, 0, 0.4), /* Reduced glow, implies press */
+    inset 0 0 10px rgba(255, 255, 255, 0.2); /* Inner light more prominent */
+  background-position: 50% 0%; /* Resets gradient slightly */
+}
+/* Accessibility: Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .btn-primary,
+  .btn-primary:hover,
+  .btn-primary:active {
+    transition: none; /* Disable transitions */
+    transform: none; /* Disable transforms */
+    background-position: 0% 0%; /* Static background */
+  }
+}
+
 
 /* Text gradient */
 .text-gradient {

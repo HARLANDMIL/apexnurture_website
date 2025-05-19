@@ -9,7 +9,7 @@ interface Partner {
 }
 
 const partners: Partner[] = [  { id: 1, name: 'Kanmon', logo: '/partners/kanmon.svg', hoverColor: '#4F46E5' },
-  { id: 2, name: 'Fizz', logo: '/partners/fizz.svg', hoverColor: '#EC4899' },
+  { id: 2, name: 'Thinkific', logo: '/partners/thinkific.svg', hoverColor: '#EC4899' },
   { id: 3, name: 'Plane', logo: '/partners/plane.svg', hoverColor: '#3B82F6' },
   { id: 4, name: 'Papaya', logo: '/partners/papaya.svg', hoverColor: '#F59E0B' },
   { id: 5, name: 'Gusto', logo: '/partners/gusto.svg', hoverColor: '#10B981' },

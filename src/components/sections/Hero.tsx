@@ -25,14 +25,16 @@ const Hero: React.FC = () => {
             
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg">
-                Get Your Free AI Agent Blueprint
+                Get Access Now
               </Button>
               <Button variant="outline" size="lg">
                 Watch Demo
               </Button>
             </div>
             
-            <div className="mt-12 flex items-center gap-6 text-gray-300">
+            {/* Trusted by section */}
+
+            {/*<div className="mt-12 flex items-center gap-6 text-gray-300">
               <div className="flex -space-x-2">
                 {[1, 2, 3, 4].map(i => (
                   <img
@@ -47,8 +49,8 @@ const Hero: React.FC = () => {
                 <div className="font-semibold">Trusted by 500+ companies</div>
                 <div className="text-sm">From startups to enterprises</div>
               </div>
-            </div>
-          </motion.div>
+            </div> */}
+          </motion.div> 
           
           <motion.div
             initial={{ opacity: 0, x: 50 }}

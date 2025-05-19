@@ -1,12 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { 
-  MessageSquare, 
-  Calendar, 
+  Rocket,
   Search, 
   FileText, 
   Users, 
-  ShoppingCart 
+  ShoppingCart,
+  Database,
+  ChevronRight
 } from 'lucide-react';
 import Card from '../ui/Card';
 import SectionTitle from '../ui/SectionTitle';
@@ -14,19 +15,19 @@ import SectionTitle from '../ui/SectionTitle';
 const Services: React.FC = () => {
   const services = [
     {
-      icon: <MessageSquare className="w-10 h-10 text-primary" />,
-      title: "Customer Service Agents",
-      description: "AI-powered assistants that handle customer inquiries 24/7, improving response times and satisfaction.",
+      icon: <Rocket className="w-10 h-10 text-primary" />,
+      title: "Appointment Setter Agent",
+      description: "Turn leads into booked sales calls — automatically. This AI agent follows up with your leads on WhatsApp, Email, or SMS until they book. It handles objections, answers FAQs, and personalizes messages for every contact..",
     },
     {
-      icon: <Calendar className="w-10 h-10 text-primary" />,
-      title: "Scheduling Assistants",
-      description: "Intelligent agents that manage calendars, set meetings, and optimize your time automatically.",
+      icon: <Database className="w-10 h-10 text-primary" />,
+      title: "Data Enrichment Agent",
+      description: "This AI agent enriches your leads with data from over 100 sources, including LinkedIn, Google, and more. It provides you with the most relevant information to close deals faster.",
     },
     {
       icon: <Search className="w-10 h-10 text-primary" />,
-      title: "Research Agents",
-      description: "AI researchers that gather, analyze, and summarize information from diverse sources.",
+      title: "Custom Research Agent",
+      description: "This AI agent gathers, analyzes, and summarizes information from diverse sources. It can be customized to focus on specific topics or industries, providing you with the insights you need.",
     },
     {
       icon: <FileText className="w-10 h-10 text-primary" />,
@@ -87,6 +88,31 @@ const Services: React.FC = () => {
             </motion.div>
           ))}
         </div>
+
+        <motion.div 
+          className="mt-16 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 px-8 py-4 text-lg font-medium text-white
+                     bg-gradient-to-r from-primary/80 to-secondary/80 rounded-full
+                     hover:from-primary hover:to-secondary
+                     transition-all duration-300 ease-out
+                     shadow-[0_0_20px_rgba(79,70,229,0.3)]
+                     hover:shadow-[0_0_25px_rgba(79,70,229,0.5)]
+                     backdrop-blur-sm"
+          >
+            And Much More
+            <ChevronRight className="w-5 h-5 animate-pulse" />
+          </a>
+          <div className="mt-4 text-gray-400 text-sm">
+            Discover our full suite of AI solutions
+          </div>
+        </motion.div>
       </div>
     </section>
   );
