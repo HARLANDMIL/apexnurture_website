@@ -20,86 +20,64 @@ interface Suite {
   tooltip: string;
 }
 
-interface FAQ {
-  question: string;
-  answer: string;
-}
-
 // Helper component for pricing cards
-const PricingCard: React.FC<{ suite: Suite; isYearly: boolean }> = ({ suite, isYearly }) => (
-  <GlassCard 
-    className="h-full hover:scale-105 transition-transform duration-300"
-    borderColor="border-purple-500/30"
-    glowColor="shadow-[0_0_24px_4px_rgba(128,0,128,0.4)]"
-  >
-    <div className="p-8">
-      <div className="text-center mb-8">
-        <div className="w-16 h-16 mx-auto rounded-full bg-purple-500/10 flex items-center justify-center mb-4">
-          <i className={`fa ${suite.icon} text-4xl text-purple-400`}></i>
-        </div>
-        <h3 className="text-2xl font-orbitron font-bold mb-2 text-white">{suite.name}</h3>
-        <p className="text-gray-400">{suite.description}</p>
-      </div>
-
-      <div className="text-center mb-8">
-        <div className="text-3xl font-orbitron font-bold text-white mb-2">
-          ${suite.setupPrice.toLocaleString()} <span className="text-base text-gray-400">setup</span>
-        </div>
-        <div className="text-xl text-purple-300">
-          ${isYearly ? Math.round(suite.yearlyPrice / 12).toLocaleString() : suite.monthlyPrice.toLocaleString()} 
-          <span className="text-sm text-gray-400">/ month</span>
-        </div>
-        {isYearly && (
-          <div className="text-green-400 text-sm mt-2">
-            Save ${(suite.monthlyPrice * 12 - suite.yearlyPrice).toLocaleString()} yearly
+const PricingCard: React.FC<{ suite: Suite; isYearly: boolean }> = ({ suite, isYearly }) => {
+  return (
+    <GlassCard 
+      className="h-full hover:scale-105 transition-transform duration-300"
+      borderColor="border-purple-500/30"
+      glowColor="shadow-[0_0_24px_4px_rgba(128,0,128,0.4)]"
+    >
+      <div className="p-8">
+        <div className="text-center mb-8">
+          <div className="w-16 h-16 mx-auto rounded-full bg-purple-500/10 flex items-center justify-center mb-4">
+            <i className={`fa ${suite.icon} text-4xl text-purple-400`}></i>
           </div>
-        )}
-      </div>
+          <h3 className="text-2xl font-orbitron font-bold mb-2 text-white">{suite.name}</h3>
+          <p className="text-gray-400">{suite.description}</p>
+        </div>
 
-      <div className="space-y-4 mb-8">
-        <div className="text-green-400 font-semibold">{suite.goal}</div>
-        <div className="text-gray-300">{suite.outcome}</div>
-        <ul className="space-y-2">
-          {suite.features.map((feature, i) => (
-            <li key={i} className="flex items-center gap-2">
-              <i className="fa fa-check text-purple-400"></i>
-              <span className="text-gray-300">{feature}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
+        <div className="text-center mb-8">
+          <div className="text-3xl font-orbitron font-bold text-white mb-2">
+            ${suite.setupPrice.toLocaleString()} <span className="text-base text-gray-400">setup</span>
+          </div>
+          <div className="text-xl text-purple-300">
+            ${isYearly ? Math.round(suite.yearlyPrice / 12).toLocaleString() : suite.monthlyPrice.toLocaleString()} 
+            <span className="text-sm text-gray-400">/ month</span>
+          </div>
+          {isYearly && (
+            <div className="text-green-400 text-sm mt-2">
+              Save ${(suite.monthlyPrice * 12 - suite.yearlyPrice).toLocaleString()} yearly
+            </div>
+          )}
+        </div>
 
-      <Button 
-        className="w-full bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 relative group overflow-hidden"
-        onClick={() => window.open('https://calendly.com/apexnurture', '_blank')}
-      >
-        <span className="relative z-10">Get Started</span>
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-blue-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-      </Button>
-    </div>
-  </GlassCard>
-);
+        <div className="space-y-4 mb-8">
+          <div className="text-green-400 font-semibold">{suite.goal}</div>
+          <div className="text-gray-300">{suite.outcome}</div>
+          <ul className="space-y-2">
+            {suite.features.map((feature, i) => (
+              <li key={i} className="flex items-center gap-2">
+                <i className="fa fa-check text-purple-400"></i>
+                <span className="text-gray-300">{feature}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <Button 
+          className="w-full bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 relative group overflow-hidden"
+          onClick={() => window.open('https://calendly.com/apexnurture', '_blank')}
+        >
+          <span className="relative z-10">Get Started</span>
+          <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-blue-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+        </Button>
+      </div>
+    </GlassCard>
+  );
+};
 
 // Main Pricing component
-// Define types for clarity
-interface Suite {
-  name: string;
-  icon: string;
-  description: string;
-  setupPrice: number;
-  monthlyPrice: number;
-  yearlyPrice: number;
-  goal: string;
-  outcome: string;
-  features: string[];
-  tooltip: string;
-}
-
-interface FAQ {
-  question: string;
-  answer: string;
-}
-
 const Pricing: React.FC = () => {
   const [isYearly, setIsYearly] = useState(false);
   const [selectedFaq, setSelectedFaq] = useState<number | null>(null);
@@ -211,24 +189,7 @@ const Pricing: React.FC = () => {
             Discover our Precision Suite or Ready-to-Go solutions for instant impact
           </motion.p>
           
-          {/* Pricing Toggle */}
-          <div className="flex justify-center items-center gap-4 mb-12">
-            <span className={`text-sm ${!isYearly ? 'text-white' : 'text-gray-400'}`}>Monthly</span>
-            <button 
-              onClick={() => setIsYearly(!isYearly)}
-              className="w-16 h-8 bg-white/10 rounded-full p-1 transition-colors relative"
-            >
-              <div className={`w-6 h-6 rounded-full bg-purple-500 absolute top-1 transition-transform transform ${isYearly ? 'translate-x-8' : 'translate-x-0'}`}></div>
-            </button>
-            <span className={`text-sm ${isYearly ? 'text-white' : 'text-gray-400'}`}>Yearly (Save 20%)</span>
-          </div>
-        </div>        {/* Precision AI Implementation Suite */}        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="mb-20"
-        >
+
           <GlassCard 
             className="w-full hover:border-purple-500/50 transition-all duration-300"
             borderColor="border-purple-500/30"
@@ -325,71 +286,20 @@ const Pricing: React.FC = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </GlassCard>
         </motion.div>
 
         {/* Ready-to-Go Suites */}
-        <div className="grid md:grid-cols-3 gap-8 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
           {suites.map((suite, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
+              transition={{ duration: 0.7, delay: index * 0.2 }}
             >
-              {/* PricingCard component for Ready-to-Go Suites */}
-              <GlassCard 
-                className="h-full hover:scale-105 transition-transform duration-300"
-                borderColor="border-purple-500/30"
-                glowColor="shadow-[0_0_24px_4px_rgba(128,0,128,0.4)]"
-              >
-                <div className="p-8">
-                  <div className="text-center mb-8">
-                    <div className="w-16 h-16 mx-auto rounded-full bg-purple-500/10 flex items-center justify-center mb-4">
-                      <i className={`fa ${suite.icon} text-4xl text-purple-400`}></i>
-                    </div>
-                    <h3 className="text-2xl font-orbitron font-bold mb-2 text-white">{suite.name}</h3>
-                    <p className="text-gray-400">{suite.description}</p>
-                  </div>
-
-                  <div className="text-center mb-8">
-                    <div className="text-3xl font-orbitron font-bold text-white mb-2">
-                      ${suite.setupPrice.toLocaleString()} <span className="text-base text-gray-400">setup</span>
-                    </div>
-                    <div className="text-xl text-purple-300">
-                      ${isYearly ? Math.round(suite.yearlyPrice / 12).toLocaleString() : suite.monthlyPrice.toLocaleString()} 
-                      <span className="text-sm text-gray-400">/ month</span>
-                    </div>
-                    {isYearly && (
-                      <div className="text-green-400 text-sm mt-2">
-                        Save ${(suite.monthlyPrice * 12 - suite.yearlyPrice).toLocaleString()} yearly
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="space-y-4 mb-8">
-                    <div className="text-green-400 font-semibold">{suite.goal}</div>
-                    <div className="text-gray-300">{suite.outcome}</div>
-                    <ul className="space-y-2">
-                      {suite.features.map((feature, i) => (
-                        <li key={i} className="flex items-center gap-2">
-                          <i className="fa fa-check text-purple-400"></i>
-                          <span className="text-gray-300">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <Button 
-                    className="w-full bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 relative group overflow-hidden"
-                    onClick={() => window.open('https://calendly.com/apexnurture', '_blank')}
-                  >
-                    <span className="relative z-10">Get Started</span>
-                    <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-blue-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-                  </Button>
-                </div>
-              </GlassCard>
+              <PricingCard suite={suite} isYearly={isYearly} />
             </motion.div>
           ))}
         </div>
@@ -448,11 +358,11 @@ const Pricing: React.FC = () => {
               Book a Free Demo Today and See How Our AI Agents Can Transform Your Operations
             </p>
             <Button 
-              className="bg-gradient-to-r from-purple-600 to-silver-500 hover:from-purple-700 hover:to-silver-600 text-xl px-12 py-4 relative group overflow-hidden"
+              className="bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 text-xl px-12 py-4 relative group overflow-hidden"
               onClick={() => window.open('https://calendly.com/apexnurture', '_blank')}
             >
-              <span className="relative z-10">Book Free Demo</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-silver-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+              <span className="relative z-10">Book Your Free Demo</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-blue-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
             </Button>
           </GlassCard>
         </motion.div>
