@@ -48,7 +48,7 @@ const HowItWorks: React.FC = () => {
     <section className="py-24 relative" id="how-it-works">
       <div className="container mx-auto px-4 md:px-6">
         <SectionTitle 
-          title="How It Works: Transform Your Business in 4 Easy Steps" 
+          title="How It Works?" 
           subtitle="Our proven four-step process transforms your business operations with custom AI solutions."
         />
         

@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Button from '../ui/Button';
-import TrustedBy from './TrustedBy';
 
 const Hero: React.FC = () => {
   return (
