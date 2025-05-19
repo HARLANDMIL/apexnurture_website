@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
 import Countdown from 'react-countdown';
-import { ChevronDown } from 'lucide-react';
 import Button from '../ui/Button';
 import GlassCard from '../ui/GlassCard';
 
@@ -21,7 +20,7 @@ interface Suite {
 }
 
 // Helper component for pricing cards
-const PricingCard: React.FC<{ suite: Suite; isYearly: boolean }> = ({ suite, isYearly }) => {
+const PricingCard: React.FC<{ suite: Suite }> = ({ suite }) => {
   return (
     <GlassCard 
       className="h-full hover:scale-105 transition-transform duration-300"
@@ -42,14 +41,9 @@ const PricingCard: React.FC<{ suite: Suite; isYearly: boolean }> = ({ suite, isY
             ${suite.setupPrice.toLocaleString()} <span className="text-base text-gray-400">setup</span>
           </div>
           <div className="text-xl text-purple-300">
-            ${isYearly ? Math.round(suite.yearlyPrice / 12).toLocaleString() : suite.monthlyPrice.toLocaleString()} 
+            ${suite.monthlyPrice.toLocaleString()} 
             <span className="text-sm text-gray-400">/ month</span>
           </div>
-          {isYearly && (
-            <div className="text-green-400 text-sm mt-2">
-              Save ${(suite.monthlyPrice * 12 - suite.yearlyPrice).toLocaleString()} yearly
-            </div>
-          )}
         </div>
 
         <div className="space-y-4 mb-8">
@@ -79,36 +73,10 @@ const PricingCard: React.FC<{ suite: Suite; isYearly: boolean }> = ({ suite, isY
 
 // Main Pricing component
 const Pricing: React.FC = () => {
-  const [isYearly, setIsYearly] = useState(false);
-  const [selectedFaq, setSelectedFaq] = useState<number | null>(null);
-  
   // Deadline: May 21, 2025, 11:31 AM SAST
   const deadline = new Date('2025-05-21T11:31:00+02:00').getTime();
   
-  const faqs = [
-    {
-      question: "What makes your AI agents different from ChatGPT?",
-      answer: "Unlike ChatGPT, our AI agents are custom-built for your specific business processes, integrate with your existing tools, and operate 24/7 without human intervention. They learn from your business data and improve over time."
-    },
-    {
-      question: "How long does implementation take?",
-      answer: "Our Ready-to-Go suites can be implemented within 7-14 days. For the Precision AI Implementation Suite, we typically complete the full setup within 30 days, with initial automation starting in as little as 2 weeks."
-    },
-    {
-      question: "Do I need technical knowledge to use the AI agents?",
-      answer: "No technical knowledge is required. We handle all the technical implementation and provide a user-friendly dashboard for monitoring. Our team also provides comprehensive training and ongoing support."
-    },
-    {
-      question: "What kind of ROI can I expect?",
-      answer: "Our clients typically see 200-300% ROI within the first 3 months. This comes from reduced labor costs, increased efficiency, and improved customer satisfaction. We provide detailed ROI tracking through our analytics dashboard."
-    },
-    {
-      question: "What happens after implementation?",
-      answer: "You'll receive ongoing support, monthly optimization sessions, and regular updates to your AI agents. We monitor performance 24/7 and make proactive improvements to ensure maximum efficiency."
-    }
-  ];
-  
-  const suites = [
+  const suites: Suite[] = [
     {
       name: "E-Commerce Growth Suite",
       icon: "fa-shopping-cart",
@@ -189,7 +157,6 @@ const Pricing: React.FC = () => {
             Discover our Precision Suite or Ready-to-Go solutions for instant impact
           </motion.p>
           
-
           <GlassCard 
             className="w-full hover:border-purple-500/50 transition-all duration-300"
             borderColor="border-purple-500/30"
@@ -287,7 +254,8 @@ const Pricing: React.FC = () => {
               </div>
             </div>
           </GlassCard>
-        </motion.div>
+        </div>
+        
 
         {/* Ready-to-Go Suites */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
@@ -299,43 +267,9 @@ const Pricing: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: index * 0.2 }}
             >
-              <PricingCard suite={suite} isYearly={isYearly} />
+              <PricingCard suite={suite} />
             </motion.div>
           ))}
-        </div>
-
-        {/* FAQ Section */}
-        <div className="max-w-3xl mx-auto mb-20">
-          <h2 className="text-3xl font-orbitron font-bold text-center mb-12 text-white">
-            Frequently Asked Questions
-          </h2>
-          <div className="space-y-4">
-            {faqs.map((faq, index) => (
-              <GlassCard 
-                key={index}
-                className="overflow-hidden transition-all duration-300"
-                borderColor={selectedFaq === index ? "border-purple-500" : "border-purple-500/30"}
-                glowColor="shadow-[0_0_24px_4px_rgba(128,0,128,0.2)]"
-              >
-                <button
-                  className="w-full px-6 py-4 text-left flex items-center justify-between"
-                  onClick={() => setSelectedFaq(selectedFaq === index ? null : index)}
-                >
-                  <span className="font-orbitron text-white">{faq.question}</span>
-                  <ChevronDown 
-                    className={`w-5 h-5 text-purple-400 transition-transform ${
-                      selectedFaq === index ? 'rotate-180' : ''
-                    }`}
-                  />
-                </button>
-                {selectedFaq === index && (
-                  <div className="px-6 pb-4 text-gray-300">
-                    {faq.answer}
-                  </div>
-                )}
-              </GlassCard>
-            ))}
-          </div>
         </div>
 
         {/* Final CTA */}
