@@ -136,9 +136,7 @@ const PrecisionCard: React.FC = () => {
         glowColor="shadow-[0_0_24px_4px_rgba(128,0,128,0.4)]"
       >
         <div className="p-8 md:p-12 relative z-10">
-          {/* Holographic Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-cyan-500/10 
-                        animate-holographic pointer-events-none" />
+          
 
           {/* Header with Enhanced Animation */}
           <div className="text-center mb-12 relative">
@@ -453,6 +451,7 @@ const Pricing: React.FC = () => {
         </motion.div> /*}
 
         {/* Footer */}
+
       </div>
     </section>
   );
