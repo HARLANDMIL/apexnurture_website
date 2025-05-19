@@ -375,6 +375,27 @@ const Pricing: React.FC = () => {
         </div>
         
 
+        {/* Ready-to-Go Suites Section Header */}
+        <div className="text-center mb-12">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl md:text-4xl font-orbitron font-bold mb-4 text-white"
+            style={{ textShadow: "0 0 15px rgba(128, 0, 128, 0.7)" }}
+          >
+            Access our Ready-to-Go Suites
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-xl text-purple-300 font-poppins"
+          >
+            Start automating your business instantly with our specialized solutions
+          </motion.p>
+        </div>
+
         {/* Ready-to-Go Suites */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
           {suites.map((suite, index) => (
@@ -390,7 +411,7 @@ const Pricing: React.FC = () => {
           ))}
         </div>
 
-        {/* Final CTA */}
+        {/* Final CTA *
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -417,7 +438,9 @@ const Pricing: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-blue-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
             </Button>
           </GlassCard>
-        </motion.div>
+        </motion.div> /*}
+
+        {/* Footer */}
       </div>
     </section>
   );

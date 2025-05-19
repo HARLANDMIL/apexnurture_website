@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Cpu, Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import Button from '../ui/Button';
 import { motion } from 'framer-motion';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [showSuites, setShowSuites] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -33,33 +32,6 @@ const Navbar: React.FC = () => {
     { name: 'Contact', href: '#contact' },
   ];
 
-  // Updated suiteLinks to include the new AI Suite pages
-  const suiteLinks = [
-    { 
-      name: 'Lead-to-Client Conversion', 
-      href: '/lead-to-client',
-      description: 'Turn leads into booked calls effortlessly'
-    },
-    { 
-      name: 'Recruitment Automation', 
-      href: '/recruitment-automation',
-      description: 'Speed up placements with AI precision'
-    },
-    { 
-      name: 'Smart Business Ops', 
-      href: '/business-ops',
-      description: 'Automate ops and save time'
-    },
-    // Add more suites as needed
-    { 
-      name: 'Precision AI Program', 
-      href: '/precision-ai-program',
-      description: 'Tailored AI solutions for your business'
-    }
-  ];
-
-  // Add more suites as needed
-
   return (
     <motion.nav
       initial={{ y: -100 }}
@@ -72,7 +44,6 @@ const Navbar: React.FC = () => {
       <div className="container mx-auto px-4 md:px-8">
         <div className="flex justify-between items-center gap-4 md:gap-8">
           <a href="/" className="flex items-center gap-2">
-            {/* <Cpu className="h-8 w-8 text-primary" /> */}
             <span className="font-orbitron font-bold text-xl md:text-2xl">Apex Nurture</span>
           </a>
 
@@ -89,38 +60,13 @@ const Navbar: React.FC = () => {
                 </a>
               ))}
               
-              {/* AI Suites Dropdown */}
-              <div 
-                className="relative"
-                onMouseEnter={() => setShowSuites(true)}
-                onMouseLeave={() => setShowSuites(false)}
+              {/* AI Suites Link */}
+              <a
+                href="#pricing"
+                className="text-gray-300 hover:text-primary transition-colors font-medium"
               >
-                <button 
-                  className="flex items-center gap-1 text-gray-300 hover:text-primary transition-colors font-medium"
-                  onClick={() => setShowSuites(!showSuites)}
-                >
-                  AI Suites
-                  <ChevronDown className="w-4 h-4" />
-                </button>
-
-                {/* Dropdown Menu */}
-                {showSuites && (
-                  <div className="absolute top-full left-0 mt-2 w-72 glass rounded-lg overflow-hidden">
-                    <div className="py-2">
-                      {suiteLinks.map((suite) => (
-                        <a
-                          key={suite.name}
-                          href={suite.href}
-                          className="block px-4 py-3 hover:bg-white/10 transition-colors"
-                        >
-                          <div className="font-medium text-white">{suite.name}</div>
-                          <div className="text-sm text-gray-400">{suite.description}</div>
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
+                AI Suites
+              </a>
             </div>
             
             <Button 
@@ -158,20 +104,14 @@ const Navbar: React.FC = () => {
                 </a>
               ))}
               
-              {/* Mobile AI Suites Section */}
-              <div className="py-2 px-3">
-                <div className="font-medium text-primary mb-2">AI Suites</div>
-                {suiteLinks.map((suite) => (
-                  <a
-                    key={suite.name}
-                    href={suite.href}
-                    className="block py-2 text-gray-300 hover:text-primary transition-colors"
-                    onClick={toggleMenu}
-                  >
-                    {suite.name}
-                  </a>
-                ))}
-              </div>
+              {/* Mobile AI Suites Link */}
+              <a
+                href="#pricing"
+                className="text-gray-300 hover:text-primary py-2 px-3 rounded-md transition-colors"
+                onClick={toggleMenu}
+              >
+                AI Suites
+              </a>
               
               <Button 
                 className="mt-2 bg-purple-600 text-white hover:bg-purple-700 hover:shadow-[0_0_10px_#800080] transition-all duration-300"
