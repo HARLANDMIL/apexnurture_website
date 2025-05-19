@@ -15,8 +15,8 @@ const SuccessStories: React.FC = () => {
   image: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
   description: "BrightPath Consulting struggled to manage a growing influx of leads, with 40% slipping through the cracks. Our Precision AI Implementation Suite audited their processes and deployed a custom lead nurturing agent, automating follow-ups and prioritizing high-value prospects.",
   results: [
-    { icon: "<i class='fa fa-users'></i>", label: "Lead conversion rate increased by 45%" },
-    { icon: "<i class='fa fa-clock'></i>", label: "Follow-up time reduced from 48 hours to 2 hours" },
+    { icon: <Clock />, label: "Lead conversion rate increased by 45%" },
+    { icon: <DollarSign />, label: "Follow-up time reduced from 48 hours to 2 hours" },
   ],
   quote: "Apex Nurture’s custom AI agents turned our lead generation into a well-oiled machine—our revenue has never been higher!",
   person: "Michael Carter, Founder",
@@ -30,8 +30,8 @@ const SuccessStories: React.FC = () => {
   image: "https://images.pexels.com/photos/3184298/pexels-photo-3184298.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
   description: "TrendyWear Boutique was losing 25% of potential sales due to abandoned carts. Our E-Commerce Growth Suite deployed an AI agent that automatically sends personalized recovery emails, re-engaging customers at the right moment.",
   results: [
-    { icon: "<i class='fa fa-shopping-cart'></i>", label: "Abandoned cart recovery rate improved by 30%" },
-    { icon: "<i class='fa fa-dollar-sign'></i>", label: "Monthly revenue increased by $15,000" },
+    { icon: <Clock />, label: "Abandoned cart recovery rate improved by 30%" },
+    { icon: <DollarSign />, label: "Monthly revenue increased by $15,000" },
   ],
   quote: "The AI recovery agent paid for itself in the first month—it’s like having a sales team that never sleeps!",
   person: "Emily Davis, Store Manager",
@@ -44,8 +44,8 @@ const SuccessStories: React.FC = () => {
   image: "https://images.pexels.com/photos/3184295/pexels-photo-3184295.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
   description: "HealthFirst Clinic was overwhelmed by administrative tasks, leading to a 15% no-show rate for appointments. Our Healthcare Admin Automation Suite implemented an AI scheduling agent that sends reminders and reschedules seamlessly, freeing up staff to focus on patient care.",
   results: [
-    { icon: "<i class='fa fa-calendar'></i>", label: "No-show rate decreased by 40%" },
-    { icon: "<i class='fa fa-user-check'></i>", label: "Patient satisfaction improved by 20%" },
+    { icon: <Clock />, label: "No-show rate decreased by 40%" },
+    { icon: <DollarSign />, label: "Patient satisfaction improved by 20%" },
   ],
   quote: "Apex Nurture’s AI solution has allowed us to prioritize what matters most—our patients. It’s been a game-changer.",
   person: "Dr. Linda Patel, Chief Medical Officer",

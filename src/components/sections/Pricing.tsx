@@ -343,11 +343,23 @@ const Pricing: React.FC = () => {
       tooltip: "Perfect for real estate agencies looking to streamline transactions"
     }
   ];
-  return (
-    <section className="py-24 relative overflow-hidden bg-gradient-to-b from-[#0F0C29] via-[#302B63] to-[#24243E]" id="pricing">
-      {/* Aurora Effect Overlay */}
-      <div className="absolute inset-0 opacity-15">
-        <div className="absolute inset-0 bg-gradient-to-b from-purple-500/20 to-blue-500/20 animate-aurora"></div>
+  return (    <section className="py-24 relative overflow-hidden" id="pricing">
+      {/* Enhanced Aurora Effect Overlays */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background-start via-background-mid to-background-end"></div>
+      
+      {/* Multiple Aurora layers for depth */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-tr from-purple-900/20 via-transparent to-blue-900/20 animate-aurora-slow"></div>
+        <div className="absolute inset-0 bg-gradient-to-bl from-indigo-900/10 via-transparent to-purple-900/10 animate-aurora-reverse"></div>
+        <div className="absolute inset-0 backdrop-blur-[100px]"></div>
+      </div>
+      
+      {/* Radial gradient overlay for depth */}
+      <div className="absolute inset-0 bg-radial-gradient opacity-40"></div>
+      
+      {/* Subtle noise texture */}
+      <div className="absolute inset-0 opacity-[0.015] mix-blend-overlay">
+        <div className="absolute inset-0 bg-noise"></div>
       </div>
       
       <div className="container mx-auto px-4 md:px-6 relative z-10">

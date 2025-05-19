@@ -9,13 +9,13 @@ interface Partner {
 }
 
 const partners: Partner[] = [ 
- { id: 1, name: 'Kanmon', logo: '/partners/kanmon.svg', hoverColor: '#4F46E5' },
-  { id: 2, name: 'Thinkific', logo: 'C:\\Users\\User\\Documents\\oWNER\\NEW_APEXNURTURE\\apexnurture_website\\public\\partners\\Thinkific.svg', hoverColor: '#EC4899' },
-  { id: 3, name: 'Plane', logo: 'C:\\Users\\User\\Documents\\oWNER\\NEW_APEXNURTURE\\apexnurture_website\\public\\partners\\plane.svg', hoverColor: '#3B82F6' },
-  { id: 4, name: 'Papaya', logo: 'C:\\Users\\User\\Documents\\oWNER\\NEW_APEXNURTURE\\apexnurture_website\\public\\partners\\papaya.svg', hoverColor: '#F59E0B' },
-  { id: 5, name: 'Gusto', logo: 'C:\\Users\\User\\Documents\\oWNER\\NEW_APEXNURTURE\\apexnurture_website\\public\\partners\\gusto.svg', hoverColor: '#10B981' },
-  { id: 6, name: 'Elevate', logo: 'C:\\Users\\User\\Documents\\oWNER\\NEW_APEXNURTURE\\apexnurture_website\\public\\partners\\elevate.svg', hoverColor: '#8B5CF6' },
-  { id: 7, name: 'Salsa', logo: 'C:\\Users\\User\\Documents\\oWNER\\NEW_APEXNURTURE\\apexnurture_website\\public\\partners\\salsa.svg', hoverColor: '#EF4444' },
+  { id: 1, name: 'Kanmon', logo: '/partners/kanmon.svg', hoverColor: '#4F46E5' },
+  { id: 2, name: 'Thinkific', logo: '/partners/thinkific.svg', hoverColor: '#EC4899' },
+  { id: 3, name: 'Plane', logo: '/partners/plane.svg', hoverColor: '#3B82F6' },
+  { id: 4, name: 'Papaya', logo: '/partners/papaya.svg', hoverColor: '#F59E0B' },
+  { id: 5, name: 'Gusto', logo: '/partners/gusto.svg', hoverColor: '#10B981' },
+  { id: 6, name: 'Elevate', logo: '/partners/elevate.svg', hoverColor: '#8B5CF6' },
+  { id: 7, name: 'Salsa', logo: '/partners/salsa.svg', hoverColor: '#EF4444' },
 ];
 
 const TrustedBy = () => {
@@ -52,11 +52,9 @@ const TrustedBy = () => {
           Trusted by Industry Leaders
         </motion.h3>
 
-        <div className="relative">
-          {/* Gradient overlays for smooth fade effect */}
-          <div className="absolute left-0 top-0 w-40 h-full bg-gradient-to-r from-background-end via-background-end/95 to-transparent z-10" />
-          <div className="absolute right-0 top-0 w-40 h-full bg-gradient-to-l from-background-end via-background-end/95 to-transparent z-10" />
-
+        <div className="flex items-center justify-center">
+          {/* Background gradient */}
+         
           {/* Carousel row */}
           <div className="relative">
             <motion.div

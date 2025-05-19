@@ -26,10 +26,9 @@ const Navbar: React.FC = () => {
   }, [scrolled]);
 
   const mainNavLinks = [
-    { name: 'Home', href: '/' },
     { name: 'How It Works', href: '#how-it-works' },
-    { name: 'About', href: '#about' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Success Stories', href: '#success-stories' },
+  
   ];
 
   return (
