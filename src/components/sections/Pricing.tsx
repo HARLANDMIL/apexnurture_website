@@ -292,7 +292,7 @@ const Pricing: React.FC = () => {
       name: "AI Candidate Pipeline Stack",
       subheadline: "Auto-Source, Qualify, and Follow Up with Top Candidates",
       niche: "Recruitment Agencies & HR Departments",
-      price: "$1,499/month",
+      price: "$1,899/month",
       addOn: "Custom Candidate CRM Build ($5,999 one-time)",
       features: [
         { icon: "fa-users", text: "Sourcing Agent", tooltip: "Sources from LinkedIn, job boards, and internal databases." },
@@ -307,7 +307,7 @@ const Pricing: React.FC = () => {
       name: "AI Course Funnel Stack",
       subheadline: "Turn Your Course Content into a 24/7 Client Acquisition Machine",
       niche: "Online Course Creators, Business Coaches",
-      price: "$1,299/month",
+      price: "$1,499/month",
       addOn: "High-Converting VSL & Funnel System ($4,999 one-time)",
       features: [
         { icon: "fa-video", text: "AI Webinar Repurposer", tooltip: "Creates blog posts, carousels, and more from recordings." },
@@ -322,7 +322,7 @@ const Pricing: React.FC = () => {
       name: "AI Backoffice Stack",
       subheadline: "Cut Your Admin Workload by 60%—No Extra Hires Needed",
       niche: "Small to Mid-Sized Businesses",
-      price: "Small Teams: $1,499/month | Medium Teams: $1,899/month",
+      price: "$1699/month",
       addOn: "AI SOP Buildout + Full Process Automation ($5,999 one-time)",
       features: [
         { icon: "fa-file-invoice-dollar", text: "AI Quotation Assistant", tooltip: "Saves 10+ hours/week on quote creation." },
@@ -337,8 +337,14 @@ const Pricing: React.FC = () => {
 
   return (
     <section className="py-24 relative overflow-hidden" id="pricing">
+      {/* Section-Wide Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0F0C29] via-[#302B63] to-[#24243E]">
+        <div className="absolute inset-0 bg-[url('/path-to-aurora-effect.png')] opacity-20 animate-pulse" />
+        <div className="absolute inset-0 bg-[url('/path-to-starfield.png')] opacity-10 animate-fade" />
+      </div>
+
       {/* Hero Pricing Intro */}
-      <div className="text-center mb-20">
+      <div className="text-center mb-20 relative z-10">
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -366,9 +372,9 @@ const Pricing: React.FC = () => {
       </div>
 
       {/* Pricing Plans */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20 relative z-10">
         {plans.map((plan, index) => (
-          <GlassCard key={index} className="p-8">
+          <GlassCard key={index} className={`p-8 pricing-card ${index === 0 ? 'neon-green' : index === 1 ? 'neon-blue' : 'neon-orange'}`}>
             <h3 className="text-2xl font-orbitron font-bold text-white mb-4">{plan.name}</h3>
             <p className="text-gray-300 mb-4">{plan.subheadline}</p>
             <p className="text-purple-300 mb-4">{plan.niche}</p>
@@ -395,13 +401,13 @@ const Pricing: React.FC = () => {
       </div>
 
       {/* Headline for Precision AI Implementation Suite */}
-      <div className="text-center mb-12">
+      <div className="text-center mb-12 relative z-10">
         <h2 className="text-3xl font-orbitron font-bold text-white mb-4">Need a Tailored Solution?</h2>
         <p className="text-gray-300 text-lg">Explore our Precision AI Implementation Suite for bespoke solutions.</p>
       </div>
 
       {/* Precision AI Implementation Suite */}
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-4xl mx-auto relative z-10">
         <PrecisionCard />
       </div>
     </section>
