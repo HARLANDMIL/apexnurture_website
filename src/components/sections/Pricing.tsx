@@ -394,8 +394,16 @@ const Pricing: React.FC = () => {
         ))}
       </div>
 
+      {/* Headline for Precision AI Implementation Suite */}
+      <div className="text-center mb-12">
+        <h2 className="text-3xl font-orbitron font-bold text-white mb-4">Need a Tailored Solution?</h2>
+        <p className="text-gray-300 text-lg">Explore our Precision AI Implementation Suite for bespoke solutions.</p>
+      </div>
+
       {/* Precision AI Implementation Suite */}
-      <PrecisionCard />
+      <div className="max-w-4xl mx-auto">
+        <PrecisionCard />
+      </div>
     </section>
   );
 };
