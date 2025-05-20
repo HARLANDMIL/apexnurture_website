@@ -285,173 +285,113 @@ const PrecisionCard: React.FC = () => {
 
 // Main Pricing component
 const Pricing: React.FC = () => {
-  // Deadline: May 21, 2025, 11:31 AM SAST
-  const deadline = new Date('2025-05-21T11:31:00+02:00').getTime();
-  
-  const suites: Suite[] = [
+  const deadline = new Date('2025-05-22T13:01:00+02:00').getTime();
+
+  const plans = [
     {
-      name: "E-Commerce Growth Suite",
-      icon: "fa-shopping-cart",
-      description: "Boost Sales and Streamline Operations with AI",
-      setupPrice: 2999,
-      monthlyPrice: 599,
-      yearlyPrice: 5990, // 10 months for annual billing
-      goal: "Increase online sales by 15-25% within 30 days",
-      outcome: "Recover abandoned carts and automate customer service",
+      name: "AI Candidate Pipeline Stack",
+      subheadline: "Auto-Source, Qualify, and Follow Up with Top Candidates",
+      niche: "Recruitment Agencies & HR Departments",
+      price: "$1,499/month",
+      addOn: "Custom Candidate CRM Build ($5,999 one-time)",
       features: [
-        "AI-Powered Cart Recovery Agent",
-        "Customer Service Chatbot",
-        "Inventory Sync Automation",
-        "Real-Time Analytics Dashboard"
+        { icon: "fa-users", text: "Sourcing Agent", tooltip: "Sources from LinkedIn, job boards, and internal databases." },
+        { icon: "fa-file-alt", text: "AI Screening Assistant", tooltip: "Flags red flags and ranks candidates by fit." },
+        { icon: "fa-envelope", text: "Follow-up AI Recruiter", tooltip: "Boosts application completion by 25%." },
+        { icon: "fa-chart-bar", text: "Client Report Bot", tooltip: "Keeps clients informed with actionable insights." },
+        { icon: "fa-plug", text: "ATS Integration Module", tooltip: "Seamless integration with your existing systems." }
       ],
-      tooltip: "Perfect for online stores looking to increase sales and automate customer service"
+      outcome: "Hire 30% faster with less admin work and better candidates."
     },
     {
-      name: "Healthcare Admin Suite",
-      icon: "fa-hospital",
-      description: "Focus on Patient Care, Not Admin Tasks",
-      setupPrice: 3499,
-      monthlyPrice: 699,
-      yearlyPrice: 6990,
-      goal: "Reduce admin workload by 70% within 45 days",
-      outcome: "Decrease no-shows and improve patient retention",
+      name: "AI Course Funnel Stack",
+      subheadline: "Turn Your Course Content into a 24/7 Client Acquisition Machine",
+      niche: "Online Course Creators, Business Coaches",
+      price: "$1,299/month",
+      addOn: "High-Converting VSL & Funnel System ($4,999 one-time)",
       features: [
-        "AI Scheduling Agent",
-        "Billing Automation",
-        "Patient Follow-Up System",
-        "Compliance Dashboard"
+        { icon: "fa-video", text: "AI Webinar Repurposer", tooltip: "Creates blog posts, carousels, and more from recordings." },
+        { icon: "fa-comments", text: "Lead Nurture Bot", tooltip: "Increases engagement by 20% with tailored messages." },
+        { icon: "fa-tachometer-alt", text: "Funnel Optimizer Agent", tooltip: "Boosts upsell rates with data-driven insights." },
+        { icon: "fa-star", text: "Testimonial Hunter Bot", tooltip: "Builds trust by showcasing client success." },
+        { icon: "fa-desktop", text: "All-in-One Content CRM Dashboard", tooltip: "Track leads, content, and conversions in one place." }
       ],
-      tooltip: "Ideal for medical practices wanting to reduce administrative burden"
+      outcome: "Convert more viewers into clients automatically, even while you sleep."
     },
     {
-      name: "Real Estate Transaction Suite",
-      icon: "fa-home",
-      description: "Close Deals Faster with AI Automation",
-      setupPrice: 2799,
-      monthlyPrice: 549,
-      yearlyPrice: 5490,
-      goal: "Speed up deal closures by 10% within 45 days",
-      outcome: "Reduce errors and improve response rates",
+      name: "AI Backoffice Stack",
+      subheadline: "Cut Your Admin Workload by 60%—No Extra Hires Needed",
+      niche: "Small to Mid-Sized Businesses",
+      price: "Small Teams: $1,499/month | Medium Teams: $1,899/month",
+      addOn: "AI SOP Buildout + Full Process Automation ($5,999 one-time)",
       features: [
-        "Lead Qualification AI",
-        "Document Automation",
-        "Client Follow-Up System",
-        "Transaction Tracking Dashboard"
+        { icon: "fa-file-invoice-dollar", text: "AI Quotation Assistant", tooltip: "Saves 10+ hours/week on quote creation." },
+        { icon: "fa-calendar-check", text: "Task Scheduler Bot", tooltip: "Integrates with Slack, WhatsApp, or email." },
+        { icon: "fa-headset", text: "Client Communication Agent", tooltip: "Reduces response time to under 5 minutes." },
+        { icon: "fa-dollar-sign", text: "Payment Reminder Bot", tooltip: "Improves cash flow by 15% with gentle nudges." },
+        { icon: "fa-chart-line", text: "Operations Dashboard", tooltip: "Identify bottlenecks and optimize efficiency." }
       ],
-      tooltip: "Perfect for real estate agencies looking to streamline transactions"
+      outcome: "Save $2K–$6K/month in admin hours, delays, and follow-ups."
     }
   ];
-  return (    <section className="py-24 relative overflow-hidden" id="pricing">
-      {/* Enhanced Aurora Effect Overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background-start via-background-mid to-background-end"></div>
-      
-      {/* Multiple Aurora layers for depth */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-tr from-purple-900/20 via-transparent to-blue-900/20 animate-aurora-slow"></div>
-        <div className="absolute inset-0 bg-gradient-to-bl from-indigo-900/10 via-transparent to-purple-900/10 animate-aurora-reverse"></div>
-        <div className="absolute inset-0 backdrop-blur-[100px]"></div>
-      </div>
-      
-      {/* Radial gradient overlay for depth */}
-      <div className="absolute inset-0 bg-radial-gradient opacity-40"></div>
-      
-      {/* Subtle noise texture */}
-      <div className="absolute inset-0 opacity-[0.015] mix-blend-overlay">
-        <div className="absolute inset-0 bg-noise"></div>
-      </div>
-      
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
-        {/* Hero Pricing Intro */}
-        <div className="text-center mb-20">
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-orbitron font-bold mb-6 text-white"
-            style={{ textShadow: "0 0 15px rgba(128, 0, 128, 0.7)" }}
-          >
-            Elevate Your Business with AI Automation
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto font-poppins"
-          >
-            Discover our Precision Suite or Ready-to-Go solutions for instant impact
-          </motion.p>
-          
-          <PrecisionCard />
-        </div>
-        
 
-        {/* Ready-to-Go Suites Section Header */}
-        <div className="text-center mb-12">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-3xl md:text-4xl font-orbitron font-bold mb-4 text-white"
-            style={{ textShadow: "0 0 15px rgba(128, 0, 128, 0.7)" }}
-          >
-            Access our Ready-to-Go Suites
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl text-purple-300 font-poppins"
-          >
-            Start automating your business instantly with our specialized solutions
-          </motion.p>
-        </div>
-
-        {/* Ready-to-Go Suites */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-          {suites.map((suite, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: index * 0.2 }}
-            >
-              <PricingCard suite={suite} />
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Final CTA *
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="text-center"
+  return (
+    <section className="py-24 relative overflow-hidden" id="pricing">
+      {/* Hero Pricing Intro */}
+      <div className="text-center mb-20">
+        <motion.h1 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-4xl md:text-5xl font-orbitron font-bold mb-6 text-white"
+          style={{ textShadow: "0 0 15px rgba(128, 0, 128, 0.7)" }}
         >
-          <GlassCard
-            className="max-w-3xl mx-auto p-12"
-            borderColor="border-purple-500/30"
-            glowColor="shadow-[0_0_32px_8px_rgba(128,0,128,0.3)]"
-          >
-            <h2 className="text-3xl md:text-4xl font-orbitron font-bold mb-6 text-white">
-              Ready to Revolutionize Your Business?
-            </h2>
-            <p className="text-xl text-gray-300 mb-8 font-poppins">
-              Book a Free Demo Today and See How Our AI Agents Can Transform Your Operations
-            </p>
+          Supercharge Your Business with AI-Powered Automation
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto font-poppins"
+        >
+          Choose the perfect AI stack to streamline operations, boost conversions, and save time.
+        </motion.p>
+        <Button 
+          className="bg-gradient-to-r from-purple-600 to-gray-400 hover:from-purple-700 hover:to-gray-500 text-xl px-12 py-4 relative group overflow-hidden"
+          onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
+        >
+          <span className="relative z-10">Find Your Plan</span>
+          <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-gray-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
+        </Button>
+      </div>
+
+      {/* Pricing Plans */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+        {plans.map((plan, index) => (
+          <GlassCard key={index} className="p-8">
+            <h3 className="text-2xl font-orbitron font-bold text-white mb-4">{plan.name}</h3>
+            <p className="text-gray-300 mb-4">{plan.subheadline}</p>
+            <p className="text-purple-300 mb-4">{plan.niche}</p>
+            <div className="text-white font-bold mb-4">{plan.price}</div>
+            <div className="text-gray-400 mb-4">{plan.addOn}</div>
+            <ul className="space-y-2 mb-4">
+              {plan.features.map((feature, i) => (
+                <li key={i} className="flex items-center gap-2">
+                  <i className={`fa ${feature.icon} text-purple-400`} title={feature.tooltip}></i>
+                  <span className="text-gray-300">{feature.text}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="text-green-400 font-bold mb-4">{plan.outcome}</div>
             <Button 
-              className="bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 text-xl px-12 py-4 relative group overflow-hidden"
+              className="bg-gradient-to-r from-purple-600 to-gray-400 hover:from-purple-700 hover:to-gray-500 text-xl px-12 py-4 relative group overflow-hidden"
               onClick={() => window.open('https://calendly.com/apexnurture', '_blank')}
             >
-              <span className="relative z-10">Book Your Free Demo</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-blue-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+              <span className="relative z-10">Get Started</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-gray-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
             </Button>
           </GlassCard>
-        </motion.div> /*}
-
-        {/* Footer */}
-
+        ))}
       </div>
     </section>
   );
