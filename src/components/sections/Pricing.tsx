@@ -5,6 +5,7 @@ import Countdown from 'react-countdown';
 import VanillaTilt from 'vanilla-tilt';
 import Button from '../ui/Button';
 import GlassCard from '../ui/GlassCard';
+import { desc } from 'framer-motion/client';
 
 // Define types for clarity
 interface Suite {
@@ -18,6 +19,7 @@ interface Suite {
   outcome: string;
   features: string[];
   tooltip: string;
+
 }
 
 // Custom hook for the 3D tilt effect
