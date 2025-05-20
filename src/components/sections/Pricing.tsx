@@ -393,6 +393,9 @@ const Pricing: React.FC = () => {
           </GlassCard>
         ))}
       </div>
+
+      {/* Precision AI Implementation Suite */}
+      <PrecisionCard />
     </section>
   );
 };
