@@ -337,14 +337,8 @@ const Pricing: React.FC = () => {
 
   return (
     <section className="py-24 relative overflow-hidden" id="pricing">
-      {/* Section-Wide Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0F0C29] via-[#302B63] to-[#24243E]">
-        <div className="absolute inset-0 bg-[url('/path-to-aurora-effect.png')] opacity-20 animate-pulse" />
-        <div className="absolute inset-0 bg-[url('/path-to-starfield.png')] opacity-10 animate-fade" />
-      </div>
-
       {/* Hero Pricing Intro */}
-      <div className="text-center mb-20 relative z-10">
+      <div className="text-center mb-20">
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -372,42 +366,106 @@ const Pricing: React.FC = () => {
       </div>
 
       {/* Pricing Plans */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20 relative z-10">
-        {plans.map((plan, index) => (
-          <GlassCard key={index} className={`p-8 pricing-card ${index === 0 ? 'neon-green' : index === 1 ? 'neon-blue' : 'neon-orange'}`}>
-            <h3 className="text-2xl font-orbitron font-bold text-white mb-4">{plan.name}</h3>
-            <p className="text-gray-300 mb-4">{plan.subheadline}</p>
-            <p className="text-purple-300 mb-4">{plan.niche}</p>
-            <div className="text-white font-bold mb-4">{plan.price}</div>
-            <div className="text-gray-400 mb-4">{plan.addOn}</div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+        {/* AI Candidate Pipeline Stack */}
+        <GlassCard className="p-8 pricing-card border border-green-400/30 shadow-[0_0_20px_2px_rgba(0,255,170,0.2)] bg-[rgba(255,255,255,0.08)] backdrop-blur-[25px] rounded-[25px] relative overflow-hidden group hover:scale-[1.03] transition-transform duration-300" style={{ boxShadow: '0 0 10px rgba(0,255,170,0.5), inset 0 0 10px rgba(128,0,128,0.3)' }}>
+          {/* Digital Wave Pattern */}
+          <div className="absolute inset-0 pointer-events-none z-0">
+            <svg className="absolute left-0 top-0 w-full h-full opacity-20 animate-pulse" viewBox="0 0 400 200" fill="none"><path d="M0 100 Q100 150 200 100 T400 100" stroke="#00FFAA" strokeWidth="4" fill="none"/></svg>
+          </div>
+          <div className="text-center mb-4 relative z-10">
+            <div className="w-16 h-16 mx-auto rounded-full bg-green-400/10 flex items-center justify-center mb-4">
+              <i className="fa fa-users text-4xl text-green-300 neon-outline group-hover:neon-fill-green transition-all duration-300 spin-on-hover" title="Sources from LinkedIn, job boards, and internal databases."></i>
+            </div>
+            <h3 className="text-2xl font-orbitron font-bold text-white mb-2" style={{ textShadow: '0 0 20px #00FFAA' }}>AI Candidate Pipeline Stack</h3>
+            <p className="text-gray-300 mb-2 font-poppins text-lg">Auto-Source, Qualify, and Follow Up with Top Candidates</p>
+            <p className="text-green-300 mb-2 font-poppins text-base">Recruitment Agencies & HR Departments</p>
+            <div className="text-white font-bold mb-2 text-2xl">$1,499<span className="text-base text-gray-400 font-normal">/month</span></div>
+            <div className="text-gray-400 mb-2 text-sm">Custom Candidate CRM Build ($5,999 one-time)</div>
             <ul className="space-y-2 mb-4">
-              {plan.features.map((feature, i) => (
-                <li key={i} className="flex items-center gap-2">
-                  <i className={`fa ${feature.icon} text-purple-400`} title={feature.tooltip}></i>
-                  <span className="text-gray-300">{feature.text}</span>
-                </li>
-              ))}
+              <li className="flex items-center gap-2"><i className="fa fa-users text-green-300 neon-outline group-hover:neon-fill-green spin-on-hover" title="Sources from LinkedIn, job boards, and internal databases."></i><span className="text-gray-300">Sourcing Agent</span></li>
+              <li className="flex items-center gap-2"><i className="fa fa-file-alt text-green-300 neon-outline group-hover:neon-fill-green spin-on-hover" title="Flags red flags and ranks candidates by fit."></i><span className="text-gray-300">AI Screening Assistant</span></li>
+              <li className="flex items-center gap-2"><i className="fa fa-envelope text-green-300 neon-outline group-hover:neon-fill-green spin-on-hover" title="Boosts application completion by 25%."></i><span className="text-gray-300">Follow-up AI Recruiter</span></li>
+              <li className="flex items-center gap-2"><i className="fa fa-chart-bar text-green-300 neon-outline group-hover:neon-fill-green spin-on-hover" title="Keeps clients informed with actionable insights."></i><span className="text-gray-300">Client Report Bot</span></li>
+              <li className="flex items-center gap-2"><i className="fa fa-plug text-green-300 neon-outline group-hover:neon-fill-green spin-on-hover" title="Seamless integration with your existing systems."></i><span className="text-gray-300">ATS Integration Module</span></li>
             </ul>
-            <div className="text-green-400 font-bold mb-4">{plan.outcome}</div>
-            <Button 
-              className="bg-gradient-to-r from-purple-600 to-gray-400 hover:from-purple-700 hover:to-gray-500 text-xl px-12 py-4 relative group overflow-hidden"
-              onClick={() => window.open('https://calendly.com/apexnurture', '_blank')}
-            >
-              <span className="relative z-10">Get Started</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-gray-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
+            <div className="text-green-400 font-bold mb-2 animate-pulse">Hire 30% faster with less admin work and better candidates.</div>
+            <div className="text-green-300 font-orbitron text-sm mb-2 countdown">Limited Spots—Join Before May 22, 2025!</div>
+            <Button className="w-full holographic-green text-white font-bold text-lg py-3 rounded-xl shadow-lg shimmer-on-hover pulse-on-hover ripple-on-click" onClick={() => window.open('https://calendly.com/apexnurture', '_blank')}>
+              Start Hiring Smarter
             </Button>
-          </GlassCard>
-        ))}
+          </div>
+        </GlassCard>
+
+        {/* AI Course Funnel Stack */}
+        <GlassCard className="p-8 pricing-card border border-blue-400/30 shadow-[0_0_20px_2px_rgba(0,212,255,0.2)] bg-[rgba(255,255,255,0.08)] backdrop-blur-[25px] rounded-[25px] relative overflow-hidden group hover:scale-[1.03] transition-transform duration-300" style={{ boxShadow: '0 0 10px rgba(0,212,255,0.5), inset 0 0 10px rgba(128,0,128,0.3)' }}>
+          {/* Funnel Vortex Effect */}
+          <div className="absolute inset-0 pointer-events-none z-0">
+            <svg className="absolute left-0 top-0 w-full h-full opacity-20 animate-spin-slow" viewBox="0 0 400 200" fill="none"><ellipse cx="200" cy="100" rx="180" ry="60" stroke="#00D4FF" strokeWidth="4" fill="none"/></svg>
+          </div>
+          <div className="text-center mb-4 relative z-10">
+            <div className="w-16 h-16 mx-auto rounded-full bg-blue-400/10 flex items-center justify-center mb-4">
+              <i className="fa fa-video text-4xl text-blue-300 solid-holo group-hover:spin-on-hover" title="Creates blog posts, carousels, and more from recordings."></i>
+            </div>
+            <h3 className="text-2xl font-orbitron font-bold text-white mb-2" style={{ textShadow: '0 0 20px #00D4FF' }}>AI Course Funnel Stack</h3>
+            <p className="text-gray-300 mb-2 font-poppins text-lg">Turn Your Course Content into a 24/7 Client Acquisition Machine</p>
+            <p className="text-blue-300 mb-2 font-poppins text-base">Online Course Creators, Business Coaches</p>
+            <div className="text-white font-bold mb-2 text-2xl">$1,299<span className="text-base text-gray-400 font-normal">/month</span></div>
+            <div className="text-gray-400 mb-2 text-sm">High-Converting VSL & Funnel System ($4,999 one-time)</div>
+            <ul className="space-y-2 mb-4">
+              <li className="flex items-center gap-2"><i className="fa fa-video text-blue-300 solid-holo group-hover:spin-on-hover" title="Creates blog posts, carousels, and more from recordings."></i><span className="text-gray-300">AI Webinar Repurposer</span></li>
+              <li className="flex items-center gap-2"><i className="fa fa-comments text-blue-300 solid-holo group-hover:spin-on-hover" title="Increases engagement by 20% with tailored messages."></i><span className="text-gray-300">Lead Nurture Bot</span></li>
+              <li className="flex items-center gap-2"><i className="fa fa-tachometer-alt text-blue-300 solid-holo group-hover:spin-on-hover" title="Boosts upsell rates with data-driven insights."></i><span className="text-gray-300">Funnel Optimizer Agent</span></li>
+              <li className="flex items-center gap-2"><i className="fa fa-star text-blue-300 solid-holo group-hover:spin-on-hover" title="Builds trust by showcasing client success."></i><span className="text-gray-300">Testimonial Hunter Bot</span></li>
+              <li className="flex items-center gap-2"><i className="fa fa-desktop text-blue-300 solid-holo group-hover:spin-on-hover" title="Track leads, content, and conversions in one place."></i><span className="text-gray-300">All-in-One Content CRM Dashboard</span></li>
+            </ul>
+            <div className="text-blue-400 font-bold mb-2 animate-pulse">Convert more viewers into clients automatically, even while you sleep.</div>
+            <div className="text-blue-300 font-orbitron text-sm mb-2 countdown">Limited Spots—Join Before May 22, 2025!</div>
+            <Button className="w-full holographic-blue text-white font-bold text-lg py-3 rounded-xl shadow-lg shimmer-on-hover pulse-on-hover ripple-on-click" onClick={() => window.open('https://calendly.com/apexnurture', '_blank')}>
+              Automate Your Funnel
+            </Button>
+          </div>
+        </GlassCard>
+
+        {/* AI Backoffice Stack */}
+        <GlassCard className="p-8 pricing-card border border-orange-400/30 shadow-[0_0_20px_2px_rgba(255,170,0,0.2)] bg-[rgba(255,255,255,0.08)] backdrop-blur-[25px] rounded-[25px] relative overflow-hidden group hover:scale-[1.03] transition-transform duration-300" style={{ boxShadow: '0 0 10px rgba(255,170,0,0.5), inset 0 0 10px rgba(128,0,128,0.3)' }}>
+          {/* Gear Rotation Effect */}
+          <div className="absolute inset-0 pointer-events-none z-0">
+            <svg className="absolute left-0 top-0 w-full h-full opacity-20 animate-spin-slow" viewBox="0 0 400 200" fill="none"><g><circle cx="100" cy="100" r="40" stroke="#FFAA00" strokeWidth="6" fill="none"/><circle cx="300" cy="100" r="30" stroke="#FFAA00" strokeWidth="4" fill="none"/></g></svg>
+          </div>
+          <div className="text-center mb-4 relative z-10">
+            <div className="w-16 h-16 mx-auto rounded-full bg-orange-400/10 flex items-center justify-center mb-4">
+              <i className="fa fa-file-invoice-dollar text-4xl text-orange-300 duotone-glow group-hover:spin-on-hover" title="Saves 10+ hours/week on quote creation."></i>
+            </div>
+            <h3 className="text-2xl font-orbitron font-bold text-white mb-2" style={{ textShadow: '0 0 20px #FFAA00' }}>AI Backoffice Stack</h3>
+            <p className="text-gray-300 mb-2 font-poppins text-lg">Cut Your Admin Workload by 60%—No Extra Hires Needed</p>
+            <p className="text-orange-300 mb-2 font-poppins text-base">Small to Mid-Sized Businesses</p>
+            <div className="text-white font-bold mb-2 text-2xl">$1,499<span className="text-base text-gray-400 font-normal">/month</span></div>
+            <div className="text-gray-400 mb-2 text-sm">AI SOP Buildout + Full Process Automation ($5,999 one-time)</div>
+            <ul className="space-y-2 mb-4">
+              <li className="flex items-center gap-2"><i className="fa fa-file-invoice-dollar text-orange-300 duotone-glow group-hover:spin-on-hover" title="Saves 10+ hours/week on quote creation."></i><span className="text-gray-300">AI Quotation Assistant</span></li>
+              <li className="flex items-center gap-2"><i className="fa fa-calendar-check text-orange-300 duotone-glow group-hover:spin-on-hover" title="Integrates with Slack, WhatsApp, or email."></i><span className="text-gray-300">Task Scheduler Bot</span></li>
+              <li className="flex items-center gap-2"><i className="fa fa-headset text-orange-300 duotone-glow group-hover:spin-on-hover" title="Reduces response time to under 5 minutes."></i><span className="text-gray-300">Client Communication Agent</span></li>
+              <li className="flex items-center gap-2"><i className="fa fa-dollar-sign text-orange-300 duotone-glow group-hover:spin-on-hover" title="Improves cash flow by 15% with gentle nudges."></i><span className="text-gray-300">Payment Reminder Bot</span></li>
+              <li className="flex items-center gap-2"><i className="fa fa-chart-line text-orange-300 duotone-glow group-hover:spin-on-hover" title="Identify bottlenecks and optimize efficiency."></i><span className="text-gray-300">Operations Dashboard</span></li>
+            </ul>
+            <div className="text-orange-400 font-bold mb-2 animate-pulse">Save $2K–$6K/month in admin hours, delays, and follow-ups.</div>
+            <div className="text-orange-300 font-orbitron text-sm mb-2 countdown">Limited Spots—Join Before May 22, 2025!</div>
+            <Button className="w-full holographic-orange text-white font-bold text-lg py-3 rounded-xl shadow-lg shimmer-on-hover pulse-on-hover ripple-on-click" onClick={() => window.open('https://calendly.com/apexnurture', '_blank')}>
+              Streamline Your Operations
+            </Button>
+          </div>
+        </GlassCard>
       </div>
 
       {/* Headline for Precision AI Implementation Suite */}
-      <div className="text-center mb-12 relative z-10">
+      <div className="text-center mb-12">
         <h2 className="text-3xl font-orbitron font-bold text-white mb-4">Need a Tailored Solution?</h2>
         <p className="text-gray-300 text-lg">Explore our Precision AI Implementation Suite for bespoke solutions.</p>
       </div>
 
       {/* Precision AI Implementation Suite */}
-      <div className="max-w-4xl mx-auto relative z-10">
+      <div className="max-w-4xl mx-auto">
         <PrecisionCard />
       </div>
     </section>
