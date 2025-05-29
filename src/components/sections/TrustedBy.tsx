@@ -41,21 +41,22 @@ const TrustedBy = () => {
   }, [scrollControls]);
 
   return (
-    <section className="relative py-16 overflow-hidden bg-gradient-to-b from-background-end/5 to-transparent" ref={containerRef}>
+    <section
+      className="relative py-16 overflow-hidden"
+      style={{ background: 'linear-gradient(120deg, #fff 0%, #f7fafd 100%)' }}
+      ref={containerRef}
+    >
       <div className="max-w-[1920px] mx-auto">
         <motion.h3
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center text-xl font-medium text-gray-400/80 mb-16"
+          className="text-center text-2xl md:text-3xl font-bold text-primary mb-16"
         >
           Trusted by Industry Leaders
         </motion.h3>
 
         <div className="flex items-center justify-center">
-          {/* Background gradient */}
-         
-          {/* Carousel row */}
           <div className="relative">
             <motion.div
               className="flex items-center space-x-24"
@@ -67,27 +68,18 @@ const TrustedBy = () => {
                   className="relative group"
                 >
                   <div className="w-36 h-20 relative flex items-center justify-center">
-                    {/* Glow effect */}
+                    {/* Card hover effect: subtle border and shadow for accessibility */}
                     <div 
-                      className="absolute inset-0 opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500"
-                      style={{ backgroundColor: `${partner.hoverColor}15` }}
+                      className="absolute inset-0 rounded-xl border border-gray-200 group-hover:border-primary group-hover:shadow-lg group-hover:shadow-primary/10 transition-all duration-300"
+                      style={{ background: '#fff', zIndex: 1 }}
                     />
-                    
-                    {/* Background with glass effect */}
-                    <div 
-                      className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-xl"
-                      style={{ 
-                        background: `linear-gradient(120deg, ${partner.hoverColor}08, ${partner.hoverColor}15)`,
-                        backdropFilter: 'blur(8px)'
-                      }}
-                    />
-                    
                     <img
                       src={partner.logo}
                       alt={`${partner.name} logo`}
                       className="relative w-full h-full object-contain p-4 transition-all duration-500 
                                filter grayscale group-hover:grayscale-0 group-hover:scale-110
-                               group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]"
+                               group-hover:drop-shadow-[0_0_8px_rgba(0,0,0,0.10)]"
+                      style={{ zIndex: 2 }}
                     />
                   </div>
                 </div>

@@ -62,27 +62,21 @@ h1, h2, h3, h4, h5, h6 {
 /* Button styles */
 /* Ensure your Starlight Tech variables are defined in :root */
 
-.btn-primary {
-  @apply px-6 py-3 rounded-full font-medium transition-all duration-300; /* Apply default transitions */
+/* Ensure your Starlight Tech variables are defined in :root */
 
-  /* Text: Slightly more pronounced white, potentially with a subtle glow */
-  color: var(--primary);
-  background: linear-gradient(90deg, #fff 0%, #f7fafd 100%);
-  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.04);
-  border: 1px solid rgba(0,0,0,0.04);
-  text-shadow: none;
-  transition:
-    background-position 0.4s ease-out,
-    box-shadow 0.4s ease-out,
-    transform 0.4s ease-out;
+.btn-primary {
+  @apply px-6 py-3 rounded-full font-medium transition-all duration-300 text-white;
+  background-color: var(--accent); /* #FFA726 - Starlight Tech Orange */
+  box-shadow: 0 4px 15px rgba(255, 167, 38, 0.3);
+  /* border: 1px solid rgba(255, 255, 255, 0.2); */
 }
 
 .btn-primary:hover {
-  background-position: 100% 0%;
-  background-image: linear-gradient(90deg, #f7fafd 0%, #fff 100%);
-  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.06);
-  transform: translateY(-2px) scale(1.01);
+  background-color: #FFB74D;
+  transform: translateY(-2px);
+  box-shadow: 0 7px 25px rgba(255, 167, 38, 0.4);
 }
+
 /* Optional: Active/Click State - for immediate feedback */
 .btn-primary:active {
   transform: translateY(0px) scale(0.98);
