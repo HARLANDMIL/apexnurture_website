@@ -20,7 +20,13 @@ const ParticleBackground = () => {
       loaded={particlesLoaded}
       options={{
         fullScreen: { enable: false },
-        background: { color: { value: "transparent" } },
+        background: {
+          color: { value: "#181C20" },
+          opacity: 1,
+        },
+        style: {
+          background: "linear-gradient(120deg, #181C20 0%, #232b41 100%)"
+        },
         fpsLimit: 60,
         particles: {
           color: { value: "#38bdf8" },

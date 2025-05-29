@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import Button from '../ui/Button';
@@ -8,9 +7,6 @@ const Hero: React.FC = () => {
   return (
     <section
       className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden"
-      style={{
-        background: 'linear-gradient(120deg, #101624 0%, #1a2236 100%)',
-      }}
       id="hero"
     >
       {/* Animated Particle Background (only once, behind everything) */}

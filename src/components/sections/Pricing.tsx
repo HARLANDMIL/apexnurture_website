@@ -5,7 +5,6 @@ import Countdown from 'react-countdown';
 import VanillaTilt from 'vanilla-tilt';
 import Button from '../ui/Button';
 import GlassCard from '../ui/GlassCard';
-import { desc } from 'framer-motion/client';
 
 // Define types for clarity
 interface Suite {

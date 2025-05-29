@@ -77,11 +77,9 @@ const SuccessStories: React.FC = () => {
                   <div className="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-2xl blur-xl opacity-30"></div>
                   <div className="relative overflow-hidden rounded-2xl aspect-video">
                     <img 
-                      src={story.image}
-                      alt={story.title}
+                      src={story.image} 
+                      alt={story.title} 
                       className="w-full h-full object-cover"
-                      loading="lazy"
-                      decoding="async"
                     />
                   </div>
                 </div>

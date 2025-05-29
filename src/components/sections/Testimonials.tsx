@@ -85,13 +85,9 @@ const Testimonials: React.FC = () => {
                       <p className="italic text-gray-300 mb-6">"{testimonial.quote}"</p>
                       <div className="mt-auto flex items-center gap-4">
                         <img 
-                          src={testimonial.image}
-                          alt={testimonial.name}
+                          src={testimonial.image} 
+                          alt={testimonial.name} 
                           className="w-12 h-12 rounded-full object-cover border-2 border-primary"
-                          loading="lazy"
-                          width={48}
-                          height={48}
-                          decoding="async"
                         />
                         <div>
                           <div className="font-orbitron font-semibold">{testimonial.name}</div>

@@ -13,13 +13,36 @@
   --accent: #FF8C00; /* Vibrant orange for CTAs */
   --card-bg: #fff; /* Card background for clarity */
   --card-border: #E5E7EB; /* Subtle border for cards */
-  --cta-gradient: linear-gradient(135deg, #FF8C00, #FF4500); /* Modern orange gradient */
-  --cta-gradient-hover: linear-gradient(135deg, #FFD700, #FF0000); /* Hotter hover */
   --quantum-flux-start: #fff;
   --quantum-flux-mid: #f7fafd;
   --quantum-flux-end: #e3e9f3;
   --quantum-flux-accent1: #e0e7ef;
   --quantum-flux-accent2: #f7fafd;
+   /* Button Color Palette: Electric Nexus */
+ /* Base Blue Gradient (from deep to vibrant, for primary state) */
+  --cta-blue-gradient: linear-gradient(135deg,
+    #0A0A3A 0%,     /* Very deep blue, almost black-purple at start */
+    #1A1A5A 30%,    /* Richer, darker blue-purple */
+    #004FFF 100%    /* Core vibrant blue */
+  );
+
+  /* Hover Blue Gradient (brighter, more electric, for interactive state) */
+  --cta-blue-gradient-hover: linear-gradient(135deg,
+    #002060 0%,     /* Darker start, subtle shift */
+    #005FFF 40%,    /* Brighter, more electric blue */
+    #00FFFF 100%    /* Aqua/Cyan for the brightest end */
+  );
+
+  /* Main glow color for the button (derived from gradient ends) */
+  --btn-blue-glow-color: rgba(0, 79, 255, 0.6); /* Translucent vibrant blue */
+  /* Stronger glow color on hover */
+  --btn-blue-glow-hover-color: rgba(0, 255, 255, 0.8); /* Translucent electric cyan */
+
+  /* Subtle inner glow color (light white/blue) */
+  --btn-inner-glow: rgba(255, 255, 255, 0.15); /* Slightly less opaque for better visibility */
+
+  /* Text color for contrast on dark blue gradients */
+  --btn-text-color: #fff; /* White text remains optimal for visibility */
 
 }
 
@@ -56,61 +79,131 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 4px 24px 0 rgba(0,0,0,0.04);
 }
 
+
+/* Base Glass Card Styles (reiterated for clarity, but primarily focus on 'background') */
 .glass-card {
-  @apply glass rounded-xl p-6 transition-all duration-300;
+  backdrop-filter: blur(20px);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition:
+    background 0.45s ease-out, /* Slightly longer for smoother reflection changes */
+    box-shadow 0.45s ease-out,
+    transform 0.45s ease-out,
+    border-color 0.45s ease-out;
+
+  /* Text and shadows remain as previously refined for clean contrast on white */
+  color: #2c2c2c;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.03),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+
+  /* KILLER BACKGROUND FOR THIS OPTION: Prismatic Sheen */
+  background: radial-gradient(
+    circle at 15% 15%, /* Simulates a light source from top-left */
+    rgba(255, 255, 255, 0.18) 0%, /* Brightest highlight */
+    rgba(255, 255, 255, 0.08) 30%, /* Fading white transparency */
+    rgba(255, 255, 255, 0.03) 60%, /* Almost invisible */
+    transparent 100% /* Fades to complete transparency */
+  );
 }
 
 .glass-card:hover {
-  background: #f7fafd;
-  transform: translateY(-4px) scale(1.01);
-}
+  transform: translateY(-6px) scale(1.008); /* Consistent hover transform */
 
-/* Button styles */
-/* Ensure your Starlight Tech variables are defined in :root */
-
-.btn-primary {
-  padding: 0.75rem 1.5rem;
-  border-radius: 9999px;
-  font-weight: 600;
-  color: #fff;
-  background: var(--cta-gradient);
-  background-size: 200% 100%;
-  background-position: 0% 0%;
-  box-shadow: 0 4px 16px 0 rgba(255,140,0,0.12), 0 1.5px 8px 0 rgba(0,0,0,0.04);
-  border: none;
-  text-shadow: 0 1px 8px rgba(255,255,255,0.18);
-  transition: background-position 0.4s, box-shadow 0.4s, transform 0.3s;
-}
-
-.btn-primary:hover {
-  background-position: 100% 0%;
-  background: var(--cta-gradient-hover);
-  box-shadow: 0 8px 32px 0 rgba(255,140,0,0.18), 0 2px 12px 0 rgba(0,0,0,0.06);
-  transform: translateY(-2px) scale(1.01);
-}
-/* Optional: Active/Click State - for immediate feedback */
-.btn-primary:active {
-  transform: translateY(0px) scale(0.98); /* Sinks slightly on click */
+  /* KILLER HOVER BACKGROUND FOR THIS OPTION: Amplified Sheen */
+  background: radial-gradient(
+    circle at 20% 20%, /* Slight shift in light source */
+    rgba(255, 255, 255, 0.25) 0%, /* Brighter highlight */
+    rgba(255, 255, 255, 0.12) 30%,
+    rgba(255, 255, 255, 0.05) 60%,
+    transparent 100%
+  );
   box-shadow:
-    0 0 10px rgba(255, 100, 0, 0.4), /* Reduced glow, implies press */
-    inset 0 0 10px rgba(255, 255, 255, 0.2); /* Inner light more prominent */
-  background-position: 50% 0%; /* Resets gradient slightly */
+    0 15px 50px rgba(0, 0, 0, 0.06),
+    0 0 30px rgba(150, 180, 255, 0.5), /* Cool blue glow remains for consistency */
+    inset 0 0 0 1px rgba(255, 255, 255, 0.3);
 }
-/* Accessibility: Reduce motion for users who prefer it */
+.btn-primary {
+  padding: 0.9rem 2rem; /* Slightly more padding for a more substantial, premium feel */
+  border-radius: 9999px; /* Pill shape - timeless for CTAs */
+  font-weight: 700; /* Bolder text for stronger impact */
+  letter-spacing: 0.02em; /* Subtle letter spacing for a modern, refined look */
+  color: var(--btn-text-color); /* Uses our defined text color */
+
+  background: var(--cta-blue-gradient); /* Uses our base blue gradient */
+  background-size: 250% 100%; /* Larger background for a smoother, more dynamic shift */
+  background-position: 0% 50%; /* Start gradient vertically centered */
+
+  /* Layered Box Shadow for Emitted Glow & Depth (Crucial for premium on black) */
+  box-shadow:
+    0 0 20px var(--btn-blue-glow-color), /* Primary diffused glow, wider */
+    0 0 40px rgba(0, 79, 255, 0.25),      /* Wider, softer halo, deep blue */
+    inset 0 0 10px var(--btn-inner-glow); /* Subtle inner light, like an illuminated core */
+
+  border: none; /* No visible border for a seamless glowing effect */
+
+  /* Text Shadow for a glowing, legible text */
+  text-shadow:
+    0 0 10px rgba(255, 255, 255, 0.4),  /* Soft white highlight for readability */
+    0 0 20px rgba(0, 79, 255, 0.3);     /* Subtle blue aura around text */
+
+  /* Smoother and more comprehensive transitions for all effects */
+  transition:
+    background-position 0.6s cubic-bezier(0.25, 0.8, 0.25, 1), /* Custom bezier for smoother gradient shift */
+    box-shadow 0.5s cubic-bezier(0.25, 0.8, 0.25, 1),         /* Consistent smooth shadow transition */
+    transform 0.3s ease-out;                                  /* Quick transform feedback */
+}
+
+
+/* --- Hover State: More intense glow, brighter gradient, dynamic lift --- */
+.btn-primary:hover {
+  background: var(--cta-blue-gradient-hover); /* Switch to brighter, electric hover gradient */
+  background-position: 100% 50%; /* Shift gradient to the right on hover */
+
+  box-shadow:
+    0 0 30px var(--btn-blue-glow-hover-color), /* Brighter, more intense primary glow */
+    0 0 60px rgba(0, 255, 255, 0.4),         /* Wider, more pronounced secondary halo */
+    inset 0 0 15px rgba(255, 255, 255, 0.3); /* Stronger inner light, "charging" effect */
+
+  transform: translateY(-5px) scale(1.02); /* More dynamic lift and subtle scale */
+  cursor: pointer; /* Explicitly indicate interactivity */
+}
+
+/* --- Optional: Active/Click State - for immediate tactile feedback --- */
+.btn-primary:active {
+  transform: translateY(-1px) scale(0.99); /* Sinks slightly on click, less than original to feel 'pressed' */
+  box-shadow:
+    0 0 15px var(--btn-blue-glow-color), /* Glow recedes slightly, implies press */
+    inset 0 0 12px rgba(255, 255, 255, 0.4); /* Inner light becomes more prominent */
+  background-position: 75% 50%; /* Subtle gradient shift for feedback */
+  transition:
+    background-position 0.2s ease-out, /* Quicker transition for immediate feedback */
+    box-shadow 0.2s ease-out,
+    transform 0.1s ease-out;
+}
+
+/* --- Accessibility: Reduce motion for users who prefer it --- */
 @media (prefers-reduced-motion: reduce) {
   .btn-primary,
   .btn-primary:hover,
   .btn-primary:active {
-    transition: none; /* Disable transitions */
-    transform: none; /* Disable transforms */
-    background-position: 0% 0%; /* Static background */
+    transition: none !important; /* Disable all complex transitions */
+    transform: none !important; /* Disable all transforms */
+    background-position: 0% 50% !important; /* Static background */
+    box-shadow: 0 0 20px var(--btn-blue-glow-color) !important; /* Consistent, non-animated glow */
+    background: var(--cta-blue-gradient) !important; /* Static gradient */
+  }
+  .btn-primary:hover {
+    background: var(--cta-blue-gradient-hover) !important; /* Still show hover color, but without animation */
   }
 }
 
 
+
 /* Text gradient */
 .text-gradient {
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  background: linear-gradient(135deg, #e0e7ef, #f7fafd, #e3e9f3);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

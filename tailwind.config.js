@@ -1,21 +1,6 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: [
-    './index.html',
-    './src/**/*.{js,ts,jsx,tsx}',
-    './public/**/*.svg',
-    './public/**/*.png',
-    './public/**/*.jpg',
-    './public/**/*.jpeg',
-    './src/Images/**/*.{svg,png,jpg,jpeg}',
-  ], // Added image paths for purging unused CSS
-  safelist: [
-    'glass', 'glass-card', 'btn-primary', 'text-gradient', 'timeline-container',
-    'animate-on-scroll', 'glassmorphism-container', 'glassmorphism-card', 'orbitron-glow',
-    'pulse-cta', 'fade-in-on-scroll', 'neon-glow-badge', 'animate-spin-slow',
-    'animate-glow-timeline', 'animate-glow-3s', 'animate-pulse-urgency', 'animate-glow-bg-cta',
-    'animate-aurora', 'pricing-card-hover', 'holographic-shimmer'
-  ], // Safelist custom classes used in index.css
+export default {
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors: {
