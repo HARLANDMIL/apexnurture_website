@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap');
 
+/* The following @tailwind directives require Tailwind CSS processing.
+   Make sure your build tool (like PostCSS with Tailwind plugin, or a framework integration) is set up to process these.
+   If you see "Unknown at rule @tailwind", your CSS is not being processed by Tailwind. */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
