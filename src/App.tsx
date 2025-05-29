@@ -45,33 +45,35 @@ function App() {
 
   return (
     <Router>
-      <ParticleBackground />
-      <div className="relative min-h-screen bg-gradient-to-br from-background-start via-background-mid to-background-end">
-        <Navbar />
-        <Routes>
-          <Route path="/terms" element={<TermsOfService />} />
-          <Route path="/privacy" element={<PrivacyPolicy />} />
-          <Route path="/refund" element={<RefundPolicy />} />
-          <Route path="/business-ops" element={<SmartBusinessOps />} />
-          <Route path="/recruitment-automation" element={<RecruitmentAutomation />} />
-          <Route path="/lead-to-client" element={<LeadToClient />} />
-          <Route path="/precision-ai-program" element={<PrecisionAIProgram />} />
-          <Route path="/" element={
-            <>
-              <Hero />
-              <TrustedBy />
-              <ProblemSolution />
-              <HowItWorks />
-              <Services />
-              <Testimonials />
-              <Pricing />
-              <SuccessStories />
-              <BookACall />
-              <FAQ />
-            </>
-          } />
-        </Routes>
-        <Footer />
+      <div className="relative min-h-screen bg-gradient-to-br from-background-start via-background-mid to-background-end overflow-hidden">
+        <ParticleBackground />
+        <div className="relative z-10">
+          <Navbar />
+          <Routes>
+            <Route path="/terms" element={<TermsOfService />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/refund" element={<RefundPolicy />} />
+            <Route path="/business-ops" element={<SmartBusinessOps />} />
+            <Route path="/recruitment-automation" element={<RecruitmentAutomation />} />
+            <Route path="/lead-to-client" element={<LeadToClient />} />
+            <Route path="/precision-ai-program" element={<PrecisionAIProgram />} />
+            <Route path="/" element={
+              <>
+                <Hero />
+                <TrustedBy />
+                <ProblemSolution />
+                <HowItWorks />
+                <Services />
+                <Testimonials />
+                <Pricing />
+                <SuccessStories />
+                <BookACall />
+                <FAQ />
+              </>
+            } />
+          </Routes>
+          <Footer />
+        </div>
       </div>
     </Router>
   );
