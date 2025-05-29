@@ -18,15 +18,12 @@ import TermsOfService from './components/sections/TermsOfService';
 import PrivacyPolicy from './components/sections/PrivacyPolicy';
 import RefundPolicy from './components/sections/RefundPolicy';
 
-// Import the missing AI Suite pages
-
 import SmartBusinessOps from './sections/SmartBusinessOps';
 import RecruitmentAutomation from './sections/RecruitmentAutomation';
 import LeadToClient from './sections/LeadToClient';
 import PrecisionAIProgram from './sections/PrecisionAIProgram';
 
 function App() {
-  // Handle fade-in on scroll for .fade-in-on-scroll
   useEffect(() => {
     const observer = new window.IntersectionObserver(
       (entries) => {
@@ -45,16 +42,17 @@ function App() {
       elements.forEach((el) => observer.unobserve(el));
     };
   }, []);
-    return (
-      <Router>
+
+  return (
+    <Router>
+      <div className="relative min-h-screen bg-gradient-to-br from-background-start via-background-mid to-background-end overflow-hidden">
         <ParticleBackground />
-        <div className="relative min-h-screen bg-gradient-to-br from-background-start via-background-mid to-background-end">
+        <div className="relative z-10">
           <Navbar />
           <Routes>
             <Route path="/terms" element={<TermsOfService />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/refund" element={<RefundPolicy />} />
-            {/* Add AI Suite routes */}
             <Route path="/business-ops" element={<SmartBusinessOps />} />
             <Route path="/recruitment-automation" element={<RecruitmentAutomation />} />
             <Route path="/lead-to-client" element={<LeadToClient />} />
@@ -76,8 +74,9 @@ function App() {
           </Routes>
           <Footer />
         </div>
-      </Router>
-    );
+      </div>
+    </Router>
+  );
 }
 
 export default App;
