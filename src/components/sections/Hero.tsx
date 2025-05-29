@@ -7,8 +7,10 @@ import ParticleBackground from '../ui/ParticleBackground';
 const Hero: React.FC = () => {
   return (
     <section
-      className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden bg-gradient-to-br from-white via-[#f7fafd] to-[#e3e9f3]"
-      style={{ background: undefined }}
+      className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden"
+      style={{
+        background: 'linear-gradient(120deg, #101624 0%, #1a2236 100%)',
+      }}
       id="hero"
     >
       {/* Animated Particle Background (only once, behind everything) */}
@@ -41,10 +43,10 @@ const Hero: React.FC = () => {
             </div>
             <span className="text-xs font-medium tracking-widest text-[#b6c6e3] uppercase">Custom AI Agent Development</span>
           </div>
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold font-orbitron mb-6 leading-tight text-gradient" style={{letterSpacing: '-0.03em'}}>
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold font-orbitron mb-6 leading-tight text-white drop-shadow-xl" style={{letterSpacing: '-0.03em'}}>
             Build better AI agents
           </h1>
-          <p className="text-lg sm:text-xl text-secondary mb-10 max-w-lg mx-auto font-light" style={{letterSpacing: '0.01em'}}>
+          <p className="text-lg sm:text-xl text-[#b6c6e3] mb-10 max-w-lg mx-auto font-light" style={{letterSpacing: '0.01em'}}>
             Face the future with confidence—custom AI agents to automate, accelerate, and elevate your business. Minimal effort. Maximum impact.
           </p>
           <div className="flex flex-row gap-4 justify-center">

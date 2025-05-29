@@ -41,13 +41,7 @@ const TrustedBy = () => {
   }, [scrollControls]);
 
   return (
-    <section
-      className="relative py-16 overflow-hidden"
-      style={{
-        background: "relative min-h-screen flex items-center justify-center px-4 overflow-hidden bg-gradient-to-br from-white via-[#f7fafd] to-[#e3e9f3]"
-      }}
-      ref={containerRef}
-    >
+    <section className="relative py-16 overflow-hidden bg-white" ref={containerRef}>
       <div className="max-w-[1920px] mx-auto">
         <motion.h3
           initial={{ opacity: 0, y: 20 }}
