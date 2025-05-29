@@ -7,24 +7,20 @@ import ParticleBackground from '../ui/ParticleBackground';
 const Hero: React.FC = () => {
   return (
     <section
-      className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden"
-      style={{
-        background: 'linear-gradient(120deg, #101624 0%, #1a2236 100%)',
-      }}
+      className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden bg-gradient-to-br from-white via-[#f7fafd] to-[#e3e9f3]"
+      style={{ background: undefined }}
       id="hero"
     >
-      {/* Animated Particle Background */}
+      {/* Animated Particle Background (only once, behind everything) */}
       <ParticleBackground />
       {/* Animated 3D Abstract Shapes */}
       <div className="pointer-events-none absolute inset-0 z-0">
-        <div className="absolute top-10 left-1/4 w-40 h-40 bg-gradient-to-br from-[#38bdf8] to-[#232b41] rounded-full blur-2xl opacity-30 animate-pulse" />
-        <div className="absolute bottom-16 right-1/4 w-56 h-56 bg-gradient-to-tr from-[#ff416c] to-[#38bdf8] rounded-3xl blur-3xl opacity-20 animate-pulse" />
-        <div className="absolute top-1/2 left-1/2 w-24 h-24 bg-gradient-to-tl from-[#232b41] to-[#38bdf8] rounded-full blur-xl opacity-20 animate-pulse" style={{transform: 'translate(-50%, -50%)'}} />
+        <div className="absolute top-10 left-1/4 w-40 h-40 bg-gradient-to-br from-[#38bdf8] to-[#232b41] rounded-full blur-2xl opacity-30 animate-pulse" aria-hidden="true" />
+        <div className="absolute bottom-16 right-1/4 w-56 h-56 bg-gradient-to-tr from-[#ff416c] to-[#38bdf8] rounded-3xl blur-3xl opacity-20 animate-pulse" aria-hidden="true" />
+        <div className="absolute top-1/2 left-1/2 w-24 h-24 bg-gradient-to-tl from-[#232b41] to-[#38bdf8] rounded-full blur-xl opacity-20 animate-pulse" style={{transform: 'translate(-50%, -50%)'}} aria-hidden="true" />
         {/* Extra animated ring */}
-        <div className="absolute top-1/3 right-1/3 w-32 h-32 border-4 border-[#38bdf8]/30 rounded-full animate-spin-slow opacity-20" />
+        <div className="absolute top-1/3 right-1/3 w-32 h-32 border-4 border-[#38bdf8]/30 rounded-full animate-spin-slow opacity-20" aria-hidden="true" />
       </div>
-      {/* Particle Background for ultra-futuristic effect */}
-      <ParticleBackground />
       <div className="w-full max-w-3xl mx-auto flex flex-col items-center justify-center z-10 text-center relative">
         {/* Left: Text Content */}
         <motion.div
@@ -45,10 +41,10 @@ const Hero: React.FC = () => {
             </div>
             <span className="text-xs font-medium tracking-widest text-[#b6c6e3] uppercase">Custom AI Agent Development</span>
           </div>
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold font-orbitron mb-6 leading-tight text-white drop-shadow-xl" style={{letterSpacing: '-0.03em'}}>
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold font-orbitron mb-6 leading-tight text-gradient" style={{letterSpacing: '-0.03em'}}>
             Build better AI agents
           </h1>
-          <p className="text-lg sm:text-xl text-[#b6c6e3] mb-10 max-w-lg mx-auto font-light" style={{letterSpacing: '0.01em'}}>
+          <p className="text-lg sm:text-xl text-secondary mb-10 max-w-lg mx-auto font-light" style={{letterSpacing: '0.01em'}}>
             Face the future with confidence—custom AI agents to automate, accelerate, and elevate your business. Minimal effort. Maximum impact.
           </p>
           <div className="flex flex-row gap-4 justify-center">

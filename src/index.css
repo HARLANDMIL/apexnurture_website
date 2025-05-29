@@ -8,45 +8,46 @@
 @tailwind utilities;
 
 :root {
-  --primary: #FFFFFF;
-  --secondary: #7B8CDE;
-  --accent: #FFA726;
-  --quantum-flux-start: #0A0A2A; /* Deeper, darker base */
-  --quantum-flux-mid: #1A0D4A;   /* Richer, darker purple */
-  --quantum-flux-end: #000F3D;   /* Deepest, almost black-blue */
-  --quantum-flux-accent1: #0056B3; /* Electric blue highlight */
-  --quantum-flux-accent2: #4A0080; /* Deep violet */
+  --primary: #222831; /* Readable dark for text */
+  --secondary: #393e46; /* Slightly lighter for subtext */
+  --accent: #00adb5; /* Futuristic accent */
+  --background-start: #fff;
+  --background-mid: #f7fafd;
+  --background-end: #e3e9f3;
+  --quantum-flux-start: #fff;
+  --quantum-flux-mid: #f7fafd;
+  --quantum-flux-end: #e3e9f3;
+  --quantum-flux-accent1: #e0e7ef; /* Subtle highlight */
+  --quantum-flux-accent2: #f7fafd; /* Subtle highlight */
 
 }
 
 body {
   font-family: 'Poppins', sans-serif;
-  color: #fff;
-  background: linear-gradient(135deg, var(--background-start), var(--background-mid), var(--background-end));
+  color: var(--primary);
+  background: linear-gradient(135deg, var(--background-start) 0%, var(--background-mid) 60%, var(--background-end) 100%);
   min-height: 100vh;
   overflow-x: hidden;
-  /* Using radial and linear for depth and complexity */
-  background:
-    radial-gradient(circle at 70% 15%, var(--quantum-flux-accent1) 0%, transparent 10%),
-    radial-gradient(circle at 20% 80%, var(--quantum-flux-accent2) 0%, transparent 8%),
-    linear-gradient(180deg, var(--quantum-flux-start) 0%, var(--quantum-flux-mid) 50%, var(--quantum-flux-end) 100%);
   background-size: 100% 100%;
-  background-attachment: fixed; /* Ensures gradient covers full viewport */
+  background-attachment: fixed;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Orbitron', sans-serif;
   font-weight: 700;
   line-height: 1.2;
+  color: var(--primary);
+  letter-spacing: 0.01em;
+  text-shadow: 0 2px 8px rgba(255,255,255,0.05);
 }
 
 /* Glassmorphism */
 .glass {
-  background: rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.04);
 }
 
 .glass-card {
@@ -65,24 +66,11 @@ h1, h2, h3, h4, h5, h6 {
   @apply px-6 py-3 rounded-full font-medium transition-all duration-300; /* Apply default transitions */
 
   /* Text: Slightly more pronounced white, potentially with a subtle glow */
-  color: white; /* Explicitly set to white */
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.6); /* Subtle white text glow for readability and tech feel */
-
-  /* Base Gradient: More vibrant, energetic orange spectrum */
-  background: linear-gradient(135deg, #FF8C00, #FF4500); /* From a saturated dark orange to a vibrant red-orange */
-  background-size: 200% 100%; /* Prepare for background position animation */
-  background-position: 0% 0%; /* Initial position */
-
-  /* Initial Glow: More diffused and intense, with a hint of inner light */
-  box-shadow:
-    0 0 15px rgba(255, 100, 0, 0.5), /* Main orange glow */
-    0 0 30px rgba(255, 100, 0, 0.3), /* Wider, softer glow */
-    inset 0 0 5px rgba(255, 255, 255, 0.15); /* Subtle inner light for depth */
-
-  /* Optional: A very thin, almost invisible border for crispness against dark */
-  border: 1px solid rgba(255, 255, 255, 0.05); /* Adds a hint of definition */
-
-  /* Ensure all properties transition smoothly */
+  color: var(--primary);
+  background: linear-gradient(90deg, #fff 0%, #f7fafd 100%);
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.04);
+  border: 1px solid rgba(0,0,0,0.04);
+  text-shadow: none;
   transition:
     background-position 0.4s ease-out,
     box-shadow 0.4s ease-out,
@@ -90,24 +78,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary:hover {
-  /* Hover Gradient: Shift the background to create a 'hotter' or 'charged' effect */
-  background-position: 100% 0%; /* Shifts the gradient to the right */
-  background-image: linear-gradient(135deg, #FFD700, #FF0000); /* Gold to pure red for a dramatic "charged" look */
-  /* Enhanced Hover Glow: Brighter and more spread out */
-  box-shadow:
-    0 0 25px rgba(255, 100, 0, 0.8), /* Main glow intensifies */
-    0 0 45px rgba(255, 100, 0, 0.5), /* Wider, more prominent glow */
-    inset 0 0 8px rgba(255, 255, 255, 0.3); /* Inner light becomes more apparent */
-  /* Subtle Lift and Scale for "Pop" */
-  transform: translateY(-3px) scale(1.02); /* More pronounced lift and slight scale */
+  background-position: 100% 0%;
+  background-image: linear-gradient(90deg, #f7fafd 0%, #fff 100%);
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.06);
+  transform: translateY(-2px) scale(1.01);
 }
 /* Optional: Active/Click State - for immediate feedback */
 .btn-primary:active {
-  transform: translateY(0px) scale(0.98); /* Sinks slightly on click */
-  box-shadow:
-    0 0 10px rgba(255, 100, 0, 0.4), /* Reduced glow, implies press */
-    inset 0 0 10px rgba(255, 255, 255, 0.2); /* Inner light more prominent */
-  background-position: 50% 0%; /* Resets gradient slightly */
+  transform: translateY(0px) scale(0.98);
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.04);
 }
 /* Accessibility: Reduce motion for users who prefer it */
 @media (prefers-reduced-motion: reduce) {
@@ -123,7 +102,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Text gradient */
 .text-gradient {
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
