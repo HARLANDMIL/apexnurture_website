@@ -43,7 +43,9 @@ const TrustedBy = () => {
   return (
     <section
       className="relative py-16 overflow-hidden"
-      style={{ background: 'linear-gradient(120deg, #fff 0%, #f7fafd 100%)' }}
+      style={{
+        background: "relative min-h-screen flex items-center justify-center px-4 overflow-hidden bg-gradient-to-br from-white via-[#f7fafd] to-[#e3e9f3]"
+      }}
       ref={containerRef}
     >
       <div className="max-w-[1920px] mx-auto">
