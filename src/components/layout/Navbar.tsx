@@ -123,8 +123,8 @@ const Navbar: React.FC = () => {
                 height: { duration: 0.4 },
               }}
               className="md:hidden absolute top-full left-0 right-0 mt-2 mx-4 rounded-xl 
-                       backdrop-blur-xl bg-gradient-to-b from-background-start/60 to-background-mid/60
-                       border border-white/5 shadow-[0_8px_32px_rgba(0,0,0,0.4)] overflow-hidden"
+                       backdrop-blur-xl bg-gradient-to-b from-black/90 via-neutral-900/95 to-neutral-800/90
+                       border border-white/5 shadow-[0_8px_32px_rgba(0,0,0,0.7)] overflow-hidden"
               aria-label="Mobile Navigation"
             >
               <div className="flex flex-col space-y-4">
@@ -138,7 +138,7 @@ const Navbar: React.FC = () => {
                 ))}
                 <motion.div whileTap={{ scale: 0.98 }}>
                   <Button
-                    className="w-full mt-2 bg-gradient-to-r from-primary/80 to-purple-600/80 
+                    className="w-full mt-2 py-3 px-6 bg-gradient-to-r from-primary/80 to-purple-600/80 
                              hover:from-primary hover:to-purple-600 text-white font-medium
                              shadow-[0_0_15px_rgba(0,255,255,0.15)]
                              hover:shadow-[0_0_25px_rgba(0,255,255,0.25)]
