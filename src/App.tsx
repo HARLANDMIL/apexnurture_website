@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Navbar from './components/layout/Navbar';
@@ -13,7 +13,6 @@ import SuccessStories from './components/sections/SuccessStories';
 import BookACall from './components/sections/BookACall';
 import FAQ from './components/sections/FAQ';
 import Footer from './components/layout/Footer';
-import ParticleBackground from './components/ui/ParticleBackground';
 import TermsOfService from './components/sections/TermsOfService';
 import PrivacyPolicy from './components/sections/PrivacyPolicy';
 import RefundPolicy from './components/sections/RefundPolicy';
@@ -46,7 +45,6 @@ function App() {
   return (
     <Router>
       <div className="relative min-h-screen bg-gradient-to-br from-background-start via-background-mid to-background-end overflow-hidden">
-        <ParticleBackground />
         <div className="relative z-10">
           <Navbar />
           <Routes>

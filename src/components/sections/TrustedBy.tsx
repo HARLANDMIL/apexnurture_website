@@ -1,6 +1,5 @@
 import { motion, useAnimation } from 'framer-motion';
 import { useEffect, useRef } from 'react';
-import ParticleBackground from '../ui/ParticleBackground';
 
 interface Partner {
   id: number;
@@ -42,12 +41,7 @@ const TrustedBy = () => {
   }, [scrollControls]);
 
   return (
-    <section className="relative py-16 overflow-hidden" ref={containerRef}>
-      {/* Particle Background for Trusted By section */}
-      <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
-        {/* Use a slightly lower opacity for subtlety */}
-        <ParticleBackground />
-      </div>
+    <section className="relative py-16 overflow-hidden bg-white" ref={containerRef}>
       <div className="max-w-[1920px] mx-auto">
         <motion.h3
           initial={{ opacity: 0, y: 20 }}
@@ -55,7 +49,7 @@ const TrustedBy = () => {
           transition={{ duration: 0.6 }}
           className="text-center text-2xl md:text-3xl font-bold text-primary mb-16"
         >
-          Trusted by Industry Leaders 
+          Trusted by Industry Leaders
         </motion.h3>
 
         <div className="flex items-center justify-center">
@@ -72,23 +66,17 @@ const TrustedBy = () => {
                   <div className="w-36 h-20 relative flex items-center justify-center">
                     {/* Card hover effect: subtle border and shadow for accessibility */}
                     <div 
-                      className="glassmorphism-card group transition-all duration-300 ease-out
-                                 rounded-2xl p-4 flex items-center justify-center
-                                 border border-white/20 shadow-lg shadow-cyan-400/10
-                                 hover:shadow-[0_0_24px_4px_var(--partner-color,theme(colors.cyan.400))]
-                                 hover:scale-105 hover:bg-white/20
-                                 backdrop-blur-md"
-                      style={{ ['--partner-color' as any]: partner.hoverColor } as React.CSSProperties}
-                    >
-                      <img
-                        src={partner.logo}
-                        alt={`${partner.name} logo`}
-                        className="relative w-full h-full object-contain p-4 transition-all duration-500 
-                                 filter grayscale group-hover:grayscale-0 group-hover:scale-110
-                                 group-hover:drop-shadow-[0_0_8px_rgba(0,0,0,0.10)]"
-                        style={{ zIndex: 2 }}
-                      />
-                    </div>
+                      className="absolute inset-0 rounded-xl border border-gray-200 group-hover:border-primary group-hover:shadow-lg group-hover:shadow-primary/10 transition-all duration-300"
+                      style={{ background: '#fff', zIndex: 1 }}
+                    />
+                    <img
+                      src={partner.logo}
+                      alt={`${partner.name} logo`}
+                      className="relative w-full h-full object-contain p-4 transition-all duration-500 
+                               filter grayscale group-hover:grayscale-0 group-hover:scale-110
+                               group-hover:drop-shadow-[0_0_8px_rgba(0,0,0,0.10)]"
+                      style={{ zIndex: 2 }}
+                    />
                   </div>
                 </div>
               ))}

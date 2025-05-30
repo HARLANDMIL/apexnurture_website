@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "../index.css";
-import ParticleBackground from "../components/ui/ParticleBackground";
 import { motion } from "framer-motion";
 import GlassCard from "../components/ui/GlassCard";
 import Button from "../components/ui/Button";
@@ -122,7 +121,6 @@ const PrecisionAIProgram: React.FC = () => {
 
   return (
     <main className="min-h-screen w-full flex flex-col items-center justify-start pt-24 pb-20 px-4 relative overflow-hidden bg-gradient-to-b from-[#0F0C29] via-[#302B63] to-[#24243E]">
-      <ParticleBackground />
 
       {/* Hero Section */}
       <motion.section

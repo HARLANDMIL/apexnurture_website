@@ -1,16 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Button from '../ui/Button';
-import ParticleBackground from '../ui/ParticleBackground';
 
 const Hero: React.FC = () => {
   return (
     <section
       className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden"
+      style={{
+        background: 'linear-gradient(120deg, #101624 0%, #1a2236 100%)',
+      }}
       id="hero"
     >
-      {/* Animated Particle Background (only once, behind everything) */}
-      <ParticleBackground />
       {/* Animated 3D Abstract Shapes */}
       <div className="pointer-events-none absolute inset-0 z-0">
         <div className="absolute top-10 left-1/4 w-40 h-40 bg-gradient-to-br from-[#38bdf8] to-[#232b41] rounded-full blur-2xl opacity-30 animate-pulse" aria-hidden="true" />
